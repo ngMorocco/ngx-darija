@@ -1,27 +1,22 @@
-# NgxDarija
+# Description: 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+This is the official `NgMorocco` landing page, it contains all `Angular in darija` video sessions.
 
-## Development server
+**Angular in darija** is Live Coding Series on Youtube, To demystify Angular concepts in Darija (Moroccan dialect).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Discord community** We have a discord server join [here](https://discord.gg/ex395DNc).
 
-## Code scaffolding
+# Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Run `npm start` 
+- Tests `npm run test`  
+- End to end tests `npm run e2e`
+# Contributions :
+Thanks for your contribution.
 
-## Build
+If it's your first contributions to a public Github repo follow [this](https://github.com/firstcontributions/first-contributions).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Otherwise Just:
+- Pick an issue.
+- Check if someone is already working on it (read the comments)
+- Let everyone know that you are working on the issue (Add a comment expressing that)
