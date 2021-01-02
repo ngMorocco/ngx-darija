@@ -1,0 +1,27 @@
+
+.navbar-brand {
+    width: 40px;
+    font-family: 'futura medium', sans-serif;
+}
+.active--color {
+    color: #DB5B69 !important;
+    /* border-bottom: 1px solid #DB5B69; */
+}
+.nav-link {
+    font-family: 'open sans', sans-serif;
+}
+
+.active--color::after {
+    content:'';
+    height:1px;
+    width:25px;
+    background:#f24432;
+    position:absolute;
+    right: 21rem;
+    bottom:15px;
+  }
+
+.logo--color {
+    color: #707070;
+    font-size: 25px;
+}

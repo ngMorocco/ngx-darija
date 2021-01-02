@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Fonts */
+@font-face {
+    font-family: 'futura medium';
+    src:  url('./assets/fonts/futura-medium-bt.ttf') format('ttf'),
+    url('./assets/fonts/futura-medium.woff') format('woff');
+  }
+@font-face {
+    font-family: 'futura light';
+    src:  url('./assets/fonts/futura-light-bt.ttf') format('ttf'),
+          url('./assets/fonts/futura-light.woff') format('woff');
+  }
