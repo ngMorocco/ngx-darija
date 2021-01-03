@@ -1,0 +1,45 @@
+#hero {
+    overflow: hidden;
+    height: 100vh;
+    background-color: #F8F9FA;
+}
+.custom-color {
+    color: #C77982;
+}
+
+.shape {
+    height: 3px;
+}
+.space-top {
+    margin-block-start: 5rem;
+}
+  /* Fonts classes */
+.futura-light-font {
+    font-family: 'futura light', sans-serif;
+    width: 50rem;
+}
+
+.adjust {
+    height: 50rem;
+    top: -4rem;
+    right: -10rem;
+}
+
+.custom-size {
+    font-family: 'futura light';
+    font-size: 16px;
+}
+
+/* rotate */
+@keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotating 45s linear infinite;
+}
