@@ -4,7 +4,7 @@ This is the official `NgMorocco` landing page, it contains all `Angular in darij
 
 **Angular in darija** is Live Coding Series on Youtube, To demystify Angular concepts in Darija (Moroccan dialect).
 
-**Discord community** We have a discord server join [here](https://discord.gg/ex395DNc).
+**Discord community** We have a discord server join [here](https://bit.ly/ngDiscord).
 
 # Development
 
