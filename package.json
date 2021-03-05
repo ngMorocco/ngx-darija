@@ -4,12 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "NODE_ENV=production ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:prod": "SET NODE_ENV=production&& ng build --prod",
-    "build:prod:linux": "NODE_ENV=production ng build --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
