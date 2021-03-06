@@ -1,3 +1,5 @@
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 # Description
 
 This is the official `Angular in darija` landing page containing all video sessions.
@@ -9,6 +11,7 @@ This is the official `Angular in darija` landing page containing all video sessi
 - Run `npm start` 
 - Tests `npm run test`  
 - End to end tests `npm run e2e`
+- Conventional git commit `npm run cz` (please use instead of `git commit` whenever possible)
 
 # Contributions
 
@@ -24,3 +27,6 @@ Otherwise Just
 # Discord
 
 We have a discord server join [here](https://bit.ly/ngDiscord).
+
+
+
