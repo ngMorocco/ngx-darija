@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { YtVideoItem } from 'src/app/_shared/models/models';
 
 @Component({
   selector: 'app-video-listing',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-listing.component.scss']
 })
 export class VideoListingComponent implements OnInit {
+
+  @Input() ytVideos: YtVideoItem[] | null = [];
 
   constructor() { }
 

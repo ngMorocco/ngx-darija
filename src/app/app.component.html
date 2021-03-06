@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 <div class="relative bg-gray-200 overflow-hidden">
   <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-    <app-video-banner></app-video-banner>
+    <app-video-banner [ytVideo]="(ytVideos$ | async)?.lastVideo || null"></app-video-banner>
   </div>
 </div>
 <div class="relative bg-white overflow-hidden">
   <main class="mx-auto max-w-7xl pb-8 pt-6 px-4 sm:px-6 lg:px-8">
-    <app-video-listing></app-video-listing>
+    <app-video-listing [ytVideos]="(ytVideos$ | async)?.videoList || null"></app-video-listing>
   </main>
 </div>
 <app-footer></app-footer>

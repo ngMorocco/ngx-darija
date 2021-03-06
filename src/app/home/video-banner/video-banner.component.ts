@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { YtVideoItem } from 'src/app/_shared/models/models';
 
 @Component({
   selector: 'app-video-banner',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-banner.component.scss']
 })
 export class VideoBannerComponent implements OnInit {
+
+  @Input() ytVideo: YtVideoItem | null = null;
 
   constructor() { }
 
