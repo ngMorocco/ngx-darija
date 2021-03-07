@@ -1,8 +1,8 @@
 # Description
 
-This is the official `Angular in darija` landing page containing all video sessions.
+This is the official `Angular in Darija` landing page containing all video sessions.
 
-**Angular in darija** is Live Coding Series on Youtube to demystify Angular core concepts in Darija (Moroccan dialect).
+**Angular in Darija** is Live Coding Series on Youtube to demystify Angular core concepts in Darija (Moroccan dialect).
 
 https://ngx-darija.netlify.app
 
