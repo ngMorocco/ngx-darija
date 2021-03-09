@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { YtVideoItem } from './_shared/models/models';
-import { YoutubeDataService } from './_shared/services/youtube-data.service';
+import { YtVideoItem } from './_core/models/models';
+import { YoutubeDataService } from './_core/services/youtube-data.service';
 
 interface HomeVideos {
   lastVideo: YtVideoItem;
