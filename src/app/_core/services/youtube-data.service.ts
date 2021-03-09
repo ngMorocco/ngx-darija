@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { YtVideoItem } from '../models/models';
 
 @Injectable({
@@ -24,7 +23,8 @@ export class YoutubeDataService {
           publishedAt: x.snippet.publishedAt,
           thumbnailUrl: x.snippet.thumbnails.standard.url
         } as YtVideoItem;
-      }))
+      })),
+      catchError(() => of([]))
     );
   }
 }
