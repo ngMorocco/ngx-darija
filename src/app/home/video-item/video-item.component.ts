@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { YtVideoItem } from 'src/app/_shared/models/models';
+import { YtVideoItem } from 'src/app/_core/models/models';
 
 @Component({
   selector: 'app-video-item',
