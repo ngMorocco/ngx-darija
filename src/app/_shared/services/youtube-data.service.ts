@@ -10,13 +10,11 @@ import { YtVideoItem } from '../models/models';
 })
 export class YoutubeDataService {
 
-  private rootApi = 'https://www.googleapis.com/youtube/v3/';
-  private apiKey = environment.googleApiKey;
-
+  private rootApi = '/.netlify/functions/playlist';
   constructor(private http: HttpClient) { }
 
   getAngularInDarijaVideos(): Observable<YtVideoItem[]> {
-    return this.http.get<any>(`${this.rootApi}playlistItems?part=snippet&maxResults=50&playlistId=PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs&key=${this.apiKey}`)
+    return this.http.get<any>(`${this.rootApi}`)
     .pipe(
       map(res => (res.items as Array<any>).map(x => {
         return {

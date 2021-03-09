@@ -1,6 +1,6 @@
 [build]
   command = "npm run prerender"
-  functions = "./functions"
+  functions = "./src/functions"
   publish = "dist/ngx-darija/browser"
 [[redirects]]
   from = "/*"

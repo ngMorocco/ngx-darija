@@ -27,6 +27,7 @@
     "@nguniversal/express-engine": "^11.2.0",
     "@tailwindcss/typography": "^0.4.0",
     "express": "^4.15.2",
+    "node-fetch": "^2.6.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
