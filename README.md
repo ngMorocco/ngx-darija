@@ -6,11 +6,25 @@ This is the official `Angular in Darija` landing page containing all video sessi
 
 https://ngx-darija.netlify.app
 
-# Development
+# Development (SPA)
 
 - Run `npm start` 
 - Tests `npm run test`  
-- End to end tests `npm run e2e`
+
+# Development (Netlify Function)
+
+- npm install netlify-cli -g
+- Run `netlify dev` 
+
+
+# Build
+
+- Run `NODE_ENV npm run build` 
+
+
+# Build - SSR
+
+- Run `NODE_ENV npm run build:ssr` 
 
 # Contributions
 
