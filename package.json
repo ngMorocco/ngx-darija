@@ -4,14 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "NODE_ENV=production ng build --prod",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run ngx-darija:serve-ssr",
     "serve:ssr": "node dist/ngx-darija/server/main.js",
-    "build:ssr": "NODE_ENV=production ng build --prod && NODE_ENV=production ng run ngx-darija:server:production",
-    "prerender": "NODE_ENV=production ng run ngx-darija:prerender"
+    "build:ssr": "ng build --prod && ng run ngx-darija:server:production",
+    "prerender": "ng run ngx-darija:prerender"
   },
   "private": true,
   "dependencies": {

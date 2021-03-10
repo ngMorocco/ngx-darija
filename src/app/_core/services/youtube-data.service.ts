@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { YtVideoItem } from '../models/models';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { YtVideoItem } from '../models/models';
 })
 export class YoutubeDataService {
 
-  private rootApi = '/.netlify/functions/playlist';
+  private rootApi = `${environment.baseUrl}.netlify/functions/playlist`;
   constructor(private http: HttpClient) { }
 
   getAngularInDarijaVideos(): Observable<YtVideoItem[]> {

@@ -1,7 +1,8 @@
 [build]
-  command = "npm run prerender"
-  functions = "./src/functions"
-  publish = "dist/ngx-darija/browser"
+command = "npm run prerender"
+functions = "./src/functions"
+publish = "dist/ngx-darija/browser"
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+from = "/*"
+to = "/index.html"
