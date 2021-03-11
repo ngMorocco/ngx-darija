@@ -1,5 +1,5 @@
 [build]
-command = "NODE_ENV=production npm run prerender"
+command = "NODE_ENV=production npm run serve-prerender"
 functions = "./src/functions"
 publish = "dist/ngx-darija/browser"
 

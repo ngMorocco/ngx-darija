@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://ngx-darija-universal.netlify.app/',
+  buildBaseUrl: 'http://localhost:8889',
 };

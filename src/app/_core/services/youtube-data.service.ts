@@ -2,19 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { YtVideoItem } from '../models/models';
+import { BaseUrlService } from '../services/base-url.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class YoutubeDataService {
 
-  private rootApi = `${environment.baseUrl}.netlify/functions/playlist`;
-  constructor(private http: HttpClient) { }
+  constructor(private baseUrlService: BaseUrlService, private http: HttpClient) { }
 
   getAngularInDarijaVideos(): Observable<YtVideoItem[]> {
-    return this.http.get<any>(`${this.rootApi}`)
+    return this.http.get<any>(`${this.baseUrlService.get()}/.netlify/functions/playlist`)
     .pipe(
       map(res => (res.items as Array<any>).map(x => {
         return {
@@ -25,7 +24,10 @@ export class YoutubeDataService {
           thumbnailUrl: x.snippet.thumbnails.standard.url
         } as YtVideoItem;
       })),
-      catchError(() => of([]))
+      catchError((e) => {
+        console.log(e); // Put here to see when there is an issue during prerender
+        return of([])
+      })
     );
   }
 }
