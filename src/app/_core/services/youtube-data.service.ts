@@ -28,7 +28,7 @@ export class YoutubeDataService {
                 title: playlisteItem.snippet!.title,
                 description: playlisteItem.snippet!.description,
                 publishedAt: playlisteItem.snippet!.publishedAt,
-                thumbnailUrl: playlisteItem.snippet!.thumbnails!.standard!.url,
+                thumbnailUrl: playlisteItem.snippet!.thumbnails!.maxres!.url,
               } as YtVideoItem)
           )
         ),
