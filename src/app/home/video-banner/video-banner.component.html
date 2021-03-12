@@ -1,5 +1,5 @@
 <div class="flex flex-col lg:flex-row" *ngIf="ytVideo !== null">
-  <img class="object-contain max-w-3xl" src="{{ytVideo.thumbnailUrl}}">
+  <youtube-player videoId="{{ytVideo.videoId}}"></youtube-player>
   <div class="lg:pl-5">
     <h3 class="text-xl mt-4 font-medium leading-normal text-gray-800">
       {{ytVideo.title}}
