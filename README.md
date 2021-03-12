@@ -20,7 +20,7 @@ set up your dev environment for the `netlify function` to consume this API key.
 
 - follow [this instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up an API key
   with your Google account
-- add the GOOGLE_API_KEY to your env variable: `export GOOGLE_API_KEY='{{YOUR_API_KEY}}'`
+- add the GOOGLE_API_KEY to your env variables: `export GOOGLE_API_KEY='{{YOUR_API_KEY}}'`
   
 - run `netlify dev` from root directory
 
