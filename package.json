@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/platform-server": "~11.2.3",
     "@angular/router": "~11.2.3",
+    "@angular/youtube-player": "^11.2.4",
     "@nguniversal/express-engine": "^11.2.0",
     "@tailwindcss/typography": "^0.4.0",
     "express": "^4.15.2",
