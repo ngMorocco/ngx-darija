@@ -1,19 +1,12 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { YtVideoItem } from 'src/app/_core/models/models';
 
 @Component({
   selector: 'app-video-item',
-  templateUrl: './video-item.component.html',
-  styleUrls: ['./video-item.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  templateUrl: './video-item.component.html'
 })
-export class VideoItemComponent implements OnInit {
+export class VideoItemComponent {
 
   @Input() ytVideo: YtVideoItem | null = null;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
