@@ -8,7 +8,7 @@ const DECLARATIONS = [
 
 /**
  * This module provides a set of components and directives
- * to display spinners when loading resources
+ * to render nice error content when needed
  */
 @NgModule({
   imports: [CommonModule],
