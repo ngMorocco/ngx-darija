@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-yt-video-player',
@@ -9,17 +9,11 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   },
   encapsulation: ViewEncapsulation.None
 })
-export class YtVideoPlayerComponent implements OnInit {
+export class YtVideoPlayerComponent {
 
   @Input() videoId: string | undefined = undefined;
 
   playerVars: YT.PlayerVars = {
     rel: YT.RelatedVideos.Hide
   };
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
