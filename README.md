@@ -8,23 +8,29 @@ https://ngx-darija.netlify.app
 
 # Development (SPA)
 
-- Run `npm start` 
+- Run `npm start`
 - Tests `npm run test`  
 
 # Development (Netlify Function)
 
-- npm install netlify-cli -g
-- Run `netlify dev` 
+- Run `npm install netlify-cli -g`
 
+To fetch the `ngMorocco` video sessions you will need to create an API key and
+set up your dev environment for the `netlify function` to consume this API key.
+
+- follow [this instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up an API key
+  with your Google account
+- add the GOOGLE_API_KEY to your env variables: `export GOOGLE_API_KEY='{{YOUR_API_KEY}}'`
+  
+- run `netlify dev` from root directory
 
 # Build
 
-- Run `NODE_ENV npm run build` 
-
+- Run `NODE_ENV npm run build`
 
 # Build - SSR
 
-- Run `NODE_ENV npm run build:ssr` 
+- Run `NODE_ENV npm run build:ssr`
 
 # Contributions
 
