@@ -1,0 +1,9 @@
+/* Declare all global scss variables that could be shared across components
+  This file should not be to big since it will be imported in each component scss
+  and therefore can be duplicated
+*/
+
+$navbar-height: 64px;
+$footer-height: 72px;
+
+$ng-morocco-logo-color: #c52033;

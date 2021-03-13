@@ -6,6 +6,8 @@ import {VideoItemComponent} from './video-item/video-item.component';
 import {VideoListingComponent} from './video-listing/video-listing.component';
 import {RouterModule} from '@angular/router';
 import {HomeBaseComponent} from './home-base/home-base.component';
+import {SpinnerModule} from '../_core/ui/spinner/spinner.module';
+import {ErrorModule} from '../_core/ui/error/error.module';
 
 const DECLARATIONS = [
   HomeBaseComponent,
@@ -28,8 +30,9 @@ const DECLARATIONS = [
         pathMatch: 'full'
       }
     ]),
-    YouTubePlayerModule],
-  exports: DECLARATIONS,
+    YouTubePlayerModule,
+    SpinnerModule,
+    ErrorModule]
 })
 export class HomeModule {
 }

@@ -1,16 +1,39 @@
-<ng-container *ngIf="ytVideos$ | async as ytVideo">
-  <div class="relative bg-gray-200 overflow-hidden">
-    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <app-video-banner
-        [ytVideo]="ytVideo.lastVideo || null"
-      ></app-video-banner>
+<div class="h-full-between-header-and-footer flex flex-col justify-center items-center">
+
+
+  <ng-container *ngIf="ytVideos$ | async as ytVideo">
+    <!--     Spinner when loading data  -->
+    <!--     Spinner when loading data  -->
+    <!--     Spinner when loading data  -->
+    <!--     Spinner when loading data  -->
+    <app-ui-spinner-basic *ngIf="isFetchingYtVideos"></app-ui-spinner-basic>
+    <!--    Main content when data fetched -->
+    <!--    Main content when data fetched -->
+    <!--    Main content when data fetched -->
+    <!--    Main content when data fetched -->
+    <ng-container *ngIf="!isFetchingYtVideos && (ytVideo?.videoList || []).length > 0">
+      <div class="relative bg-gray-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <app-video-banner
+            [ytVideo]="ytVideo.lastVideo || null"
+          ></app-video-banner>
+        </div>
+      </div>
+      <div class="relative bg-white overflow-hidden">
+        <main class="mx-auto max-w-7xl pb-8 pt-6 px-4 sm:px-6 lg:px-8">
+          <app-video-listing
+            [ytVideos]="ytVideo.videoList || null"
+          ></app-video-listing>
+        </main>
+      </div>
+    </ng-container>
+    <!--    Message when request failed-->
+    <!--    Message when request failed-->
+    <!--    Message when request failed-->
+    <!--    Message when request failed-->
+    <div class="relative bg-gray-200 overflow-hidden"
+         *ngIf="!isFetchingYtVideos && ytVideo.videoList?.length === 0">
+      <app-ui-error [errorType]="'something-went-wrong'"></app-ui-error>
     </div>
-  </div>
-  <div class="relative bg-white overflow-hidden">
-    <main class="mx-auto max-w-7xl pb-8 pt-6 px-4 sm:px-6 lg:px-8">
-      <app-video-listing
-        [ytVideos]="ytVideo.videoList || null"
-      ></app-video-listing>
-    </main>
-  </div>
-</ng-container>
+  </ng-container>
+</div>

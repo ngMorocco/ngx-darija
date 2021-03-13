@@ -1,0 +1,12 @@
+<ng-container *ngIf="errorType === 'something-went-wrong'">
+  <img src="assets/undraw_bug_fixing.svg" alt="Person fixing bugs">
+  <h2>Aaaaah! Something went wrong</h2>
+  <p class="mt-2">
+   Brace yourself till we get the error fixed.<br>
+    You may also refresh the page or try again later.
+  </p>
+</ng-container>
+
+<ng-container *ngIf="errorType === 'not-found'">
+  <img src="assets/undraw_page_not_found.svg" alt="Page not found">
+</ng-container>
