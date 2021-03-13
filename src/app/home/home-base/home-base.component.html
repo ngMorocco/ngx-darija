@@ -1,12 +1,12 @@
-<div class="h-full-between-header-and-footer flex flex-col justify-center items-center">
-
-
+<div class="h-full flex flex-col">
   <ng-container *ngIf="ytVideos$ | async as ytVideo">
     <!--     Spinner when loading data  -->
     <!--     Spinner when loading data  -->
     <!--     Spinner when loading data  -->
     <!--     Spinner when loading data  -->
-    <app-ui-spinner-basic *ngIf="isFetchingYtVideos"></app-ui-spinner-basic>
+    <div class=" h-full flex justify-center items-center" *ngIf="isFetchingYtVideos">
+      <app-ui-spinner-basic></app-ui-spinner-basic>
+    </div>
     <!--    Main content when data fetched -->
     <!--    Main content when data fetched -->
     <!--    Main content when data fetched -->
@@ -31,9 +31,11 @@
     <!--    Message when request failed-->
     <!--    Message when request failed-->
     <!--    Message when request failed-->
-    <div class="relative bg-gray-200 overflow-hidden"
+    <div class="relative bg-gray-200 overflow-hidden h-full flex justify-center items-center"
          *ngIf="!isFetchingYtVideos && ytVideo.videoList?.length === 0">
-      <app-ui-error [errorType]="'something-went-wrong'"></app-ui-error>
+      <div>
+        <app-ui-error [errorType]="'something-went-wrong'"></app-ui-error>
+      </div>
     </div>
   </ng-container>
 </div>

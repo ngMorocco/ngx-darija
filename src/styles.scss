@@ -4,12 +4,3 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
-@import "src/shared";
-
-/* Use this class to take all space between header and footer */
-.h-full-between-header-and-footer {
-  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
-}
-
-
