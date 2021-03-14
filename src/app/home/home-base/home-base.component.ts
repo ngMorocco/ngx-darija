@@ -1,4 +1,4 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {YtVideoItem} from '../../_core/models';
 import {Observable} from 'rxjs';
 import {YoutubeDataService} from '../../_core/services/youtube-data.service';
@@ -17,13 +17,19 @@ interface HomeVideos {
 })
 export class HomeBaseComponent implements OnInit {
 
-  ytVideos$: Observable<HomeVideos>;
+  ytVideos$: Observable<HomeVideos> | null = null;
   isFetchingYtVideos = false;
 
   constructor(
     private youtubeDataService: YoutubeDataService,
     private serverStateService: ServerStateService
   ) {
+  }
+
+  ngOnInit(): void {
+    /* Displays a spinner while fetching data from service.
+     Resolves to false when data is fetched */
+    this.isFetchingYtVideos = true;
     this.ytVideos$ = this.youtubeDataService.getAngularInDarijaVideos().pipe(
       finalize(() => this.isFetchingYtVideos = false),
       map((res) => {
@@ -32,12 +38,6 @@ export class HomeBaseComponent implements OnInit {
       this.serverStateService.hydrate('videos')
     )
     ;
-  }
-
-  ngOnInit(): void {
-    /* Displays a spinner while fetching data from service.
-     Resolves to false when data is fetched */
-    this.isFetchingYtVideos = true;
   }
 
 }
