@@ -56,7 +56,7 @@ export class ErrorStubComponent {
   @Input() errorType!: string;
 }
 
-fdescribe('HomeBaseComponent', () => {
+describe('HomeBaseComponent', () => {
   let component: HomeBaseComponent;
   let fixture: ComponentFixture<HomeBaseComponent>;
   let youtubeDataService: any;
