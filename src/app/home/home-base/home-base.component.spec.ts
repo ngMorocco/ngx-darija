@@ -26,13 +26,6 @@ const YtVideoMock: YtVideoItem[] = [
 ];
 
 @Component({
-  selector: 'app-ui-spinner-basic',
-  template: ''
-})
-export class SpinnerBasicStubComponent {
-}
-
-@Component({
   selector: 'app-video-banner',
   template: ''
 })
@@ -76,7 +69,7 @@ describe('HomeBaseComponent', () => {
       providers: [
         {provide: YoutubeDataService, useValue: youtubeDataService},
         {provide: ServerStateService, useValue: serverStateServiceStub}],
-      declarations: [HomeBaseComponent, SpinnerBasicStubComponent, AppVideoListingStubComponent,
+      declarations: [HomeBaseComponent,  AppVideoListingStubComponent,
         VideoBannerStubComponent,
         ErrorStubComponent]
     }).compileComponents();
@@ -100,30 +93,4 @@ describe('HomeBaseComponent', () => {
       done();
     });
   });
-
-  describe('Spinner', () => {
-    beforeEach(() => {
-      fixture.detectChanges();
-    });
-    it('should start spinner onInit', () => {
-      component.ngOnInit();
-      expect(component.isFetchingYtVideos).toBeTrue();
-    });
-
-    it('should stop spinner when fetching data done', (done) => {
-      component?.ytVideos$?.subscribe(() => {
-        expect(component.isFetchingYtVideos).toBeFalse();
-        done();
-      });
-    });
-  });
-
-
-  it('should display error if video list result is empty', () => {
-    youtubeDataService.getAngularInDarijaVideos.and.returnValue(of([]));
-    fixture.detectChanges();
-    const errorElement: HTMLElement = fixture.debugElement.query(By.css('app-ui-error')).nativeElement;
-    expect(errorElement).toBeDefined();
-  });
-
 });
