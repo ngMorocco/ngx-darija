@@ -6,8 +6,7 @@ import { VideoItemComponent } from './video-item/video-item.component';
 import { VideoListingComponent } from './video-listing/video-listing.component';
 import { RouterModule } from '@angular/router';
 import { HomeBaseComponent } from './home-base/home-base.component';
-import { SpinnerModule } from '../_shared/ui/spinner/spinner.module';
-import { ErrorModule } from '../_shared/ui/error/error.module';
+import { ErrorModule } from '../_shared/components/error/error.module';
 import { YtVideoPlayerModule } from '../_shared/components';
 
 const DECLARATIONS = [
@@ -33,7 +32,6 @@ const DECLARATIONS = [
       },
     ]),
     ErrorModule,
-    SpinnerModule,
     YouTubePlayerModule,
     YtVideoPlayerModule,
   ],

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { PlaylistItemListResponse, YtVideoItem } from '../models';
-import { BaseUrlService } from '../services/base-url.service';
+import { BaseUrlService } from './base-url.service';
 
 @Injectable({
   providedIn: 'root',
