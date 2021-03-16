@@ -1,12 +1,8 @@
 import {HomeBaseComponent} from './home-base.component';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {YtVideoItem} from '../../_core/models';
 import {Observable, of} from 'rxjs';
 import {YoutubeDataService} from '../../_core/services/youtube-data.service';
 import {ServerStateService} from '../../_core/services/server-state.service';
-import {Component, Input} from '@angular/core';
-import {By} from '@angular/platform-browser';
-
 
 const YtVideoMock: YtVideoItem[] = [
   {
@@ -25,68 +21,30 @@ const YtVideoMock: YtVideoItem[] = [
   },
 ];
 
-@Component({
-  selector: 'app-video-banner',
-  template: ''
-})
-export class VideoBannerStubComponent {
-  @Input() ytVideo: YtVideoItem | null = null;
-}
-
-@Component({
-  selector: 'app-video-listing',
-  template: ''
-})
-export class AppVideoListingStubComponent {
-  @Input() ytVideos: YtVideoItem[] = [];
-}
-
-@Component({
-  selector: 'app-ui-error',
-  template: 'Error'
-})
-export class ErrorStubComponent {
-  @Input() errorType!: string;
-}
-
 describe('HomeBaseComponent', () => {
   let component: HomeBaseComponent;
-  let fixture: ComponentFixture<HomeBaseComponent>;
   let youtubeDataService: any;
-  let serverStateServiceStub: Partial<ServerStateService>;
-  serverStateServiceStub = {
+  const serverStateServiceStub = {
     hydrate(key: string): (obs: Observable<any>) => Observable<any> {
       return obs => {
         return obs;
       };
     }
-  };
-  beforeEach(async () => {
+  } as ServerStateService;
+
+  beforeEach(() => {
     // Emulate call to `getAngularInDarijaVideos` and return mock value
     youtubeDataService = jasmine.createSpyObj('YoutubeDataService', ['getAngularInDarijaVideos']);
     youtubeDataService.getAngularInDarijaVideos.and.returnValue(of(YtVideoMock));
-    await TestBed.configureTestingModule({
-      providers: [
-        {provide: YoutubeDataService, useValue: youtubeDataService},
-        {provide: ServerStateService, useValue: serverStateServiceStub}],
-      declarations: [HomeBaseComponent,  AppVideoListingStubComponent,
-        VideoBannerStubComponent,
-        ErrorStubComponent]
-    }).compileComponents();
-  });
+    component = new HomeBaseComponent(youtubeDataService, serverStateServiceStub);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeBaseComponent);
-    component = fixture.componentInstance;
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
   it('should pipe into service observable and resolve with homeVideos', (done) => {
-    fixture.detectChanges();
     component?.ytVideos$?.subscribe(result => {
       expect(result.lastVideo.videoId).toEqual(YtVideoMock[1].videoId);
       expect(result.videoList.length).toEqual(2);
