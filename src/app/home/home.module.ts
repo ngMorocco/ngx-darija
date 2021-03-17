@@ -1,11 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { YtVideoPlayerModule } from '../_shared/components';
 import { VideoBannerComponent } from './video-banner/video-banner.component';
 import { VideoItemComponent } from './video-item/video-item.component';
 import { VideoListingComponent } from './video-listing/video-listing.component';
+import { RouterModule } from '@angular/router';
+import { HomeBaseComponent } from './home-base/home-base.component';
+import { ErrorModule } from '../_shared/components/error/error.module';
+import { YtVideoPlayerModule } from '../_shared/components';
 
 const DECLARATIONS = [
+  HomeBaseComponent,
   VideoBannerComponent,
   VideoListingComponent,
   VideoItemComponent,
@@ -13,7 +17,21 @@ const DECLARATIONS = [
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [CommonModule, YtVideoPlayerModule],
-  exports: DECLARATIONS,
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: HomeBaseComponent,
+      },
+      {
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full',
+      },
+    ]),
+    ErrorModule,
+    YtVideoPlayerModule,
+  ],
 })
 export class HomeModule {}

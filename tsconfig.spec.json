@@ -3,9 +3,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": [
-      "jasmine"
-    ]
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": ["youtube", "jasmine"]
   },
   "files": [
     "src/test.ts",

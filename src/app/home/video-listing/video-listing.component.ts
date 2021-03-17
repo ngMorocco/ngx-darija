@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { YtVideoItem } from 'src/app/_core/models/models';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {YtVideoItem} from 'src/app/_core/models/models';
 
 @Component({
   selector: 'app-video-listing',
@@ -7,13 +7,8 @@ import { YtVideoItem } from 'src/app/_core/models/models';
   styleUrls: ['./video-listing.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class VideoListingComponent implements OnInit {
+export class VideoListingComponent {
 
   @Input() ytVideos: YtVideoItem[] | null = [];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
