@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { YoutubeDataService } from './youtube-data.service';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('YoutubeDataService', () => {
   let service: YoutubeDataService;

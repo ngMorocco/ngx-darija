@@ -1,7 +1,7 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 const apiKey = process.env.GOOGLE_API_KEY;
-const playlistId = "PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs";
+const playlistId = 'PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs';
 
 exports.handler = async () => {
   try {
@@ -12,12 +12,12 @@ exports.handler = async () => {
     ).json();
     return {
       statusCode: 200,
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     };
-  } catch(e) {
+  } catch (e) {
     return {
       statusCode: 500,
-      body: 'Error while getting data from YT',
+      body: 'Error while getting data from YT'
     };
   }
 };

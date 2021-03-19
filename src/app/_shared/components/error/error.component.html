@@ -1,15 +1,19 @@
-<div *ngIf="errorType === 'something-went-wrong'" class="flex flex-col items-center justify-center">
+<div
+  *ngIf="errorType === 'something-went-wrong'"
+  class="flex flex-col items-center justify-center"
+>
   <img
     class="w-1/3"
-    src="assets/undraw_bug_fixing.svg" alt="Person fixing bugs">
+    src="assets/undraw_bug_fixing.svg"
+    alt="Person fixing bugs"
+  />
   <h2 class="text-lg mt-2">Aaaaah! Something went wrong</h2>
   <p class="mt-2 text-sm text-gray-400">
-    Brace yourself till we get the error fixed.<br>
+    Brace yourself till we get the error fixed.<br />
     You may also refresh the page or try again later.
   </p>
 </div>
 
 <ng-container *ngIf="errorType === 'not-found'">
-  <img
-    src="assets/undraw_page_not_found.svg" alt="Page not found">
+  <img src="assets/undraw_page_not_found.svg" alt="Page not found" />
 </ng-container>

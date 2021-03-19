@@ -12,7 +12,7 @@ const DECLARATIONS = [
   HomeBaseComponent,
   VideoBannerComponent,
   VideoListingComponent,
-  VideoItemComponent,
+  VideoItemComponent
 ];
 
 @NgModule({
@@ -22,16 +22,16 @@ const DECLARATIONS = [
     RouterModule.forChild([
       {
         path: '',
-        component: HomeBaseComponent,
+        component: HomeBaseComponent
       },
       {
         path: '**',
         redirectTo: '',
-        pathMatch: 'full',
-      },
+        pathMatch: 'full'
+      }
     ]),
     ErrorModule,
-    YtVideoPlayerModule,
-  ],
+    YtVideoPlayerModule
+  ]
 })
 export class HomeModule {}
