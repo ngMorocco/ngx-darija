@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-import { YtVideoItem } from '../../_core/models';
 import { Observable } from 'rxjs';
-import { YoutubeDataService } from '../../_core/services/youtube-data.service';
-import { ServerStateService } from '../../_core/services/server-state.service';
 import { map } from 'rxjs/operators';
+import { VideoItem } from '../_core/models';
+import { ServerStateService } from '../_core/services/server-state.service';
+import { YoutubeDataService } from '../_core/services/youtube-data.service';
 
 interface HomeVideos {
-  lastVideo: YtVideoItem;
-  videoList: YtVideoItem[];
+  lastVideo: VideoItem;
+  videoList: VideoItem[];
 }
 
 @Component({
-  selector: 'app-home-base',
-  templateUrl: './home-base.component.html'
+  selector: 'app-home',
+  templateUrl: './home.component.html'
 })
-export class HomeBaseComponent {
+export class HomeComponent {
   ytVideos$: Observable<HomeVideos>;
 
   constructor(

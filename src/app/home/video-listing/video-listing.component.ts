@@ -1,11 +1,17 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { YtVideoItem } from 'src/app/_core/models/models';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation
+} from '@angular/core';
+import { VideoItem } from 'src/app/_core/models';
 
 @Component({
   selector: 'app-video-listing',
   templateUrl: './video-listing.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VideoListingComponent {
-  @Input() ytVideos: YtVideoItem[] | null = [];
+  @Input() ytVideos: VideoItem[] | null = [];
 }

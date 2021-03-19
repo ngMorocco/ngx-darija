@@ -1,4 +1,4 @@
-export interface YtVideoItem {
+export interface VideoItem {
   videoId: string;
   title: string;
   description: string;

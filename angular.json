@@ -10,7 +10,9 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "inlineStyle": true,
+          "changeDetection": "OnPush",
+          "viewEncapsulation": "None"
         },
         "@schematics/angular:application": {
           "strict": true

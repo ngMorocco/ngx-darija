@@ -4,12 +4,12 @@ import { VideoBannerComponent } from './video-banner/video-banner.component';
 import { VideoItemComponent } from './video-item/video-item.component';
 import { VideoListingComponent } from './video-listing/video-listing.component';
 import { RouterModule } from '@angular/router';
-import { HomeBaseComponent } from './home-base/home-base.component';
 import { ErrorModule } from '../_shared/components/error/error.module';
 import { YtVideoPlayerModule } from '../_shared/components';
+import { HomeComponent } from './home.component';
 
 const DECLARATIONS = [
-  HomeBaseComponent,
+  HomeComponent,
   VideoBannerComponent,
   VideoListingComponent,
   VideoItemComponent
@@ -22,7 +22,7 @@ const DECLARATIONS = [
     RouterModule.forChild([
       {
         path: '',
-        component: HomeBaseComponent
+        component: HomeComponent
       },
       {
         path: '**',

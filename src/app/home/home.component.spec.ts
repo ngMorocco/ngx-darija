@@ -1,10 +1,9 @@
-import { HomeBaseComponent } from './home-base.component';
-import { YtVideoItem } from '../../_core/models';
 import { Observable, of } from 'rxjs';
-import { YoutubeDataService } from '../../_core/services/youtube-data.service';
-import { ServerStateService } from '../../_core/services/server-state.service';
+import { VideoItem } from '../_core/models';
+import { ServerStateService } from '../_core/services/server-state.service';
+import { HomeComponent } from './home.component';
 
-const YtVideoMock: YtVideoItem[] = [
+const YtVideoMock: VideoItem[] = [
   {
     videoId: 'dummy-id',
     title: 'Angular in Darija is awesome',
@@ -21,8 +20,8 @@ const YtVideoMock: YtVideoItem[] = [
   }
 ];
 
-describe('HomeBaseComponent', () => {
-  let component: HomeBaseComponent;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
   let youtubeDataService: any;
   const serverStateServiceStub = {
     hydrate(key: string): (obs: Observable<any>) => Observable<any> {
@@ -40,10 +39,7 @@ describe('HomeBaseComponent', () => {
     youtubeDataService.getAngularInDarijaVideos.and.returnValue(
       of(YtVideoMock)
     );
-    component = new HomeBaseComponent(
-      youtubeDataService,
-      serverStateServiceStub
-    );
+    component = new HomeComponent(youtubeDataService, serverStateServiceStub);
   });
 
   it('should create', () => {

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { PlaylistItemListResponse, YtVideoItem } from '../models';
+import { PlaylistItemListResponse, VideoItem } from '../models';
 import { BaseUrlService } from './base-url.service';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class YoutubeDataService {
     private http: HttpClient
   ) {}
 
-  getAngularInDarijaVideos(): Observable<YtVideoItem[]> {
+  getAngularInDarijaVideos(): Observable<VideoItem[]> {
     return this.http
       .get<PlaylistItemListResponse>(
         `${this.baseUrlService.get()}/.netlify/functions/playlist`
@@ -29,7 +29,7 @@ export class YoutubeDataService {
                 description: playlisteItem.snippet!.description,
                 publishedAt: playlisteItem.snippet!.publishedAt,
                 thumbnailUrl: playlisteItem.snippet!.thumbnails!.maxres!.url
-              } as YtVideoItem)
+              } as VideoItem)
           )
         ),
         catchError(e => {
