@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { VideoItem } from '../_core/models';
-import { ServerStateService } from '../_core/services/server-state.service';
-import { YoutubeDataService } from '../_core/services/youtube-data.service';
+import { YtVideoItem } from '@core/models';
+import { ServerStateService } from '@core/services/server-state.service';
+import { YoutubeDataService } from '@core/services/youtube-data.service';
 
 interface HomeVideos {
-  lastVideo: VideoItem;
-  videoList: VideoItem[];
+  lastVideo: YtVideoItem;
+  videoList: YtVideoItem[];
 }
 
 @Component({

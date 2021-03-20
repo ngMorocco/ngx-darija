@@ -1,9 +1,9 @@
 import { Observable, of } from 'rxjs';
-import { VideoItem } from '../_core/models';
-import { ServerStateService } from '../_core/services/server-state.service';
+import { YtVideoItem } from '@core/models';
+import { ServerStateService } from '@core/services/server-state.service';
 import { HomeComponent } from './home.component';
 
-const YtVideoMock: VideoItem[] = [
+const YtVideoMock: YtVideoItem[] = [
   {
     videoId: 'dummy-id',
     title: 'Angular in Darija is awesome',

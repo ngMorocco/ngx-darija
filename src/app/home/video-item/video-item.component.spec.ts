@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VideoItemComponent } from './video-item.component';
+import { YtVideoItemComponent } from './video-item.component';
 
 describe('VideoItemComponent', () => {
-  let component: VideoItemComponent;
+  let component: YtVideoItemComponent;
   let fixture: ComponentFixture<VideoItemComponent>;
 
   beforeEach(async () => {

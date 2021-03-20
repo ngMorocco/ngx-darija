@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { VideoBannerComponent } from './video-banner/video-banner.component';
-import { VideoItemComponent } from './video-item/video-item.component';
+import { YtVideoItemComponent } from './video-item/video-item.component';
 import { VideoListingComponent } from './video-listing/video-listing.component';
 import { RouterModule } from '@angular/router';
-import { ErrorModule } from '../_shared/components/error/error.module';
-import { YtVideoPlayerModule } from '../_shared/components';
+import { ErrorModule } from '@shared/components/error/error.module';
+import { YtVideoPlayerModule } from '@shared/components';
 import { HomeComponent } from './home.component';
 
 const DECLARATIONS = [
   HomeComponent,
   VideoBannerComponent,
   VideoListingComponent,
-  VideoItemComponent
+  YtVideoItemComponent
 ];
 
 @NgModule({

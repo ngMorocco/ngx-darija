@@ -1,15 +1,8 @@
-const fetch = require('node-fetch');
-
-const apiKey = process.env.GOOGLE_API_KEY;
-const playlistId = 'PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs';
+const { getPlaylist } = require('./utils/youtube-api');
 
 exports.handler = async () => {
   try {
-    const data = await (
-      await fetch(
-        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlistId}&key=${apiKey}`
-      )
-    ).json();
+    const data = await getPlaylist('PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs');
     return {
       statusCode: 200,
       body: JSON.stringify(data)
