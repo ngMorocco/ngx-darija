@@ -2,8 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EMPTY, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { YtVideoDetail } from 'src/app/_core/models';
-import { YoutubeDataService } from 'src/app/_core/services/youtube-data.service';
+import { YtVideoDetail } from '@core/models';
+import { YoutubeDataService } from '@core/services/youtube-data.service';
 
 @Component({
   selector: 'app-video-session-wrapper',
@@ -12,10 +12,12 @@ import { YoutubeDataService } from 'src/app/_core/services/youtube-data.service'
   encapsulation: ViewEncapsulation.None
 })
 export class VideoSessionWrapperComponent implements OnInit {
-
   videoDetail$: Observable<YtVideoDetail | null> = EMPTY;
 
-  constructor(private route: ActivatedRoute, private youtubeDataService: YoutubeDataService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private youtubeDataService: YoutubeDataService
+  ) {}
 
   ngOnInit(): void {
     this.videoDetail$ = this.route.paramMap.pipe(
@@ -23,7 +25,6 @@ export class VideoSessionWrapperComponent implements OnInit {
       switchMap(p => {
         return this.youtubeDataService.getYoutubeVideoDetail(p!);
       })
-    )
+    );
   }
-
 }

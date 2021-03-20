@@ -9,9 +9,9 @@
     box-sizing: border-box;
     padding-top: 56.25%; // aspect ratio of a video is 16:9. (9 is 56.25% of 16)
     display: block;
-    content: "";
+    content: '';
   }
-  iframe{
+  iframe {
     position: absolute;
     top: 0;
     bottom: 0;

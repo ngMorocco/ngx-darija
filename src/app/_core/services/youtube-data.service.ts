@@ -6,12 +6,12 @@ import {
   PlaylistItemListResponse,
   VideoListResponse,
   YtVideoDetail,
-  YtVideoItem,
+  YtVideoItem
 } from '../models';
 import { BaseUrlService } from './base-url.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class YoutubeDataService {
   constructor(
@@ -25,19 +25,19 @@ export class YoutubeDataService {
         `${this.baseUrlService.get()}/.netlify/functions/playlist`
       )
       .pipe(
-        map((res) =>
+        map(res =>
           res.items!.map(
-            (playlisteItem) =>
+            playlisteItem =>
               ({
                 videoId: playlisteItem.snippet!.resourceId!.videoId,
                 title: playlisteItem.snippet!.title,
                 description: playlisteItem.snippet!.description,
                 publishedAt: playlisteItem.snippet!.publishedAt,
-                thumbnailUrl: playlisteItem.snippet!.thumbnails!.maxres!.url,
+                thumbnailUrl: playlisteItem.snippet!.thumbnails!.maxres!.url
               } as YtVideoItem)
           )
         ),
-        catchError((e) => {
+        catchError(e => {
           console.log(e); // Put here to see when there is an issue during prerender
           return of([]);
         })
@@ -50,7 +50,7 @@ export class YoutubeDataService {
         `${this.baseUrlService.get()}/.netlify/functions/videos/${videoId}`
       )
       .pipe(
-        map((res) => {
+        map(res => {
           if (!res.items || res.items.length === 0) {
             return null;
           }
@@ -64,11 +64,11 @@ export class YoutubeDataService {
               viewCount: res.items![0].statistics!.viewCount,
               commentCount: res.items![0].statistics!.commentCount,
               likeCount: res.items![0].statistics!.likeCount,
-              dislikeCount: res.items![0].statistics!.dislikeCount,
-            },
+              dislikeCount: res.items![0].statistics!.dislikeCount
+            }
           } as YtVideoDetail;
         }),
-        catchError((e) => {
+        catchError(e => {
           console.log(e); // Put here to see when there is an issue during prerender
           return of(null);
         })

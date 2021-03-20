@@ -1,10 +1,8 @@
-import {Input, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {ErrorComponent} from './error.component';
+import { Input, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ErrorComponent } from './error.component';
 
-const DECLARATIONS = [
-  ErrorComponent
-];
+const DECLARATIONS = [ErrorComponent];
 
 /**
  * This module provides a set of components and directives
@@ -15,5 +13,4 @@ const DECLARATIONS = [
   declarations: DECLARATIONS,
   exports: DECLARATIONS
 })
-export class ErrorModule {
-}
+export class ErrorModule {}

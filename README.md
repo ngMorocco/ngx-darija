@@ -9,7 +9,7 @@ https://ngx-darija.netlify.app
 # Development (SPA)
 
 - Run `npm start`
-- Tests `npm run test`  
+- Tests `npm run test`
 
 # Development (Netlify Function)
 
@@ -21,7 +21,6 @@ set up your dev environment for the `netlify function` to consume this API key.
 - follow [this instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up an API key
   with your Google account
 - add the GOOGLE_API_KEY to your env variables: `export GOOGLE_API_KEY='{{YOUR_API_KEY}}'`
-  
 - run `netlify dev` from root directory
 
 # Build
@@ -39,6 +38,7 @@ Thanks for your contribution.
 If it's your first contribution to a public Github repo follow [this](https://github.com/firstcontributions/first-contributions).
 
 Otherwise Just
+
 - Pick an issue.
 - Check if someone is already working on it (read the comments)
 - Let everyone know that you are working on the issue (Add a comment expressing that)

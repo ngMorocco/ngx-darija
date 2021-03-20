@@ -1,14 +1,17 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {YtVideoItem} from 'src/app/_core/models/models';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation
+} from '@angular/core';
+import { YtVideoItem } from '@core/models';
 
 @Component({
   selector: 'app-video-item',
   templateUrl: './video-item.component.html',
-  styleUrls: ['./video-item.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class VideoItemComponent {
-
+export class YtVideoItemComponent {
   @Input() ytVideo: YtVideoItem | null = null;
-
 }

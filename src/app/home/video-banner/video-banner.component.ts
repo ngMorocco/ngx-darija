@@ -1,12 +1,16 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {YtVideoItem} from 'src/app/_core/models/models';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation
+} from '@angular/core';
+import { YtVideoItem } from '@core/models';
 
 @Component({
   selector: 'app-video-banner',
   templateUrl: './video-banner.component.html',
-  styleUrls: ['./video-banner.component.scss'],
-  encapsulation: ViewEncapsulation.None
-
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VideoBannerComponent {
   @Input() ytVideo: YtVideoItem | null = null;

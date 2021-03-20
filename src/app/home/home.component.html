@@ -1,9 +1,5 @@
 <div class="h-full flex flex-col">
   <ng-container *ngIf="ytVideos$ | async as ytVideo">
-    <!--    Main content when data fetched -->
-    <!--    Main content when data fetched -->
-    <!--    Main content when data fetched -->
-    <!--    Main content when data fetched -->
     <ng-container *ngIf="(ytVideo?.videoList || []).length > 0">
       <div class="relative bg-gray-200 overflow-hidden">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
@@ -20,12 +16,10 @@
         </main>
       </div>
     </ng-container>
-    <!--    Error Message when request failed-->
-    <!--    Error Message when request failed-->
-    <!--    Error Message when request failed-->
-    <!--    Error Message when request failed-->
-    <div class="relative bg-gray-200 overflow-hidden h-full flex justify-center items-center"
-         *ngIf="ytVideo.videoList?.length === 0">
+    <div
+      class="relative bg-gray-200 overflow-hidden h-full flex justify-center items-center"
+      *ngIf="ytVideo.videoList?.length === 0"
+    >
       <div>
         <app-ui-error [errorType]="'something-went-wrong'"></app-ui-error>
       </div>

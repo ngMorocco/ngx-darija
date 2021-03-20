@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { YtVideoStatistics } from 'src/app/_core/models';
+import { YtVideoStatistics } from '@core/models';
 
 @Component({
   selector: 'app-video-statistics',
@@ -8,7 +8,5 @@ import { YtVideoStatistics } from 'src/app/_core/models';
   encapsulation: ViewEncapsulation.None
 })
 export class VideoStatisticsComponent {
-
   @Input() videoStatistics: YtVideoStatistics | null = null;
-
 }
