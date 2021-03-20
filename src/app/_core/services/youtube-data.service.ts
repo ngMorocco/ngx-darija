@@ -2,7 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { PlaylistItemListResponse, VideoListResponse, YtVideoDetail, YtVideoItem } from '../models';
+import {
+  PlaylistItemListResponse,
+  VideoListResponse,
+  YtVideoDetail,
+  YtVideoItem,
+} from '../models';
 import { BaseUrlService } from './base-url.service';
 
 @Injectable({
@@ -60,10 +65,9 @@ export class YoutubeDataService {
               commentCount: res.items![0].statistics!.commentCount,
               likeCount: res.items![0].statistics!.likeCount,
               dislikeCount: res.items![0].statistics!.dislikeCount,
-            }
+            },
           } as YtVideoDetail;
-        }
-        ),
+        }),
         catchError((e) => {
           console.log(e); // Put here to see when there is an issue during prerender
           return of(null);
