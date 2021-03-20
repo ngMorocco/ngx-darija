@@ -1,22 +1,17 @@
-const fetch = require("node-fetch");
+const { getVideos } = require("./utils/youtube-api");
 
-const apiKey = process.env.GOOGLE_API_KEY;
-
-exports.handler = async (videoId) => {
+exports.handler = async (context) => {
   try {
-    const data = await (
-      await fetch(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&id=${videoId}&maxResults=50&key=${apiKey}`
-      )
-    ).json();
+    const videoId = context.path.split("/").pop();
+    const data = await getVideos(videoId);
     return {
       statusCode: 200,
       body: JSON.stringify(data),
     };
-  } catch(e) {
+  } catch (e) {
     return {
       statusCode: 500,
-      body: 'Error while getting data from YT',
+      body: "Error while getting data from YT",
     };
   }
 };
