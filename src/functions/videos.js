@@ -1,8 +1,9 @@
-const { getPlaylist } = require("./utils/youtube-api");
+const { getVideos } = require("./utils/youtube-api");
 
-exports.handler = async () => {
+exports.handler = async (context) => {
   try {
-    const data = await getPlaylist("PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs");
+    const videoId = context.path.split("/").pop();
+    const data = await getVideos(videoId);
     return {
       statusCode: 200,
       body: JSON.stringify(data),

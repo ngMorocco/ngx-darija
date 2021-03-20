@@ -2,7 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { PlaylistItemListResponse, YtVideoItem } from '../models';
+import {
+  PlaylistItemListResponse,
+  VideoListResponse,
+  YtVideoDetail,
+  YtVideoItem,
+} from '../models';
 import { BaseUrlService } from './base-url.service';
 
 @Injectable({
@@ -35,6 +40,37 @@ export class YoutubeDataService {
         catchError((e) => {
           console.log(e); // Put here to see when there is an issue during prerender
           return of([]);
+        })
+      );
+  }
+
+  getYoutubeVideoDetail(videoId: string): Observable<YtVideoDetail | null> {
+    return this.http
+      .get<VideoListResponse>(
+        `${this.baseUrlService.get()}/.netlify/functions/videos/${videoId}`
+      )
+      .pipe(
+        map((res) => {
+          if (!res.items || res.items.length === 0) {
+            return null;
+          }
+          return {
+            videoId: res.items![0].id,
+            title: res.items![0].snippet!.title,
+            description: res.items![0].snippet!.description,
+            publishedAt: res.items![0].snippet!.publishedAt,
+            thumbnailUrl: res.items![0].snippet!.thumbnails!.maxres!.url,
+            statistics: {
+              viewCount: res.items![0].statistics!.viewCount,
+              commentCount: res.items![0].statistics!.commentCount,
+              likeCount: res.items![0].statistics!.likeCount,
+              dislikeCount: res.items![0].statistics!.dislikeCount,
+            },
+          } as YtVideoDetail;
+        }),
+        catchError((e) => {
+          console.log(e); // Put here to see when there is an issue during prerender
+          return of(null);
         })
       );
   }
