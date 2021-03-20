@@ -14,7 +14,7 @@ import { VideoStatisticsComponent } from './video-statistics/video-statistics.co
     CommonModule,
     RouterModule.forChild([
       {
-        path: 'session/:videoId',
+        path: ':videoId',
         component: VideoSessionWrapperComponent,
       }
     ]),

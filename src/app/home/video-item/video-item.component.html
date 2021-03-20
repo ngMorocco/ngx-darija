@@ -1,11 +1,11 @@
 <div class="flex flex-col lg:flex-row" *ngIf="ytVideo !== null">
   <div class="max-w-md">
-    <a [routerLink]="['/session', ytVideo.videoId]">
+    <a [routerLink]="['/sessions', ytVideo.videoId]">
       <img class="object-contain hover:shadow-2xl hover:opacity-80" src="{{ytVideo.thumbnailUrl}}">
     </a>
   </div>
   <div class="lg:pl-5">
-    <a [routerLink]="['/session', ytVideo.videoId]">
+    <a [routerLink]="['/sessions', ytVideo.videoId]">
       <h3 class="text-lg mt-4 lg:mt-0 font-medium leading-normal text-gray-700 hover:text-red-600">
         {{ytVideo.title}}
       </h3>

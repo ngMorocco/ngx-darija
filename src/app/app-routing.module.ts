@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'sessions',
     loadChildren: () => import('./video-session/video-session.module').then(m => m.VideoSessionModule)
   },
   // Redirect all unknown paths to home
