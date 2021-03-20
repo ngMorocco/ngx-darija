@@ -1,8 +1,7 @@
 /* The purpose of this script is to generate the `routes.txt` file that is used during
 * the pre rendering at build time for dynamic route.
 * For now we want to prerender all the video session dynamic routes */
-
-const {getPlaylist, PLAYLIST_ID} = require('../src/functions/utils/youtube-api');
+const fetch = require("node-fetch");
 const {ensureFileSync, writeFileSync} = require('fs-extra');
 const DIST_DYNAMIC_ROUTES_FILENAME = 'routes.txt';
 console.log('Generating routes.txt for dynamic routes pre rendering');
@@ -16,15 +15,17 @@ const getDistFilename = () => {
  */
 const getVideoIds = async () => {
   // Fetch the playlist of ngx-darija
-  return getPlaylist(PLAYLIST_ID).then(playlist => {
-    if (playlist && playlist.error) {
-      throw new Error(`Error when fetching playlist: ${playlist.error.message}`);
-    } else {
-      const items = playlist.items;
-      console.log(`Got ${items.length} videos`);
-      return items.map(item => item.snippet.resourceId.videoId);
-    }
-  });
+  return fetch('http://localhost:8889/.netlify/functions/playlist')
+    .then(res => res.json())
+    .then(playlist => {
+      if (playlist && playlist.error) {
+        throw new Error(`Error when fetching playlist: ${playlist.error.message}`);
+      } else {
+        const items = playlist.items;
+        console.log(`Got ${items.length} videos`);
+        return items.map(item => item.snippet.resourceId.videoId);
+      }
+    });
 }
 
 /**
