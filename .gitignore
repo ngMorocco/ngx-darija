@@ -47,3 +47,6 @@ Thumbs.db
 
 # Local Netlify folder
 .netlify
+
+# Generate routes file for dynamic route pre rendering
+routes.txt

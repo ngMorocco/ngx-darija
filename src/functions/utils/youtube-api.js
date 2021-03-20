@@ -4,6 +4,7 @@ const apiKey = process.env.GOOGLE_API_KEY;
 const apiBase = (path) =>
   `https://www.googleapis.com/youtube/v3/${path}?key=${apiKey}`;
 
+const PLAYLIST_ID = 'PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs';
 const getPlaylist = async (playlistId) => {
   return await (
     await fetch(
@@ -27,4 +28,5 @@ const getVideos = async (videoId) => {
 module.exports = {
   getPlaylist,
   getVideos,
+  PLAYLIST_ID
 };

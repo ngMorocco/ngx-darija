@@ -1,8 +1,8 @@
-const { getPlaylist } = require('./utils/youtube-api');
+const { getPlaylist, PLAYLIST_ID } = require('./utils/youtube-api');
 
 exports.handler = async () => {
   try {
-    const data = await getPlaylist('PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs');
+    const data = await getPlaylist(PLAYLIST_ID);
     return {
       statusCode: 200,
       body: JSON.stringify(data)
@@ -14,3 +14,4 @@ exports.handler = async () => {
     };
   }
 };
+
