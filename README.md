@@ -23,6 +23,18 @@ set up your dev environment for the `netlify function` to consume this API key.
 - add the GOOGLE_API_KEY to your env variables: `export GOOGLE_API_KEY='{{YOUR_API_KEY}}'`
 - run `netlify dev` from root directory
 
+# Test the pre rendered version locally
+  
+  Before being deployed, the app is pre rendered at build time, so we can quickly give a static version of the application as soon
+  as a request hits the server. Then the javascript files that will take over the app are loaded in the background.
+  Because of that the first load of the application may not behave the same as 
+  when it ran using the command `netlify dev`. 
+  
+  **It is recommended to test changes as if there were on the server** by pre rendering the application using:
+  `netlify build` (If it's the first time running this command you will be asked to login and link a site
+  [more info here](https://docs.netlify.com/cli/get-started/#installation)). Then when the build is done, serve the 
+  dist folder using `netlify dev --dir dist/ngx-darija/browser`
+
 # Build
 
 - Run `NODE_ENV npm run build`
