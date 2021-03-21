@@ -8,5 +8,5 @@ import { YtVideoStatistics } from '@core/models';
   encapsulation: ViewEncapsulation.None
 })
 export class VideoStatisticsComponent {
-  @Input() videoStatistics: YtVideoStatistics | null = null;
+  @Input() videoStatistics: YtVideoStatistics | null | undefined = null;
 }
