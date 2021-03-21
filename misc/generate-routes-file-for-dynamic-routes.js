@@ -34,20 +34,17 @@ const getVideoIds = async () => {
     return videoIds;
   }
   // Fetch the playlist of ngx-darija
-  return fetch('http://localhost:8889/.netlify/functions/playlist')
-    .then(res => res.json())
-    .then(playlist => {
-      if (playlist && playlist.error) {
-        throw new Error(
-          `Error when fetching playlist: ${playlist.error.message}`
-        );
-      } else {
-        const items = playlist.items;
-        console.log(`Got ${items.length} videos`);
-        videoIds = items.map(item => item.snippet.resourceId.videoId);
-        return videoIds;
-      }
-    });
+  const playlist = await (
+    await fetch('http://localhost:8889/.netlify/functions/playlist')
+  ).json();
+  if (playlist && playlist.error) {
+    throw new Error(`Error when fetching playlist: ${playlist.error.message}`);
+  } else {
+    const items = playlist.items;
+    console.log(`Got ${items.length} videos`);
+    videoIds = items.map(item => item.snippet.resourceId.videoId);
+    return videoIds;
+  }
 };
 
 /**
@@ -59,61 +56,56 @@ const getVideoIds = async () => {
  */
 const getDynamicRoutesFileContent = async () => {
   // Get video ids
-  return dynamicRoutesGenerator.getVideoIds().then(videoIds => {
-    let fileContent = '';
-    // For each video append the dynamic route to the file content variable
-    videoIds.forEach(videoId => {
-      fileContent += `/sessions/${videoId}\n`;
-    });
-    return fileContent;
+  let fileContent = '';
+  const videoIds = await dynamicRoutesGenerator.getVideoIds();
+  // For each video append the dynamic route to the file content variable
+  videoIds.forEach(videoId => {
+    fileContent += `/sessions/${videoId}\n`;
   });
+  return fileContent;
 };
 
 /**
  * Computes and writes the `routes.txt` file
  */
-const generateDynamicRoutesFile = () => {
-  // Get file content
-  dynamicRoutesGenerator
-    .getDynamicRoutesFileContent()
-    .then(fileContent => {
-      // Ensure file existing or create it
-      ensureFileSync(dynamicRoutesGenerator.getDistFilename());
-      // Write the file content
-      writeFileSync(dynamicRoutesGenerator.getDistFilename(), fileContent);
-      dynamicRoutesGenerator.generateYoutubeVideoIdCaseSensitiveMapper();
-    })
-    .catch(err => {
-      console.error('Error when generating dynamic routes file', err);
-      process.exit(1);
-    });
+const generateDynamicRoutesFile = async () => {
+  try {
+    const fileContent = await dynamicRoutesGenerator.getDynamicRoutesFileContent();
+    // Ensure file existing or create it
+    ensureFileSync(dynamicRoutesGenerator.getDistFilename());
+    // Write the file content
+    writeFileSync(dynamicRoutesGenerator.getDistFilename(), fileContent);
+    await dynamicRoutesGenerator.generateYoutubeVideoIdCaseSensitiveMapper();
+  } catch (e) {
+    console.error('Error when generating dynamic routes file', e);
+    process.exit(1);
+  }
 };
 
 /**
  * Generates a mapper js file that exports a function that converts lower case youtube video IDs
  * to their matching case sensitive IDs
  */
-const generateYoutubeVideoIdCaseSensitiveMapper = () => {
+const generateYoutubeVideoIdCaseSensitiveMapper = async () => {
   let mapperContent =
     'const getCaseSensitiveYoutubeVideoId = (videoId) => {\n' +
     '  switch (videoId) {\n';
-  getVideoIds().then(videoIds => {
-    videoIds.forEach(videoId => {
-      mapperContent += `case '${videoId.toLowerCase()}':\n`;
-      mapperContent += `return '${videoId}';\n`;
-    });
-    mapperContent +=
-      '    default:\n' +
-      '      return videoId;\n' +
-      '  }\n' +
-      '}\n' +
-      '\n' +
-      'module.exports = {\n' +
-      '  getCaseSensitiveYoutubeVideoId\n' +
-      '};\n';
-    ensureFileSync(dynamicRoutesGenerator.getMapperFile());
-    writeFileSync(dynamicRoutesGenerator.getMapperFile(), mapperContent);
+  const videoIds = await dynamicRoutesGenerator.getVideoIds();
+  videoIds.forEach(videoId => {
+    mapperContent += `case '${videoId.toLowerCase()}':\n`;
+    mapperContent += `return '${videoId}';\n`;
   });
+  mapperContent +=
+    '    default:\n' +
+    '      return videoId;\n' +
+    '  }\n' +
+    '}\n' +
+    '\n' +
+    'module.exports = {\n' +
+    '  getCaseSensitiveYoutubeVideoId\n' +
+    '};\n';
+  ensureFileSync(dynamicRoutesGenerator.getMapperFile());
+  writeFileSync(dynamicRoutesGenerator.getMapperFile(), mapperContent);
 };
 
 const dynamicRoutesGenerator = {
