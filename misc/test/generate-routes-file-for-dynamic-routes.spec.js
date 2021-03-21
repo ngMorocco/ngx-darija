@@ -2,8 +2,8 @@ const assert = require('assert');
 const t = require('../generate-routes-file-for-dynamic-routes');
 const {removeSync, readFile} = require('fs-extra');
 const sinon = require('sinon');
-const TEMP_DIST_FILENAME = 'test_routes.txt';
-
+const TEMP_DIST_FILENAME = 'tmp/test_routes.txt';
+const TEMP_DIST_MAPPER_JS_FILE = 'tmp/mapper.js'
 describe('generate-routes-file-for-dynamic-routes', () => {
 
   describe('getDynamicRoutesFileContent', () => {
@@ -20,10 +20,14 @@ describe('generate-routes-file-for-dynamic-routes', () => {
     afterEach(() => {
       // clean up
       removeSync(TEMP_DIST_FILENAME);
+      removeSync(TEMP_DIST_MAPPER_JS_FILE);
     });
     it('should write file content into dist file',  async () => {
       sinon.stub(t, 'getDistFilename').callsFake(() => {
         return TEMP_DIST_FILENAME;
+      });
+      sinon.stub(t, 'getMapperFile').callsFake(() => {
+        return TEMP_DIST_MAPPER_JS_FILE;
       });
       sinon.stub(t, 'getDynamicRoutesFileContent').callsFake(() => {
         return new Promise(resolve => resolve('Some test file content'));

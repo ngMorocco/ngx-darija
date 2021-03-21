@@ -1,19 +1,37 @@
 /* The purpose of this script is to generate the `routes.txt` file that is used during
 * the pre rendering at build time for dynamic route.
-* For now we want to prerender all the video session dynamic routes */
+* For now we want to prerender all the video session dynamic routes
+* More over netlify lower case all the urls so if we try to access directly to a
+* session video on the address /sessions/rT0FUs7uUks netlify will redirect to /sessions/rt0fus7uuks
+* And then our netlify function will not be able to fetch the right video ID.
+* This js script also generates a mapper `case-sensitive-video-id-mapper.js` located in `src/functions/utils`
+* To map lower case video ids -> case sensitive video Ids
+* https://answers.netlify.com/t/my-url-paths-are-forced-into-lowercase/1659 */
 const fetch = require("node-fetch");
 const {ensureFileSync, writeFileSync} = require('fs-extra');
 const DIST_DYNAMIC_ROUTES_FILENAME = 'routes.txt';
+const DIST_MAPPER_JS_FILE = 'src/functions/utils/case-sensitive-video-id-mapper.js';
 console.log('Generating routes.txt for dynamic routes pre rendering');
 
 const getDistFilename = () => {
   return DIST_DYNAMIC_ROUTES_FILENAME;
 }
+
+const getMapperFile = () => {
+  return DIST_MAPPER_JS_FILE;
+}
+
+let videoIds = [];
+
 /**
  * Fetch the playlist by id and map the response to return only the ids
  * @returns {Promise<void>}
  */
 const getVideoIds = async () => {
+  // If video ids already computed return them
+  if(videoIds && videoIds.length > 0) {
+    return new Promise(resolve => resolve(videoIds));
+  }
   // Fetch the playlist of ngx-darija
   return fetch('http://localhost:8889/.netlify/functions/playlist')
     .then(res => res.json())
@@ -23,7 +41,8 @@ const getVideoIds = async () => {
       } else {
         const items = playlist.items;
         console.log(`Got ${items.length} videos`);
-        return items.map(item => item.snippet.resourceId.videoId);
+        videoIds = items.map(item => item.snippet.resourceId.videoId);
+        return  videoIds;
       }
     });
 }
@@ -57,6 +76,7 @@ const generateDynamicRoutesFile = () => {
     ensureFileSync(dynamicRoutesGenerator.getDistFilename());
     // Write the file content
     writeFileSync(dynamicRoutesGenerator.getDistFilename(), fileContent);
+    dynamicRoutesGenerator.generateYoutubeVideoIdCaseSensitiveMapper();
   })
     .catch(err => {
       console.error('Error when generating dynamic routes file', err);
@@ -64,10 +84,37 @@ const generateDynamicRoutesFile = () => {
     })
 }
 
+/**
+ * Generates a mapper js file that exports a function that converts lower case youtube video IDs
+ * to their matching case sensitive IDs
+ */
+const generateYoutubeVideoIdCaseSensitiveMapper = () => {
+  let mapperContent = 'const getCaseSensitiveYoutubeVideoId = (videoId) => {\n' +
+    '  switch (videoId) {\n';
+  getVideoIds().then(videoIds => {
+    videoIds.forEach(videoId => {
+      mapperContent += `case '${videoId.toLowerCase()}':\n`;
+      mapperContent += `return '${videoId}';\n`;
+    });
+    mapperContent += '    default:\n' +
+      '      return videoId;\n' +
+      '  }\n' +
+      '}\n' +
+      '\n' +
+      'module.exports = {\n' +
+      '  getCaseSensitiveYoutubeVideoId\n' +
+      '};\n';
+    ensureFileSync(dynamicRoutesGenerator.getMapperFile());
+    writeFileSync(dynamicRoutesGenerator.getMapperFile(), mapperContent);
+  });
+}
+
 const dynamicRoutesGenerator = {
   generateDynamicRoutesFile,
   getVideoIds,
   getDynamicRoutesFileContent,
-  getDistFilename
+  getDistFilename,
+  getMapperFile,
+  generateYoutubeVideoIdCaseSensitiveMapper
 }
 module.exports = dynamicRoutesGenerator;
