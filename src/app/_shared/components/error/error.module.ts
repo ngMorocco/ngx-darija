@@ -1,6 +1,7 @@
-import { Input, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ErrorComponent } from './error.component';
+import {RouterModule} from '@angular/router';
 
 const DECLARATIONS = [ErrorComponent];
 
@@ -9,7 +10,7 @@ const DECLARATIONS = [ErrorComponent];
  * to render nice error content when needed
  */
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   declarations: DECLARATIONS,
   exports: DECLARATIONS
 })

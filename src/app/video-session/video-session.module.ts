@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { YtVideoPlayerModule } from '@shared/components';
 import { VideoSessionWrapperComponent } from './video-session-wrapper/video-session-wrapper.component';
 import { VideoStatisticsComponent } from './video-statistics/video-statistics.component';
+import {ErrorModule} from '@shared/components/error/error.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { VideoStatisticsComponent } from './video-statistics/video-statistics.co
         component: VideoSessionWrapperComponent
       }
     ]),
-    YtVideoPlayerModule
+    YtVideoPlayerModule,
+    ErrorModule
   ]
 })
 export class VideoSessionModule {}
