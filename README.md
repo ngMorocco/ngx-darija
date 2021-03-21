@@ -15,13 +15,36 @@ https://ngx-darija.netlify.app
 
 - Run `npm install netlify-cli -g`
 
-To fetch the `ngMorocco` video sessions you will need to create an API key and
-set up your dev environment for the `netlify function` to consume this API key.
+To fetch the `ngMorocco` video sessions you will need to create an API key and set up your dev environment for
+the `netlify function` to consume this API key.
 
-- follow [this instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up an API key
-  with your Google account
+- follow [this instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up
+  an API key with your Google account
 - add the GOOGLE_API_KEY to your env variables: `export GOOGLE_API_KEY='{{YOUR_API_KEY}}'`
 - run `netlify dev` from root directory
+
+# Test the pre rendered version locally
+
+Before being deployed, the app is pre rendered at build time, so we can quickly give a static version of the application
+as soon as a request hits the server. Then the javascript files that will take over the app are loaded in the
+background. Because of that the first load of the application may not behave the same as when it ran using the
+command `netlify dev`.
+
+**It is recommended to test changes as if there were on the server**
+
+## Build step
+
+- If you have a `netlify` account you can [link your site to this project](https://docs.netlify.com/cli/get-started/#installation)
+  and run `netlify build`
+  
+OR RUN
+
+- Shell `GOOGLE_API_KEY=AIzaSyB_xxxxxxxx NODE_ENV=production npm run serve-prerender`
+- PowerShell: `$env:GOOGLE_API_KEY="AIzaSyB_xxxxxxxx"; $env:NODE_ENV="production"; npm run serve-prerender`
+
+## Serve step
+
+`netlify dev --dir dist/ngx-darija/browser`
 
 # Build
 
@@ -35,7 +58,8 @@ set up your dev environment for the `netlify function` to consume this API key.
 
 Thanks for your contribution.
 
-If it's your first contribution to a public Github repo follow [this](https://github.com/firstcontributions/first-contributions).
+If it's your first contribution to a public Github repo
+follow [this](https://github.com/firstcontributions/first-contributions).
 
 Otherwise Just
 
