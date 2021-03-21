@@ -1,9 +1,10 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {EMPTY, Observable} from 'rxjs';
-import {filter, map, switchMap} from 'rxjs/operators';
+import {EMPTY, Observable, of} from 'rxjs';
+import {filter, map, switchMap, tap} from 'rxjs/operators';
 import {YtVideoDetail} from '@core/models';
 import {YoutubeDataService} from '@core/services/youtube-data.service';
+import {makeStateKey, TransferState} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-session-wrapper',
@@ -16,7 +17,8 @@ export class VideoSessionWrapperComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private youtubeDataService: YoutubeDataService
+    private youtubeDataService: YoutubeDataService,
+    private state: TransferState
   ) {
   }
 
@@ -27,8 +29,18 @@ export class VideoSessionWrapperComponent implements OnInit {
       }),
       map(param => param.get('videoId')),
       switchMap(p => {
-        return this.youtubeDataService.getYoutubeVideoDetail(p!);
+        const STATE_KEY_ITEMS = makeStateKey(`sessions/${p}`);
+        const videoDetail = this.state.get(STATE_KEY_ITEMS, null);
+        if (videoDetail) {
+          return of(videoDetail);
+        } else {
+          return this.youtubeDataService.getYoutubeVideoDetail(p!).pipe(
+            tap(video => {
+              this.state.set(STATE_KEY_ITEMS, video as any);
+            }));
+        }
       })
     );
   }
+
 }
