@@ -3,7 +3,7 @@ const t = require('../generate-routes-file-for-dynamic-routes');
 const { removeSync, readFile } = require('fs-extra');
 const sinon = require('sinon');
 const TEMP_DIST_FILENAME = 'tmp/test_routes.txt';
-const TEMP_DIST_MAPPER_JS_FILE = 'tmp/mapper.js';
+const TEMP_DIST_MAPPER_JS_FILE = 'tmp/mapping.json';
 describe('generate-routes-file-for-dynamic-routes', () => {
   sinon.stub(t, 'getVideoIds').callsFake(() => {
     return ['1', '2', '3'];

@@ -4,14 +4,14 @@
  * More over netlify lower case all the urls so if we try to access directly to a
  * session video on the address /sessions/rT0FUs7uUks netlify will redirect to /sessions/rt0fus7uuks
  * And then our netlify function will not be able to fetch the right video ID.
- * This js script also generates a mapper `case-sensitive-video-id-mapper.js` located in `src/functions/utils`
- * To map lower case video ids -> case sensitive video Ids
+ * This js script also generates a plain `.json` mapping `case-sensitive-vide-id-mapping.json` located in `src/functions/utils`
+ * This mapping is then used to convert lower case video ids to case sensitive video Ids
  * https://answers.netlify.com/t/my-url-paths-are-forced-into-lowercase/1659 */
 const fetch = require('node-fetch');
-const { ensureFileSync, writeFileSync } = require('fs-extra');
+const { ensureFileSync, writeFileSync, writeJsonSync } = require('fs-extra');
 const DIST_DYNAMIC_ROUTES_FILENAME = 'routes.txt';
 const DIST_MAPPER_JS_FILE =
-  'src/functions/utils/case-sensitive-video-id-mapper.js';
+  'src/functions/utils/case-sensitive-video-id-mapping.json';
 console.log('Generating routes.txt for dynamic routes pre rendering');
 
 const getDistFilename = () => {
@@ -87,25 +87,13 @@ const generateDynamicRoutesFile = async () => {
  * to their matching case sensitive IDs
  */
 const generateYoutubeVideoIdCaseSensitiveMapper = async () => {
-  let mapperContent =
-    'const getCaseSensitiveYoutubeVideoId = (videoId) => {\n' +
-    '  switch (videoId) {\n';
+  let mapping = {};
   const videoIds = await dynamicRoutesGenerator.getVideoIds();
   videoIds.forEach(videoId => {
-    mapperContent += `case '${videoId.toLowerCase()}':\n`;
-    mapperContent += `return '${videoId}';\n`;
+    mapping[videoId.toLowerCase()] = videoId;
   });
-  mapperContent +=
-    '    default:\n' +
-    '      return videoId;\n' +
-    '  }\n' +
-    '}\n' +
-    '\n' +
-    'module.exports = {\n' +
-    '  getCaseSensitiveYoutubeVideoId\n' +
-    '};\n';
   ensureFileSync(dynamicRoutesGenerator.getMapperFile());
-  writeFileSync(dynamicRoutesGenerator.getMapperFile(), mapperContent);
+  writeJsonSync(dynamicRoutesGenerator.getMapperFile(), mapping);
 };
 
 const dynamicRoutesGenerator = {

@@ -48,5 +48,6 @@ Thumbs.db
 # Local Netlify folder
 .netlify
 
-# Generate routes file for dynamic route pre rendering
+# Generated files for dynamic route pre rendering
 routes.txt
+src/functions/utils/case-sensitive-video-id-mapping.json
