@@ -1,9 +1,11 @@
 const { readJsonSync } = require('fs-extra');
+const path = require('path');
 const getCaseSensitiveYoutubeVideoId = videoId => {
   try {
-    const mapping = readJsonSync(
-      'src/functions/utils/case-sensitive-video-id-mapping.json'
+    const pathToMapping = path.resolve(
+      __dirname + '/case-sensitive-video-id-mapping.json'
     );
+    const mapping = readJsonSync(pathToMapping);
     const caseSensitiveId = mapping[videoId];
     return caseSensitiveId ? caseSensitiveId : videoId;
   } catch (e) {
