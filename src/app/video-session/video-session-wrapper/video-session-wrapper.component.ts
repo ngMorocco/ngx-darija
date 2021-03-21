@@ -32,8 +32,10 @@ export class VideoSessionWrapperComponent implements OnInit {
         const STATE_KEY_ITEMS = makeStateKey(`sessions/${p}`);
         const videoDetail = this.state.get(STATE_KEY_ITEMS, null);
         if (videoDetail) {
+          console.log('got video detail from server state', videoDetail);
           return of(videoDetail);
         } else {
+          console.log('no video details in state, will fetch it from api');
           return this.youtubeDataService.getYoutubeVideoDetail(p!).pipe(
             tap(video => {
               this.state.set(STATE_KEY_ITEMS, video as any);
