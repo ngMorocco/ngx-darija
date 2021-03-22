@@ -3,15 +3,22 @@ const { getVideos } = require('../utils/youtube-api');
 const { readJsonSync } = require('fs-extra');
 const path = require('path');
 
-exports.handler = async context => {
+const getCaseSensitiveVideoId = videoId => {
   try {
-    const videoId = context.path.split('/').pop();
     const pathToMapping = path.resolve(
       __dirname + '/case-sensitive-video-id-mapping.json'
     );
     const mapping = readJsonSync(pathToMapping);
-    const caseSensitiveId = mapping[videoId] ? mapping[videoId] : videoId;
-    const data = await getVideos(caseSensitiveId);
+    return mapping[videoId] ? mapping[videoId] : videoId;
+  } catch {
+    return videoId;
+  }
+};
+exports.handler = async context => {
+  try {
+    let videoId = context.path.split('/').pop();
+    videoId = getCaseSensitiveVideoId(videoId);
+    const data = await getVideos(videoId);
     return {
       statusCode: 200,
       body: JSON.stringify(data)
