@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { VideoSessionComponent } from './video-session/video-session.component';
 import { RouterModule } from '@angular/router';
 import { YtVideoPlayerModule } from '@shared/components';
-import { VideoSessionWrapperComponent } from './video-session-wrapper/video-session-wrapper.component';
+import { SessionComponent } from './session.component';
 import { VideoStatisticsComponent } from './video-statistics/video-statistics.component';
-import {ErrorModule} from '@shared/components/error/error.module';
+import { ErrorModule } from '@shared/components/error/error.module';
 
 @NgModule({
   declarations: [
+    SessionComponent,
     VideoSessionComponent,
-    VideoSessionWrapperComponent,
     VideoStatisticsComponent
   ],
   imports: [
@@ -18,11 +18,11 @@ import {ErrorModule} from '@shared/components/error/error.module';
     RouterModule.forChild([
       {
         path: ':videoId',
-        component: VideoSessionWrapperComponent
+        component: SessionComponent
       }
     ]),
     YtVideoPlayerModule,
     ErrorModule
   ]
 })
-export class VideoSessionModule {}
+export class SessionModule {}
