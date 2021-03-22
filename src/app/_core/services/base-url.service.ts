@@ -7,14 +7,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BaseUrlService {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-  isPlatformServer() {
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  isPlatformServer(): boolean {
     return isPlatformServer(this.platformId);
   }
-  isPlatformBrowser() {
+  isPlatformBrowser(): boolean {
     return isPlatformBrowser(this.platformId);
   }
-  get() {
+  get(): string {
     return this.isPlatformBrowser() ? '' : environment.buildBaseUrl;
   }
 }

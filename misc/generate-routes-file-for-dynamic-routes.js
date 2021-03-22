@@ -105,3 +105,7 @@ const dynamicRoutesGenerator = {
   generateYoutubeVideoIdCaseSensitiveMapper
 };
 module.exports = dynamicRoutesGenerator;
+
+(async () => {
+  await generateDynamicRoutesFile();
+})();
