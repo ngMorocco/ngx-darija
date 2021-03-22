@@ -12,7 +12,7 @@
     "prerender:run": "ng run ngx-darija:prerender --routes-file routes.txt",
     "prerender:routes": "node ./misc/generate-routes-file-for-dynamic-routes.js",
     "prerender:ci": "start-server-and-test serve:function http://localhost:8889/.netlify/functions/playlist prerender",
-    "serve:function": "node ./tools/server.js"
+    "serve:function": "node ./server/route.js"
   },
   "private": true,
   "dependencies": {
