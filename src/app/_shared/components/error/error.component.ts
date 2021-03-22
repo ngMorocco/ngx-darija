@@ -8,4 +8,8 @@ export type ErrorType = 'not-found' | 'something-went-wrong';
 })
 export class ErrorComponent {
   @Input() errorType!: ErrorType;
+  @Input() errorTitle?: string;
+  @Input() errorSubtitle?: string;
+  @Input() errorActionLabel?: string;
+  @Input() errorActionRouterLink?: string;
 }

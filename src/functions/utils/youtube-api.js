@@ -1,24 +1,23 @@
-const fetch = require("node-fetch");
-
+const fetch = require('node-fetch');
 const apiKey = process.env.GOOGLE_API_KEY;
-const apiBase = (path) =>
+const apiBase = path =>
   `https://www.googleapis.com/youtube/v3/${path}?key=${apiKey}`;
 
-const getPlaylist = async (playlistId) => {
+const getPlaylist = async playlistId => {
   return await (
     await fetch(
       `${apiBase(
-        "playlistItems"
+        'playlistItems'
       )}&part=snippet&maxResults=50&playlistId=${playlistId}`
     )
   ).json();
 };
 
-const getVideos = async (videoId) => {
+const getVideos = async videoId => {
   return await (
     await fetch(
       `${apiBase(
-        "videos"
+        'videos'
       )}&part=snippet%2Cstatistics&id=${videoId}&maxResults=50`
     )
   ).json();
@@ -26,5 +25,5 @@ const getVideos = async (videoId) => {
 
 module.exports = {
   getPlaylist,
-  getVideos,
+  getVideos
 };
