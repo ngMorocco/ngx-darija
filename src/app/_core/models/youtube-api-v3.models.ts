@@ -1,3 +1,4 @@
+/* eslint:ignore */
 /****************
  *  Official youtube API v3 models from:
  *  https://github.com/googleapis/google-api-nodejs-client/blob/master/src/apis/youtube/v3.ts
@@ -29,7 +30,6 @@ export interface PlaylistItemListResponse {
    * The token that can be used as the value of the &lt;code&gt;pageToken&lt;/code&gt; parameter to retrieve the previous page in the result set.
    */
   prevPageToken?: string | null;
-  tokenPagination?: TokenPagination;
   /**
    * The &lt;code&gt;visitorId&lt;/code&gt; identifies the visitor.
    */
@@ -83,8 +83,6 @@ export interface PageInfo {
 /**
  * Stub token pagination template to suppress results.
  */
-export interface TokenPagination {}
-
 interface PlaylistItemContentDetails {
   /**
    * The time, measured in seconds from the start of the video, when the video should stop playing. (The playlist owner can specify the times when the video should start and stop playing when the video is played in the context of the playlist.) By default, assume that the &lt;code&gt;video.endTime&lt;/code&gt; is the end of the video.
@@ -254,7 +252,6 @@ export interface VideoListResponse {
    * The token that can be used as the value of the &lt;code&gt;pageToken&lt;/code&gt; parameter to retrieve the previous page in the result set.
    */
   prevPageToken?: string | null;
-  tokenPagination?: TokenPagination;
   /**
    * The &lt;code&gt;visitorId&lt;/code&gt; identifies the visitor.
    */

@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BaseUrlService {
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   isPlatformServer(): boolean {
     return isPlatformServer(this.platformId);
   }

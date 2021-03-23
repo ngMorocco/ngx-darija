@@ -3,7 +3,7 @@ import { YtVideoItem } from '@core/models';
 import { ServerStateService } from '@core/services/server-state.service';
 import { HomeComponent } from './home.component';
 
-const YtVideoMock: YtVideoItem[] = [
+const ytVideoMock: YtVideoItem[] = [
   {
     videoId: 'dummy-id',
     title: 'Angular in Darija is awesome',
@@ -24,11 +24,8 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let youtubeDataService: any;
   const serverStateServiceStub = {
-    hydrate(key: string): (obs: Observable<any>) => Observable<any> {
-      return obs => {
-        return obs;
-      };
-    }
+    hydrate: (_: string): ((obs: Observable<any>) => Observable<any>) => obs =>
+      obs
   } as ServerStateService;
 
   beforeEach(() => {
@@ -37,7 +34,7 @@ describe('HomeComponent', () => {
       'getAngularInDarijaVideos'
     ]);
     youtubeDataService.getAngularInDarijaVideos.and.returnValue(
-      of(YtVideoMock)
+      of(ytVideoMock)
     );
     component = new HomeComponent(youtubeDataService, serverStateServiceStub);
   });
@@ -48,7 +45,7 @@ describe('HomeComponent', () => {
 
   it('should pipe into service observable and resolve with homeVideos', done => {
     component?.ytVideos$?.subscribe(result => {
-      expect(result.lastVideo.videoId).toEqual(YtVideoMock[1].videoId);
+      expect(result.lastVideo.videoId).toEqual(ytVideoMock[1].videoId);
       expect(result.videoList.length).toEqual(2);
       done();
     });
