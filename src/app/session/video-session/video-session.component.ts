@@ -4,7 +4,6 @@ import { YtVideoDetail } from '@core/models';
 @Component({
   selector: 'app-video-session',
   templateUrl: './video-session.component.html',
-  styleUrls: ['./video-session.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class VideoSessionComponent {

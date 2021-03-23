@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
+import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { startWith, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -8,14 +8,14 @@ import { startWith, tap } from 'rxjs/operators';
 })
 export class ServerStateService {
   constructor(private state: TransferState) {}
-  hydrate(key: string) {
+  hydrate(key: string): MonoTypeOperatorFunction<any> {
     const STATE_KEY_ITEMS = makeStateKey(key);
     return (obs: Observable<any>) => {
       return obs.pipe(
         tap(videos => {
-          this.state.set(STATE_KEY_ITEMS, <any>videos);
+          this.state.set(STATE_KEY_ITEMS, videos);
         }),
-        startWith(this.state.get(STATE_KEY_ITEMS, <any>[]))
+        startWith(this.state.get(STATE_KEY_ITEMS, [] as any))
       );
     };
   }
