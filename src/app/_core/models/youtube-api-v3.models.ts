@@ -1,3 +1,4 @@
+/* eslint:ignore */
 /****************
  *  Official youtube API v3 models from:
  *  https://github.com/googleapis/google-api-nodejs-client/blob/master/src/apis/youtube/v3.ts
@@ -29,7 +30,6 @@ export interface PlaylistItemListResponse {
    * The token that can be used as the value of the &lt;code&gt;pageToken&lt;/code&gt; parameter to retrieve the previous page in the result set.
    */
   prevPageToken?: string | null;
-  tokenPagination?: TokenPagination;
   /**
    * The &lt;code&gt;visitorId&lt;/code&gt; identifies the visitor.
    */
@@ -83,8 +83,6 @@ export interface PageInfo {
 /**
  * Stub token pagination template to suppress results.
  */
-export interface TokenPagination {}
-
 interface PlaylistItemContentDetails {
   /**
    * The time, measured in seconds from the start of the video, when the video should stop playing. (The playlist owner can specify the times when the video should start and stop playing when the video is played in the context of the playlist.) By default, assume that the &lt;code&gt;video.endTime&lt;/code&gt; is the end of the video.
@@ -254,7 +252,6 @@ export interface VideoListResponse {
    * The token that can be used as the value of the &lt;code&gt;pageToken&lt;/code&gt; parameter to retrieve the previous page in the result set.
    */
   prevPageToken?: string | null;
-  tokenPagination?: TokenPagination;
   /**
    * The &lt;code&gt;visitorId&lt;/code&gt; identifies the visitor.
    */
@@ -355,8 +352,8 @@ export interface VideoAgeGating {
 }
 
 /**
-   * Details about the content of a YouTube Video.
-   */
+ * Details about the content of a YouTube Video.
+ */
 export interface VideoContentDetails {
   /**
    * The value of &lt;code&gt;captions&lt;/code&gt; indicates whether the video has captions or not.
@@ -401,8 +398,8 @@ export interface VideoContentDetails {
 }
 
 /**
-   * Ratings schemes. The country-specific ratings are mostly for movies and shows. LINT.IfChange
-   */
+ * Ratings schemes. The country-specific ratings are mostly for movies and shows. LINT.IfChange
+ */
 export interface ContentRating {
   /**
    * The video&#39;s Australian Classification Board (ACB) or Australian Communications and Media Authority (ACMA) rating. ACMA ratings are used to classify children&#39;s television programming.
@@ -691,8 +688,8 @@ export interface ContentRating {
 }
 
 /**
-   * Rights management policy for YouTube resources.
-   */
+ * Rights management policy for YouTube resources.
+ */
 export interface AccessPolicy {
   /**
    * The value of &lt;code&gt;allowed&lt;/code&gt; indicates whether the access to the policy is allowed or denied by default.
@@ -705,8 +702,8 @@ export interface AccessPolicy {
 }
 
 /**
-   * DEPRECATED Region restriction of the video.
-   */
+ * DEPRECATED Region restriction of the video.
+ */
 export interface VideoContentDetailsRegionRestriction {
   /**
    * A list of region codes that identify countries where the video is viewable. If this property is present and a country is not listed in its value, then the video is blocked from appearing in that country. If this property is present and contains an empty list, the video is blocked in all countries.
@@ -719,8 +716,8 @@ export interface VideoContentDetailsRegionRestriction {
 }
 
 /**
-   * Describes original video file properties, including technical details about audio and video streams, but also metadata information like content length, digitization time, or geotagging information.
-   */
+ * Describes original video file properties, including technical details about audio and video streams, but also metadata information like content length, digitization time, or geotagging information.
+ */
 export interface VideoFileDetails {
   /**
    * A list of audio streams contained in the uploaded video file. Each item in the list contains detailed metadata about an audio stream.
@@ -761,8 +758,8 @@ export interface VideoFileDetails {
 }
 
 /**
-   * Information about an audio stream.
-   */
+ * Information about an audio stream.
+ */
 export interface VideoFileDetailsAudioStream {
   /**
    * The audio stream&#39;s bitrate, in bits per second.
@@ -783,8 +780,8 @@ export interface VideoFileDetailsAudioStream {
 }
 
 /**
-   * Information about a video stream.
-   */
+ * Information about a video stream.
+ */
 export interface VideoFileDetailsVideoStream {
   /**
    * The video content&#39;s display aspect ratio, which specifies the aspect ratio in which the video should be displayed.
@@ -821,8 +818,8 @@ export interface VideoFileDetailsVideoStream {
 }
 
 /**
-   * Details about the live streaming metadata.
-   */
+ * Details about the live streaming metadata.
+ */
 export interface VideoLiveStreamingDetails {
   /**
    * The ID of the currently active live chat attached to this video. This field is filled only if the video is a currently live broadcast that has live chat. Once the broadcast transitions to complete this field will be removed and the live chat closed down. For persistent broadcasts that live chat id will no longer be tied to this video but rather to the new video being displayed at the persistent page.
@@ -851,8 +848,8 @@ export interface VideoLiveStreamingDetails {
 }
 
 /**
-   * Localized versions of certain video properties (e.g. title).
-   */
+ * Localized versions of certain video properties (e.g. title).
+ */
 export interface VideoLocalization {
   /**
    * Localized version of the video&#39;s description.
@@ -865,8 +862,8 @@ export interface VideoLocalization {
 }
 
 /**
-   * Details about monetization of a YouTube Video.
-   */
+ * Details about monetization of a YouTube Video.
+ */
 export interface VideoMonetizationDetails {
   /**
    * The value of &lt;code&gt;access&lt;/code&gt; indicates whether the video can be monetized or not.
@@ -875,8 +872,8 @@ export interface VideoMonetizationDetails {
 }
 
 /**
-   * Player to be used for a video playback.
-   */
+ * Player to be used for a video playback.
+ */
 export interface VideoPlayer {
   embedHeight?: string | null;
   /**
@@ -890,8 +887,8 @@ export interface VideoPlayer {
 }
 
 /**
-   * Describes processing status and progress and availability of some other Video resource parts.
-   */
+ * Describes processing status and progress and availability of some other Video resource parts.
+ */
 export interface VideoProcessingDetails {
   /**
    * This value indicates whether video editing suggestions, which might improve video quality or the playback experience, are available for the video. You can retrieve these suggestions by requesting the &lt;code&gt;suggestions&lt;/code&gt; part in your &lt;code&gt;videos.list()&lt;/code&gt; request.
@@ -928,8 +925,8 @@ export interface VideoProcessingDetails {
 }
 
 /**
-   * Video processing progress and completion time estimate.
-   */
+ * Video processing progress and completion time estimate.
+ */
 export interface VideoProcessingDetailsProcessingProgress {
   /**
    * The number of parts of the video that YouTube has already processed. You can estimate the percentage of the video that YouTube has already processed by calculating:&lt;br&gt; &lt;code&gt;100 * parts_processed / parts_total&lt;/code&gt;&lt;br&gt;&lt;br&gt; Note that since the estimated number of parts could increase without a corresponding increase in the number of parts that have already been processed, it is possible that the calculated progress could periodically decrease while YouTube processes a video.
@@ -946,8 +943,8 @@ export interface VideoProcessingDetailsProcessingProgress {
 }
 
 /**
-   * Project specific details about the content of a YouTube Video.
-   */
+ * Project specific details about the content of a YouTube Video.
+ */
 export interface VideoProjectDetails {
   /**
    * A list of project tags associated with the video during the upload.
@@ -956,8 +953,8 @@ export interface VideoProjectDetails {
 }
 
 /**
-   * Recording information associated with the video.
-   */
+ * Recording information associated with the video.
+ */
 export interface VideoRecordingDetails {
   /**
    * The geolocation information associated with the video.
@@ -974,8 +971,8 @@ export interface VideoRecordingDetails {
 }
 
 /**
-   * Geographical coordinates of a point, in WGS84.
-   */
+ * Geographical coordinates of a point, in WGS84.
+ */
 export interface GeoPoint {
   /**
    * Altitude above the reference ellipsoid, in meters.
@@ -992,8 +989,8 @@ export interface GeoPoint {
 }
 
 /**
-   * Basic details about a video, including title, description, uploader, thumbnails and category.
-   */
+ * Basic details about a video, including title, description, uploader, thumbnails and category.
+ */
 export interface VideoSnippet {
   /**
    * The YouTube &lt;a href=&quot;/youtube/v3/docs/videoCategories/list&quot;&gt;video category&lt;/a&gt; associated with the video.
@@ -1046,8 +1043,8 @@ export interface VideoSnippet {
 }
 
 /**
-   * Statistics about the video, such as the number of times the video was viewed or liked.
-   */
+ * Statistics about the video, such as the number of times the video was viewed or liked.
+ */
 export interface VideoStatistics {
   /**
    * The number of comments for the video.
@@ -1072,8 +1069,8 @@ export interface VideoStatistics {
 }
 
 /**
-   * Basic details about a video category, such as its localized title. Next Id: 16
-   */
+ * Basic details about a video category, such as its localized title. Next Id: 16
+ */
 export interface VideoStatus {
   /**
    * This value indicates if the video can be embedded on another website. @mutable youtube.videos.insert youtube.videos.update
@@ -1112,8 +1109,8 @@ export interface VideoStatus {
 }
 
 /**
-   * Specifies suggestions on how to improve video content, including encoding hints, tag suggestions, and editor suggestions.
-   */
+ * Specifies suggestions on how to improve video content, including encoding hints, tag suggestions, and editor suggestions.
+ */
 export interface VideoSuggestions {
   /**
    * A list of video editing operations that might improve the video quality or playback experience of the uploaded video.
@@ -1138,8 +1135,8 @@ export interface VideoSuggestions {
 }
 
 /**
-   * A single tag suggestion with it&#39;s relevance information.
-   */
+ * A single tag suggestion with it&#39;s relevance information.
+ */
 export interface VideoSuggestionsTagSuggestion {
   /**
    * A set of video categories for which the tag is relevant. You can use this information to display appropriate tag suggestions based on the video category that the video uploader associates with the video. By default, tag suggestions are relevant for all categories if there are no restricts defined for the keyword.
@@ -1152,8 +1149,8 @@ export interface VideoSuggestionsTagSuggestion {
 }
 
 /**
-   * Freebase topic information related to the video.
-   */
+ * Freebase topic information related to the video.
+ */
 export interface VideoTopicDetails {
   /**
    * Similar to topic_id, except that these topics are merely relevant to the video. These are topics that may be mentioned in, or appear in the video. You can retrieve information about each topic using &lt;a href=&quot;http://wiki.freebase.com/wiki/Topic_API&quot;&gt;Freebase Topic API&lt;/a&gt;.

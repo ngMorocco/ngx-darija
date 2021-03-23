@@ -22,9 +22,7 @@ export class HomeComponent {
     private serverStateService: ServerStateService
   ) {
     this.ytVideos$ = this.youtubeDataService.getAngularInDarijaVideos().pipe(
-      map(res => {
-        return { lastVideo: res[res.length - 1], videoList: res };
-      }),
+      map(res => ({ lastVideo: res[res.length - 1], videoList: res })),
       this.serverStateService.hydrate('videos')
     );
   }
