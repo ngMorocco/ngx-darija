@@ -11,7 +11,7 @@ const fetch = require('node-fetch');
 const { ensureFileSync, writeFileSync, writeJsonSync } = require('fs-extra');
 const DIST_DYNAMIC_ROUTES_FILENAME = 'routes.txt';
 const DIST_MAPPER_JS_FILE =
-  'src/functions/videos/case-sensitive-video-id-mapping.json';
+  'server/functions/videos/case-sensitive-video-id-mapping.json';
 console.log('Generating routes.txt for dynamic routes pre rendering');
 
 const getDistFilename = () => {
