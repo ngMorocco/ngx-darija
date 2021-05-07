@@ -18,7 +18,7 @@ To fetch `Angular In Darija` video sessions you will need to create a Google API
 
 - follow these [instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up
   an API key with your Google account
-- add the key to your .env file `GOOGLE_API_KEY=YOU_KEY_HERE`
+- add the key to your .env file `GOOGLE_API_KEY=AIzaSyB_xxxxxxxx`
 
 ## Start local server
 
