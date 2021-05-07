@@ -11,7 +11,7 @@
     "prerender:run": "ng run ngx-darija:prerender --routes-file routes.txt",
     "prerender:routes": "node ./server/tools/generate-routes-file-for-dynamic-routes.js",
     "prerender:ci": "start-server-and-test serve:function http://localhost:8889/.netlify/functions/playlist prerender",
-    "serve:function": "netlify functions:serve -p 8889"
+    "serve:function": "npx netlify-cli functions:serve -p 8889"
   },
   "private": true,
   "dependencies": {
