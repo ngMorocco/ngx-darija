@@ -1,5 +1,5 @@
 const assert = require('assert');
-const t = require('../generate-routes-file-for-dynamic-routes');
+const t = require('./generate-routes-file-for-dynamic-routes');
 const { removeSync, readFile } = require('fs-extra');
 const sinon = require('sinon');
 const TEMP_DIST_FILENAME = 'tmp/test_routes.txt';

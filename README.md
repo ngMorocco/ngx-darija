@@ -10,6 +10,10 @@ https://ngx-darija.netlify.app
 
 ## Prepare the env
 
+`npm install -g netlify-cli`
+
+Make sure you have the latest `netlify-cli` version with `netlify function:serve` support.
+
 To fetch `Angular In Darija` video sessions you will need to create a Google API key.
 
 - follow these [instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up
@@ -18,9 +22,7 @@ To fetch `Angular In Darija` video sessions you will need to create a Google API
 
 ## Start local server
 
-For convenience, we've added netlify-cli as a dev dependency
-
-- `npx netlify dev` from root directory
+- `netlify dev` from root directory
 
 # Build
 
@@ -28,7 +30,7 @@ For convenience, we've added netlify-cli as a dev dependency
 
 You can [link your site to this project](https://docs.netlify.com/cli/get-started/#installation)
 
-- `npx netlify build`
+- `netlify build`
 
 ## W/O a Netlify account
 
@@ -44,7 +46,7 @@ You can [link your site to this project](https://docs.netlify.com/cli/get-starte
 
 Build the project.
 
-- `npx netlify dev --dir dist/ngx-darija/browser`
+- `netlify dev --dir dist/ngx-darija/browser`
 
 # Contributions
 
