@@ -7,6 +7,7 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './_shared/shared.module';
+import { AppSeoModule } from './app-seo/app-seo.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,8 @@ import { SharedModule } from './_shared/shared.module';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    AppSeoModule
   ],
   bootstrap: [AppComponent]
 })
