@@ -21,3 +21,8 @@ export interface YtVideoDetail {
   publishedAt: string;
   statistics: YtVideoStatistics | null;
 }
+
+export interface HomeVideos {
+  lastVideo: YtVideoItem;
+  videoList: YtVideoItem[];
+}

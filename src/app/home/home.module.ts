@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ErrorModule } from '@shared/components/error/error.module';
 import { YtVideoPlayerModule } from '@shared/components';
 import { HomeComponent } from './home.component';
+import { YtVideosResolver } from './yt-videos.resolver';
 
 const DECLARATIONS = [
   HomeComponent,
@@ -22,7 +23,10 @@ const DECLARATIONS = [
     RouterModule.forChild([
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        resolve: {
+          ytVideos: YtVideosResolver
+        }
       },
       {
         path: '**',

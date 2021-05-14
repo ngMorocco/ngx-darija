@@ -6,6 +6,7 @@ import { YtVideoPlayerModule } from '@shared/components';
 import { SessionComponent } from './session.component';
 import { VideoStatisticsComponent } from './video-statistics/video-statistics.component';
 import { ErrorModule } from '@shared/components/error/error.module';
+import { SessionResolver } from './session.resolver';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,10 @@ import { ErrorModule } from '@shared/components/error/error.module';
     RouterModule.forChild([
       {
         path: ':videoId',
-        component: SessionComponent
+        component: SessionComponent,
+        resolve: {
+          session: SessionResolver
+        }
       }
     ]),
     YtVideoPlayerModule,

@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { YtVideoDetail } from '@core/models';
-import { YoutubeDataService } from '@core/services/youtube-data.service';
 import { EMPTY, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-session',
@@ -15,22 +14,17 @@ export class SessionComponent implements OnInit {
   errorLoadingYoutubeVideo = false;
 
   constructor(
-    private route: ActivatedRoute,
-    private youtubeDataService: YoutubeDataService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    const videoId = this.route.snapshot.paramMap.get('videoId');
-    if (videoId) {
-      this.videoDetail$ = this.youtubeDataService
-        .getYoutubeVideoDetail(videoId)
-        .pipe(
-          tap(video => {
-            if (!video) {
-              this.errorLoadingYoutubeVideo = true;
-            }
-          })
-        );
-    }
+    this.videoDetail$ = this.route.data.pipe(
+      map(data => {
+        if (!data["session"]) {
+          this.errorLoadingYoutubeVideo = true;
+        }
+        return data["session"];
+      })
+    );
   }
 }
