@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { SeoModule } from '@ngaox/seo';
 import { AppSeoDefaults } from './app-seo.defaults';
-import { AppSeoLaoder } from './app-seo.laoder';
+import { AppSeoLoader } from './app-seo.loader';
 
 @NgModule({
     imports: [
-        SeoModule.forRoot(AppSeoDefaults, AppSeoLaoder)
+        SeoModule.forRoot(AppSeoDefaults, AppSeoLoader)
     ],
     exports: [ SeoModule ]
 })

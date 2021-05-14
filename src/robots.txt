@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 User-agent: *
-Allow: /.netlify/
+Disallow: /.netlify/

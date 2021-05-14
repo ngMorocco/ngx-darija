@@ -5,7 +5,6 @@ import {
 } from '@angular/router';
 import { YtVideoDetail } from '@core/models';
 import { YoutubeDataService } from '@core/services/youtube-data.service';
-import { SeoService } from '@ngaox/seo';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,8 +13,7 @@ import { Observable } from 'rxjs';
 export class SessionResolver implements Resolve<YtVideoDetail | null> {
   
   constructor(
-    private youtubeDataService: YoutubeDataService,
-    private seoService: SeoService
+    private youtubeDataService: YoutubeDataService
   ) { }
   
   resolve(route: ActivatedRouteSnapshot): Observable<YtVideoDetail | null> {

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { YtVideoDetail } from '@core/models';
-import { SeoService } from '@ngaox/seo';
 import { EMPTY, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -15,13 +14,8 @@ export class SessionComponent implements OnInit {
   errorLoadingYoutubeVideo = false;
 
   constructor(
-    private route: ActivatedRoute,seo: SeoService
-  ) {
-    // twitter is weird
-    seo.generateTags([
-      { name: "twitter:card", content: "summary_large_image" }
-    ]);
-  }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.videoDetail$ = this.route.data.pipe(

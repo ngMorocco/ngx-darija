@@ -2,11 +2,12 @@ import { Injector } from '@angular/core';
 import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import {
     PageSeoData,
-    presetsLaoder,
-    routesSeoData
+    presetsLoader,
+    routesSeoData,
+    Loader
 } from '@ngaox/seo';
 
-export function AppSeoLaoder(event: NavigationEnd, injector: Injector): PageSeoData {
+export function AppSeoLoader(event: NavigationEnd, injector: Injector): PageSeoData {
     let definitions:routesSeoData = {
         "/": {
             title: "Angular in Darija",
@@ -15,12 +16,12 @@ export function AppSeoLaoder(event: NavigationEnd, injector: Injector): PageSeoD
             url: "https://ngx-darija.netlify.app/",
             image: "https://avatars.githubusercontent.com/u/15947112?s=200&v=4"
         },
-        "/session/*": sessionLaoder(event,injector)
+        "/session/*": sessionLoader
     };
-    return presetsLaoder(event, definitions);
+    return presetsLoader(event, injector, definitions);
 }
 
-function sessionLaoder(event:NavigationEnd,injector: Injector): PageSeoData {
+let sessionLoader:Loader = (event:NavigationEnd,injector: Injector): PageSeoData => {
     let route: ActivatedRoute = injector.get(ActivatedRoute);
     route = route.firstChild?.firstChild || route.firstChild || route;
     let session = route.snapshot.data['session'];
@@ -33,6 +34,7 @@ function sessionLaoder(event:NavigationEnd,injector: Injector): PageSeoData {
             description: description,
             image: session.thumbnailUrl,
             type: "article",
+            twitterCard: "summary_large_image",
             url: `https://ngx-darija.netlify.app${ event.urlAfterRedirects.split("?")[0] }`
         };
     }
