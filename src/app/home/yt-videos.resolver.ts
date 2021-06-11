@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Resolve,
-} from '@angular/router';
+import { Resolve } from '@angular/router';
 import { HomeVideos } from '@core/models';
 import { ServerStateService } from '@core/services/server-state.service';
 import { YoutubeDataService } from '@core/services/youtube-data.service';
@@ -15,7 +13,7 @@ export class YtVideosResolver implements Resolve<HomeVideos> {
   constructor(
     private youtubeDataService: YoutubeDataService,
     private serverStateService: ServerStateService
-  ) { }
+  ) {}
 
   resolve(): Observable<HomeVideos> {
     return this.youtubeDataService.getAngularInDarijaVideos().pipe(

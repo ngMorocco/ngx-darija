@@ -4,9 +4,7 @@ import { AppSeoDefaults } from './app-seo.defaults';
 import { AppSeoLoader } from './app-seo.loader';
 
 @NgModule({
-    imports: [
-        SeoModule.forRoot(AppSeoDefaults, AppSeoLoader)
-    ],
-    exports: [ SeoModule ]
+  imports: [SeoModule.forRoot(AppSeoDefaults, AppSeoLoader)],
+  exports: [SeoModule]
 })
-export class AppSeoModule { }
+export class AppSeoModule {}

@@ -13,17 +13,15 @@ export class SessionComponent implements OnInit {
   videoDetail$: Observable<YtVideoDetail | null> = EMPTY;
   errorLoadingYoutubeVideo = false;
 
-  constructor(
-    private route: ActivatedRoute
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.videoDetail$ = this.route.data.pipe(
       map(data => {
-        if (!data["session"]) {
+        if (!data['session']) {
           this.errorLoadingYoutubeVideo = true;
         }
-        return data["session"];
+        return data['session'];
       })
     );
   }
