@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ErrorComponent } from './error.component';
+import { NavbarComponent } from './navbar.component';
 import { RouterModule } from '@angular/router';
+
+const DECLARATIONS = [NavbarComponent];
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [ErrorComponent],
-  exports: [ErrorComponent]
+  declarations: DECLARATIONS,
+  exports: DECLARATIONS
 })
-export class ErrorModule {}
+export class NavbarModule {}

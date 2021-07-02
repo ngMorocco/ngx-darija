@@ -7,31 +7,15 @@ import { RouterModule } from '@angular/router';
 import { ErrorModule } from '@shared/components/error/error.module';
 import { YtVideoPlayerModule } from '@shared/components';
 import { HomeComponent } from './home.component';
-
-const DECLARATIONS = [
-  HomeComponent,
-  VideoBannerComponent,
-  VideoListingComponent,
-  YtVideoItemComponent
-];
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
-  declarations: DECLARATIONS,
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: '**',
-        redirectTo: '',
-        pathMatch: 'full'
-      }
-    ]),
-    ErrorModule,
-    YtVideoPlayerModule
-  ]
+  declarations: [
+    HomeComponent,
+    VideoBannerComponent,
+    YtVideoItemComponent,
+    VideoListingComponent
+  ],
+  imports: [CommonModule, HomeRoutingModule, ErrorModule, YtVideoPlayerModule]
 })
 export class HomeModule {}

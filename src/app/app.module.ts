@@ -4,10 +4,9 @@ import {
   BrowserModule,
   BrowserTransferStateModule
 } from '@angular/platform-browser';
+import { ErrorModule, FooterModule, NavbarModule } from '@shared/components';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './_shared/shared.module';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,7 +14,9 @@ import { SharedModule } from './_shared/shared.module';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    FooterModule,
+    NavbarModule,
+    ErrorModule
   ],
   bootstrap: [AppComponent]
 })

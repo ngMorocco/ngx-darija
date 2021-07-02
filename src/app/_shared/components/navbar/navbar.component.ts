@@ -11,8 +11,4 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class NavbarComponent {}
