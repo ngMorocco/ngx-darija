@@ -3,7 +3,10 @@
     class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8"
     *ngIf="!errorLoadingYoutubeVideo"
   >
-    <app-video-session [videoDetail]="videoDetail$ | async"></app-video-session>
+    <app-video-session
+      [videoDetail]="videoDetail$ | async"
+      [time]="time"
+    ></app-video-session>
   </div>
 
   <div

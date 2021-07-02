@@ -12,6 +12,7 @@ import { tap } from 'rxjs/operators';
 })
 export class SessionComponent implements OnInit {
   videoDetail$: Observable<YtVideoDetail | null> = EMPTY;
+  time = 0;
   errorLoadingYoutubeVideo = false;
 
   constructor(
@@ -21,6 +22,8 @@ export class SessionComponent implements OnInit {
 
   ngOnInit(): void {
     const videoId = this.route.snapshot.paramMap.get('videoId');
+    this.time =
+      parseInt(this.route.snapshot.paramMap.get('time') || '0', 10) || 0;
     if (videoId) {
       this.videoDetail$ = this.youtubeDataService
         .getYoutubeVideoDetail(videoId)

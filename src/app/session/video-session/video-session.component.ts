@@ -8,4 +8,5 @@ import { YtVideoDetail } from '@core/models';
 })
 export class VideoSessionComponent {
   @Input() videoDetail: YtVideoDetail | null = null;
+  @Input() time = 0;
 }

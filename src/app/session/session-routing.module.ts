@@ -4,6 +4,10 @@ import { SessionComponent } from './session.component';
 
 const routes: Routes = [
   {
+    path: ':videoId/:time',
+    component: SessionComponent
+  },
+  {
     path: ':videoId',
     component: SessionComponent
   }
