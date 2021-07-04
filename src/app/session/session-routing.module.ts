@@ -4,7 +4,7 @@ import { SessionComponent } from './session.component';
 
 const routes: Routes = [
   {
-    path: ':videoId/:time',
+    path: ':videoId/:startSeconds/:endSeconds',
     component: SessionComponent
   },
   {

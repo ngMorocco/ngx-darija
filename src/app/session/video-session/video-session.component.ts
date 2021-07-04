@@ -8,5 +8,6 @@ import { VideoItem } from '@core/models';
 })
 export class VideoSessionComponent {
   @Input() video: VideoItem | null = null;
-  @Input() time = 0;
+  @Input() startSeconds = 0;
+  @Input() endSeconds = 0;
 }

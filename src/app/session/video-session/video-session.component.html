@@ -3,7 +3,8 @@
     <app-video-player
       *ngIf="video"
       videoId="{{ video.id }}"
-      [startSeconds]="time"
+      [startSeconds]="startSeconds"
+      [endSeconds]="endSeconds"
     ></app-video-player>
   </div>
   <div class="w-full lg:w-96 lg:pl-6">
