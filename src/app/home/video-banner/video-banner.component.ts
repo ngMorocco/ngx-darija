@@ -4,7 +4,7 @@ import {
   Input,
   ViewEncapsulation
 } from '@angular/core';
-import { YtVideoItem } from '@core/models';
+import { VideoItem } from '@core/models';
 
 @Component({
   selector: 'app-video-banner',
@@ -13,5 +13,5 @@ import { YtVideoItem } from '@core/models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VideoBannerComponent {
-  @Input() ytVideo: YtVideoItem | null = null;
+  @Input() video: VideoItem | null = null;
 }

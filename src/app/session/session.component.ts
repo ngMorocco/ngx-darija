@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { YtVideoDetail } from '@core/models';
-import { YoutubeDataService } from '@core/services/youtube-data.service';
+import { VideoItem } from '@core/models';
+import { VideoService } from '@core/services/video.service';
 import { EMPTY, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -11,13 +11,13 @@ import { tap } from 'rxjs/operators';
   encapsulation: ViewEncapsulation.None
 })
 export class SessionComponent implements OnInit {
-  videoDetail$: Observable<YtVideoDetail | null> = EMPTY;
+  video$: Observable<VideoItem | null> = EMPTY;
   time = 0;
   errorLoadingYoutubeVideo = false;
 
   constructor(
     private route: ActivatedRoute,
-    private youtubeDataService: YoutubeDataService
+    private videoService: VideoService
   ) {}
 
   ngOnInit(): void {
@@ -25,15 +25,13 @@ export class SessionComponent implements OnInit {
     this.time =
       parseInt(this.route.snapshot.paramMap.get('time') || '0', 10) || 0;
     if (videoId) {
-      this.videoDetail$ = this.youtubeDataService
-        .getYoutubeVideoDetail(videoId)
-        .pipe(
-          tap(video => {
-            if (!video) {
-              this.errorLoadingYoutubeVideo = true;
-            }
-          })
-        );
+      this.video$ = this.videoService.getVideo(videoId).pipe(
+        tap(video => {
+          if (!video) {
+            this.errorLoadingYoutubeVideo = true;
+          }
+        })
+      );
     }
   }
 }

@@ -1,16 +1,16 @@
 <div class="flex flex-col lg:flex-row mb-6">
   <div class="flex-grow">
-    <app-yt-video-player
-      *ngIf="videoDetail"
-      videoId="{{ videoDetail.videoId }}"
+    <app-video-player
+      *ngIf="video"
+      videoId="{{ video.id }}"
       [startSeconds]="time"
-    ></app-yt-video-player>
+    ></app-video-player>
   </div>
   <div class="w-full lg:w-96 lg:pl-6">
     <h3
       class="text-xl mt-6 mb-1 font-medium leading-normal text-gray-800 lg:mt-0"
     >
-      {{ videoDetail?.title }}
+      {{ video?.title }}
     </h3>
     <p class="mb-4 text-gray-500 flex items-center">
       <svg
@@ -25,14 +25,14 @@
           clip-rule="evenodd"
         />
       </svg>
-      <span class="font-medium">{{ videoDetail?.publishedAt | date }}</span>
+      <span class="font-medium">{{ video?.publishedAt | date }}</span>
     </p>
     <app-video-statistics
-      [videoStatistics]="videoDetail?.statistics"
+      [videoStatistics]="video?.statistics"
     ></app-video-statistics>
   </div>
 </div>
 <p
   class="text-xl font-light leading-relaxed mb-6 overflow-hidden overflow-ellipsis"
-  [innerText]="videoDetail?.description"
+  [innerText]="video?.description"
 ></p>

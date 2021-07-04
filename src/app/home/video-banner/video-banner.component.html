@@ -1,18 +1,18 @@
-<div class="flex flex-col lg:flex-row" *ngIf="ytVideo !== null">
+<div class="flex flex-col lg:flex-row" *ngIf="video !== null">
   <div class="flex-grow">
-    <app-yt-video-player videoId="{{ ytVideo.videoId }}"></app-yt-video-player>
+    <app-video-player videoId="{{ video.id }}"></app-video-player>
   </div>
   <div class="w-full lg:w-96 lg:pl-5">
     <h3 class="text-xl my-6 font-medium leading-normal text-gray-800 lg:mt-0">
-      {{ ytVideo.title }}
+      {{ video.title }}
     </h3>
     <p
       class="text-xl font-light leading-relaxed mb-6 max-h-96 overflow-hidden overflow-ellipsis"
-      [innerText]="ytVideo.description"
+      [innerText]="video.description"
     ></p>
   </div>
 </div>
-<div class="flex" *ngIf="ytVideo === null">
+<div class="flex" *ngIf="video === null">
   <img class="object-contain max-w-3xl" src="assets/video-layout.png" />
   <div class="lg:pl-5">
     <h3 class="text-xl font-medium leading-normal text-gray-800">Loading...</h3>

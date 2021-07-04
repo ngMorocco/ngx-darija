@@ -1,12 +1,12 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-yt-video-player',
-  templateUrl: './yt-video-player.component.html',
-  styleUrls: ['./yt-video-player.component.scss'],
+  selector: 'app-video-player',
+  templateUrl: './video-player.component.html',
+  styleUrls: ['./video-player.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class YtVideoPlayerComponent {
+export class VideoPlayerComponent {
   @Input() videoId: string | undefined = undefined;
   @Input() startSeconds = 0;
 

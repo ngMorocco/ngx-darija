@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { YtVideoDetail } from '@core/models';
+import { VideoItem } from '@core/models';
 
 @Component({
   selector: 'app-video-session',
@@ -7,6 +7,6 @@ import { YtVideoDetail } from '@core/models';
   encapsulation: ViewEncapsulation.None
 })
 export class VideoSessionComponent {
-  @Input() videoDetail: YtVideoDetail | null = null;
+  @Input() video: VideoItem | null = null;
   @Input() time = 0;
 }

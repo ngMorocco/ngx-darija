@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { YtVideoItem } from '@core/models';
+import { VideoItem } from '@core/models';
 import { ServerStateService } from '@core/services/server-state.service';
-import { YoutubeDataService } from '@core/services/youtube-data.service';
+import { VideoService } from '@core/services/video.service';
 
 interface HomeVideos {
-  lastVideo: YtVideoItem;
-  videoList: YtVideoItem[];
+  lastVideo: VideoItem;
+  videoList: VideoItem[];
 }
 
 @Component({
@@ -18,10 +18,10 @@ export class HomeComponent {
   ytVideos$: Observable<HomeVideos>;
 
   constructor(
-    private youtubeDataService: YoutubeDataService,
+    private videoService: VideoService,
     private serverStateService: ServerStateService
   ) {
-    this.ytVideos$ = this.youtubeDataService.getAngularInDarijaVideos().pipe(
+    this.ytVideos$ = this.videoService.getPlaylist().pipe(
       map(res => ({ lastVideo: res[res.length - 1], videoList: res })),
       this.serverStateService.hydrate('videos')
     );

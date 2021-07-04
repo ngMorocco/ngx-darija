@@ -4,7 +4,7 @@ import {
   Input,
   ViewEncapsulation
 } from '@angular/core';
-import { YtVideoItem } from '@core/models';
+import { VideoItem } from '@core/models';
 
 @Component({
   selector: 'app-video-item',
@@ -12,6 +12,6 @@ import { YtVideoItem } from '@core/models';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class YtVideoItemComponent {
-  @Input() ytVideo: YtVideoItem | null = null;
+export class VideoItemComponent {
+  @Input() video: VideoItem | null = null;
 }
