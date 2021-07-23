@@ -8,8 +8,4 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 })
 export class YtVideoPlayerComponent {
   @Input() videoId: string | undefined = undefined;
-
-  playerVars: YT.PlayerVars = {
-    rel: YT.RelatedVideos.Hide
-  };
 }
