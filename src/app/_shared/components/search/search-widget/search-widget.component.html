@@ -1,0 +1,11 @@
+<app-search-input
+  [value]="state.query"
+  (query)="onQuery($event)"
+></app-search-input>
+<ng-container *ngIf="(results$ | async)?.hits as hits">
+  <app-search-hits
+    *ngIf="state.query"
+    [hits]="hits"
+    (searchHit)="onSearchHit($event)"
+  ></app-search-hits>
+</ng-container>

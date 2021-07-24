@@ -1,0 +1,112 @@
+.drop-down {
+  z-index: 1;
+  display: inline-block;
+  position: relative;
+}
+
+.drop-down__icon {
+  width: 18px;
+  vertical-align: middle;
+  margin-left: 14px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.drop-down__menu-box {
+  position: absolute;
+  width: 600px;
+  max-height: 400px;
+  overflow-y: hidden;
+  right: 0;
+  background-color: rgb(236, 236, 236);
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 5px;
+}
+
+.drop-down__menu {
+  margin: 0;
+  padding: 0 13px;
+  list-style: none;
+}
+.drop-down__menu-box:before {
+  content: '';
+  background-color: transparent;
+  border-right: 8px solid transparent;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid rgb(236, 236, 236);
+  border-top: 8px solid transparent;
+  top: -15px;
+  right: 18px;
+}
+
+.drop-down__menu-box:after {
+  content: '';
+  background-color: transparent;
+}
+
+.drop-down__item {
+  font-size: 13px;
+  padding: 13px 0;
+  text-align: left;
+  font-weight: 500;
+  color: #909dc2;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid #e0e2e9;
+}
+
+.drop-down__item-icon {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 0px;
+  fill: #8995b6;
+}
+
+.drop-down__item:hover .drop-down__item-icon {
+  fill: #f59d58;
+}
+
+.drop-down__item:hover {
+  color: #f59d58;
+}
+
+.drop-down__item:last-of-type {
+  border-bottom: 0;
+}
+
+.drop-down--active .drop-down__menu-box {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 15px;
+}
+
+.drop-down__item:before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 28px;
+  background-color: #f59d58;
+  left: -13px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.drop-down__item:hover:before {
+  display: block;
+}

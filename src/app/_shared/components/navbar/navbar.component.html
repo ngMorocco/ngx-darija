@@ -1,20 +1,27 @@
-<header class="relative bg-white overflow-hidden">
+<header class="relative bg-white">
   <div class="max-w-7xl mx-auto z-10 py-3 lg:py-5 px-4 sm:px-6 lg:px-8">
     <nav
-      class="relative flex items-center justify-between sm:h-10 lg:justify-start"
       aria-label="Global"
+      class="relative flex items-center justify-between sm:h-10 lg:justify-between"
     >
-      <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-        <a routerLink="/">
-          <img class="h-10 w-auto" src="assets/logo-small.png" />
-        </a>
+      <div
+        class="relative flex items-center justify-between sm:h-10 lg:justify-start"
+      >
+        <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+          <a routerLink="/">
+            <img class="h-10 w-auto" src="assets/logo-small.png" />
+          </a>
+        </div>
+        <div
+          class="font-medium text-gray-500 md:block md:ml-10 md:pr-4 md:space-x-8"
+        >
+          Angular in darija
+        </div>
       </div>
+
       <div
         class="font-medium text-gray-500 md:block md:ml-10 md:pr-4 md:space-x-8"
       >
-        Angular in darija
-      </div>
-      <div>
         <app-search></app-search>
       </div>
     </nav>

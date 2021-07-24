@@ -7,19 +7,5 @@
     }"
   >
   </ais-configure>
-  <ais-search-box placeholder="Episode, topic"> </ais-search-box>
-  <div [style]="{ backgroundColor: 'red' }">
-    <h1>These are the results</h1>
-    <ais-stats>
-      <ng-template let-state="state">
-        <strong>{{ state.nbHits | number }}</strong> results
-      </ng-template>
-    </ais-stats>
-  </div>
-
-<div class="ais-InstantSearch">
-  <h1>Angular InstantSearch e-commerce demo</h1>
-  <div class="ais-InstantSearch">
-    <h1>Angular InstantSearch e-commerce demo</h1>
-  </div>
-</div>
+  <app-search-widget (searchHit)="onSearchHit($event)"></app-search-widget>
+</ais-instantsearch>

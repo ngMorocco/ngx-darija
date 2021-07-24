@@ -5,7 +5,6 @@ import {
   BrowserTransferStateModule
 } from '@angular/platform-browser';
 import { ErrorModule, FooterModule, NavbarModule } from '@shared/components';
-import { NgAisModule } from 'angular-instantsearch';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 @NgModule({
@@ -17,8 +16,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     FooterModule,
     NavbarModule,
-    ErrorModule,
-    NgAisModule.forRoot()
+    ErrorModule
   ],
   bootstrap: [AppComponent]
 })

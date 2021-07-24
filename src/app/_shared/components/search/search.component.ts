@@ -1,12 +1,14 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
+  Inject,
+  PLATFORM_ID,
   ViewEncapsulation
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-import { debounceTime, startWith, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import algoliasearch from 'algoliasearch/lite';
+import { SearchHit } from './search-widget/search-widget.component';
 
 @Component({
   selector: 'app-search',
@@ -14,17 +16,24 @@ import { debounceTime, startWith, switchMap } from 'rxjs/operators';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchComponent implements OnInit {
-  searchControl = new FormControl();
-  data$: Observable<string[]>;
+export class SearchComponent {
+  count = 0;
+  config: any = {
+    searchClient: algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76'),
+    indexName: 'instant_search',
+    routing: true
+  };
+  public isBrowser = isPlatformBrowser(this.platformId);
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
+    private router: Router
+  ) {}
 
-  constructor() {
-    this.data$ = this.searchControl.valueChanges.pipe(
-      debounceTime(500),
-      switchMap(() => of(['Episode 1', 'Episode 2', 'Episode 3'])),
-      startWith([])
-    );
+  onSearchHit(hit: SearchHit) {
+    this.router.navigate([
+      '/sessions/rT0FUs7uUks',
+      this.count++ * 200,
+      this.count * 300
+    ]);
   }
-
-  ngOnInit(): void {}
 }
