@@ -10,8 +10,4 @@ export class VideoPlayerComponent {
   @Input() videoId: string | undefined = undefined;
   @Input() startSeconds = 0;
   @Input() endSeconds = 0;
-
-  playerVars: YT.PlayerVars = {
-    rel: YT.RelatedVideos.Hide
-  };
 }

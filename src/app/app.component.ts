@@ -1,13 +1,12 @@
 import { Component, AfterViewInit } from '@angular/core';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearchConfig } from 'angular-instantsearch/instantsearch/instantsearch';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent implements AfterViewInit {
-  config: InstantSearchConfig = {
+  config: any = {
     searchClient: algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76'),
     indexName: 'instant_search',
     routing: true

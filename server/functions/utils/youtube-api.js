@@ -13,7 +13,7 @@ const getPlaylist = async playlistId => {
   ).json();
 };
 
-const getVideos = async videoId => {
+const getVideo = async videoId => {
   return await (
     await fetch(
       `${apiBase(
@@ -25,5 +25,5 @@ const getVideos = async videoId => {
 
 module.exports = {
   getPlaylist,
-  getVideos
+  getVideo
 };

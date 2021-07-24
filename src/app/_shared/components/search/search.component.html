@@ -1,14 +1,21 @@
-<input
-  [formControl]="searchControl"
-  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-  id="search"
-  type="text"
-  placeholder="Search: ngModel, directives, Observable"
-/>
-
-<div>
-  {{ data$ | async | json }}
-</div>
+<ais-instantsearch *ngIf="isBrowser" [config]="config">
+  <ais-configure
+    [searchParameters]="{
+      attributesToSnippet: ['description:10'],
+      snippetEllipsisText: '…',
+      removeWordsIfNoResults: 'allOptional'
+    }"
+  >
+  </ais-configure>
+  <ais-search-box placeholder="Episode, topic"> </ais-search-box>
+  <div [style]="{ backgroundColor: 'red' }">
+    <h1>These are the results</h1>
+    <ais-stats>
+      <ng-template let-state="state">
+        <strong>{{ state.nbHits | number }}</strong> results
+      </ng-template>
+    </ais-stats>
+  </div>
 
 <div class="ais-InstantSearch">
   <h1>Angular InstantSearch e-commerce demo</h1>
