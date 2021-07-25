@@ -3,9 +3,13 @@
     <app-video-player videoId="{{ video.id }}"></app-video-player>
   </div>
   <div class="w-full lg:w-96 lg:pl-5">
-    <h3 class="text-xl my-6 font-medium leading-normal text-gray-800 lg:mt-0">
-      {{ video.title }}
-    </h3>
+    <a [routerLink]="['/sessions', video.id]">
+      <h3
+        class="text-xl my-6 font-medium leading-normal text-gray-800 hover:text-red-600 lg:mt-0"
+      >
+        {{ video.title }}
+      </h3>
+    </a>
     <p
       class="text-xl font-light leading-relaxed mb-6 max-h-96 overflow-hidden overflow-ellipsis"
       [innerText]="video.description"
