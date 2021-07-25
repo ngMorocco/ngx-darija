@@ -1,13 +1,10 @@
 import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
   ChangeDetectionStrategy,
-  Input,
-  EventEmitter,
-  Output,
+  Component,
   ContentChild,
-  TemplateRef
+  Input,
+  TemplateRef,
+  ViewEncapsulation
 } from '@angular/core';
 
 @Component({
@@ -19,11 +16,7 @@ import {
 })
 export class SearchHitsComponent {
   @Input() hits: any[] = [];
-  @Output() searchHit = new EventEmitter<any>();
+  @Input() display = false;
   // @ts-ignore
   @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
-
-  onSearchHit(hit: any) {
-    this.searchHit.emit(hit);
-  }
 }

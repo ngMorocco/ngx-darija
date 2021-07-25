@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { BaseWidget, NgAisInstantSearch } from 'angular-instantsearch';
 import { connectSearchBox } from 'instantsearch.js/es/connectors';
-import { EMPTY, map, Observable } from 'rxjs';
+import { EMPTY, map, Observable, tap } from 'rxjs';
 
 export interface SearchHit {
   route: string;
@@ -29,6 +29,7 @@ export class SearchWidgetComponent
   @Output() searchHit = new EventEmitter<SearchHit>();
   parentIndex: any;
   results$: Observable<any> = EMPTY;
+  query = '';
   state: {
     query: string;
     refine: (value: string) => void;
@@ -44,6 +45,9 @@ export class SearchWidgetComponent
   ngOnInit() {
     super.ngOnInit();
     this.results$ = this.instantSearchInstance.change.pipe(
+      tap(() => {
+        this.query = this.state.query;
+      }),
       map(({ results }) => results)
     );
   }
@@ -54,5 +58,6 @@ export class SearchWidgetComponent
 
   onSearchHit(hit: any) {
     this.searchHit.emit({ route: hit.url });
+    this.query = '';
   }
 }

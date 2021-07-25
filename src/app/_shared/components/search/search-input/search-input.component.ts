@@ -36,7 +36,7 @@ export class SearchInputComponent implements OnChanges, OnInit, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges) {
     const { value } = changes;
-    if (value && value.currentValue) {
+    if (value) {
       this.searchCtrl.setValue(value.currentValue);
     }
   }

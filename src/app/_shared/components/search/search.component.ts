@@ -30,6 +30,7 @@ export class SearchComponent {
   ) {}
 
   onSearchHit(hit: SearchHit) {
+    console.log(hit);
     this.router.navigate([
       '/sessions/rT0FUs7uUks',
       this.count++ * 200,

@@ -1,4 +1,4 @@
-<div class="drop-down drop-down--active">
+<div class="drop-down" [ngClass]="{ 'drop-down--active': display }">
   <div class="drop-down__menu-box">
     <ul class="drop-down__menu">
       <li class="drop-down__item" *ngFor="let hit of hits">

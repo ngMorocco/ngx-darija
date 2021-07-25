@@ -1,16 +1,16 @@
 <app-search-input
   [debounce]="400"
-  [value]="state.query"
+  [value]="query"
   (query)="onQuery($event)"
 ></app-search-input>
 <ng-container *ngIf="(results$ | async)?.hits as hits">
-  <app-search-hits
-    *ngIf="state.query"
-    [hits]="hits"
-    (searchHit)="onSearchHit($event)"
-  >
+  <app-search-hits *ngIf="state.query" [display]="!!query" [hits]="hits">
     <ng-template let-hit>
-      <ais-highlight attribute="name" [hit]="hit"></ais-highlight>
+      <ais-highlight
+        (click)="onSearchHit(hit)"
+        attribute="name"
+        [hit]="hit"
+      ></ais-highlight>
     </ng-template>
   </app-search-hits>
 </ng-container>
