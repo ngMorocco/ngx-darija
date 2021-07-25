@@ -1,4 +1,5 @@
 <app-search-input
+  [debounce]="400"
   [value]="state.query"
   (query)="onQuery($event)"
 ></app-search-input>
@@ -7,5 +8,9 @@
     *ngIf="state.query"
     [hits]="hits"
     (searchHit)="onSearchHit($event)"
-  ></app-search-hits>
+  >
+    <ng-template let-hit>
+      <ais-highlight attribute="name" [hit]="hit"></ais-highlight>
+    </ng-template>
+  </app-search-hits>
 </ng-container>

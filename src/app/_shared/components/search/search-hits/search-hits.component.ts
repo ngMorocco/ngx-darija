@@ -5,7 +5,9 @@ import {
   ChangeDetectionStrategy,
   Input,
   EventEmitter,
-  Output
+  Output,
+  ContentChild,
+  TemplateRef
 } from '@angular/core';
 
 @Component({
@@ -15,15 +17,11 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchHitsComponent implements OnInit {
+export class SearchHitsComponent {
   @Input() hits: any[] = [];
   @Output() searchHit = new EventEmitter<any>();
-
-  show = true;
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  // @ts-ignore
+  @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
 
   onSearchHit(hit: any) {
     this.searchHit.emit(hit);

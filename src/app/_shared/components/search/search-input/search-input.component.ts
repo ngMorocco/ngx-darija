@@ -21,14 +21,15 @@ import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 })
 export class SearchInputComponent implements OnChanges, OnInit, OnDestroy {
   @Input() value = '';
+  @Input() debounce = 500;
   @Output() query = new EventEmitter<string>();
+
   subscription: Subscription = new Subscription();
   searchCtrl: FormControl = new FormControl(this.value);
   ngOnInit() {
-    console.log(this.value);
     this.subscription.add(
       this.searchCtrl.valueChanges
-        .pipe(debounceTime(500), distinctUntilChanged())
+        .pipe(debounceTime(this.debounce), distinctUntilChanged())
         .subscribe((query: string) => this.query.emit(query))
     );
   }

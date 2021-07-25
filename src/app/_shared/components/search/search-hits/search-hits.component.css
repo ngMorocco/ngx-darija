@@ -1,3 +1,7 @@
+.ais-Highlight-highlighted {
+  color: rgba(220, 38, 38, var(--tw-text-opacity));
+}
+
 .drop-down {
   z-index: 1;
   display: inline-block;

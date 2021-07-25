@@ -1,20 +1,14 @@
-<!-- <ul>
-  <li *ngFor="let hit of hits" (click)="onSearchHit(hit)">
-    <ais-highlight attribute="name" [hit]="hit"></ais-highlight>
-    {{ hit.name }}
-  </li>
-</ul> -->
-
 <div class="drop-down drop-down--active">
   <div class="drop-down__menu-box">
     <ul class="drop-down__menu">
-      <li
-        class="drop-down__item"
-        *ngFor="let hit of hits"
-        (click)="onSearchHit(hit)"
-      >
-        <ais-highlight attribute="name" [hit]="hit"></ais-highlight>
-        {{ hit.name }}
+      <li class="drop-down__item" *ngFor="let hit of hits">
+        <a
+          class="text-lg mt-4 lg:mt-0 font-medium leading-normal text-gray-700 hover:text-red-600"
+        >
+          <ng-container
+            *ngTemplateOutlet="itemTemplate; context: { $implicit: hit }"
+          ></ng-container>
+        </a>
       </li>
     </ul>
   </div>
