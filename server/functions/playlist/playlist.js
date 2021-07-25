@@ -1,4 +1,4 @@
-const { getPlaylist } = require('../utils/youtube-api');
+const { getPlaylist } = require('../../utils/youtube-api');
 
 exports.handler = async () => {
   try {

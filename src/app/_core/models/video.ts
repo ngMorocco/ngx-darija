@@ -5,6 +5,11 @@ export interface VideoItem {
   thumbnailUrl: string;
   publishedAt: string;
   statistics?: VideoStats;
+  meta?: {
+    title: string;
+    description: string;
+    tags: string[];
+  };
 }
 
 export interface VideoStats {

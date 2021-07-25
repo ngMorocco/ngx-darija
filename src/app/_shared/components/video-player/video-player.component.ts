@@ -18,9 +18,9 @@ export class VideoPlayerComponent implements OnChanges {
   @Input() videoId: string | undefined = undefined;
   @Input() startSeconds = 0;
   @Input() endSeconds = 0;
-
   // @ts-ignore
   @ViewChild(YouTubePlayer) player: YouTubePlayer;
+  playerVars: YT.PlayerVars = { autoplay: 1, rel: 0 };
 
   ngOnChanges(changes: SimpleChanges) {
     const { startSeconds } = changes;

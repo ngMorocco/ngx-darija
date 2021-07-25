@@ -6,9 +6,13 @@
 <ng-container *ngIf="(results$ | async)?.hits as hits">
   <app-search-hits *ngIf="state.query" [display]="!!query" [hits]="hits">
     <ng-template let-hit>
+      {{ hit.session.category }}
+      -
+      {{ hit.session.title }}
+      -
       <ais-highlight
         (click)="onSearchHit(hit)"
-        attribute="name"
+        attribute="title"
         [hit]="hit"
       ></ais-highlight>
     </ng-template>

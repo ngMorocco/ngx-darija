@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import algoliasearch from 'algoliasearch/lite';
+import { timeToSeconds } from '@helpers/time';
 import { SearchHit } from './search-widget/search-widget.component';
 
 @Component({
@@ -19,8 +20,11 @@ import { SearchHit } from './search-widget/search-widget.component';
 export class SearchComponent {
   count = 0;
   config: any = {
-    searchClient: algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76'),
-    indexName: 'instant_search',
+    searchClient: algoliasearch(
+      'GSQOLW7GQF',
+      '264f94ff8f90757b95530f094904563e'
+    ),
+    indexName: 'ngx-darija',
     routing: false
   };
   public isBrowser = isPlatformBrowser(this.platformId);
@@ -30,11 +34,10 @@ export class SearchComponent {
   ) {}
 
   onSearchHit(hit: SearchHit) {
-    console.log(hit);
-    this.router.navigate(['/sessions/rT0FUs7uUks'], {
+    this.router.navigate([`/sessions/${hit.session.videoId}`], {
       queryParams: {
-        start: this.count++ * 200,
-        end: this.count * 300
+        start: timeToSeconds(hit.start),
+        end: timeToSeconds(hit.end)
       }
     });
   }

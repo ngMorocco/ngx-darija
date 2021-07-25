@@ -32,7 +32,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets", "src/_redirects"],
             "styles": ["src/styles.scss"],
-            "scripts": [],
+            "scripts": ["node_modules/marked/lib/marked.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,

@@ -1,4 +1,4 @@
-const { getVideo } = require('../utils/youtube-api');
+const { getVideo } = require('../../utils/youtube-api');
 
 const { readJsonSync } = require('fs-extra');
 const path = require('path');
@@ -15,14 +15,20 @@ const getCaseSensitiveVideoId = videoId => {
   }
 };
 
-const getVideMetadata = videoId => {
+const getVideoMetadata = videoId => {
+  const fs = require('fs');
+  const fm = require('front-matter');
+  const fg = require('fast-glob');
+
   try {
-    const file = path.resolve(
-      `${__dirname}../../../data/episodes/${videoId}.json`
-    );
-    return readJsonSync(file);
-  } catch {
-    return { snippet: {} };
+    const [file] = fg.sync([
+      `server/functions/videos/sessions/*-${videoId}/index.md`
+    ]);
+    const data = fs.readFileSync(file, 'utf8');
+    return fm(data);
+  } catch (e) {
+    console.log(e);
+    return {};
   }
 };
 
@@ -33,11 +39,10 @@ exports.handler = async context => {
     const {
       items: [data]
     } = await getVideo(videoId);
-    // const { snippet } = getVideMetadata(videoId);
-    // const response = { ...data, snippet: { ...data.snippet, ...snippet } };
+    const meta = getVideoMetadata(videoId);
     return {
       statusCode: 200,
-      body: JSON.stringify(data)
+      body: JSON.stringify({ ...data, meta: { description: meta.body } })
     };
   } catch (e) {
     return {

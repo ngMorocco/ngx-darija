@@ -5,10 +5,14 @@ import { catchError, map } from 'rxjs/operators';
 import {
   PlaylistItem,
   PlaylistItemListResponse,
-  Video,
+  Video as YTVideo,
   VideoItem
 } from '../models';
 import { BaseUrlService } from './base-url.service';
+
+type Video = YTVideo & {
+  meta: any;
+};
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +35,7 @@ export class VideoService {
 
   getPlaylist(): Observable<VideoItem[]> {
     return this.http
-      .get<PlaylistItemListResponse>(
-        `${this.baseUrlService.get()}/.netlify/functions/playlist`
-      )
+      .get<PlaylistItemListResponse>(`${this.baseUrlService.get()}/playlist`)
       .pipe(
         map(
           ({ items }) =>
@@ -51,15 +53,14 @@ export class VideoService {
 
   getVideo(videoId: string): Observable<VideoItem | null> {
     return this.http
-      .get<Video>(
-        `${this.baseUrlService.get()}/.netlify/functions/videos/${videoId}`
-      )
+      .get<Video>(`${this.baseUrlService.get()}/videos/${videoId}`)
       .pipe(
         map(
           item =>
             ({
               ...this.buildItem(item),
               id: item.id,
+              meta: item.meta,
               statistics: {
                 viewCount: item?.statistics?.viewCount,
                 commentCount: item?.statistics?.commentCount,

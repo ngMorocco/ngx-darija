@@ -23,7 +23,8 @@
     "lib": ["es2018", "dom"],
     "paths": {
       "@core/*": ["src/app/_core/*"],
-      "@shared/*": ["src/app/_shared/*"]
+      "@shared/*": ["src/app/_shared/*"],
+      "@helpers/*": ["src/app/_helpers/*"]
     }
   },
   "angularCompilerOptions": {
