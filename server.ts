@@ -12,7 +12,7 @@ import { existsSync } from 'fs';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
-  const server = express();
+  const server = express.default();
   const distFolder = join(process.cwd(), 'dist/ngx-darija/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? 'index.original.html'
@@ -40,7 +40,7 @@ export function app(): express.Express {
   );
 
   // All regular routes use the Universal engine
-  server.get('*', (req, res) => {
+  server.get('*', (req: any, res: any) => {
     res.render(indexHtml, {
       req,
       providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }]
