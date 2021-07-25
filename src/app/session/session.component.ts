@@ -45,11 +45,9 @@ export class SessionComponent implements OnInit, OnDestroy {
     );
 
     this.subscription.add(
-      this.route.paramMap.subscribe((paramMap: ParamMap) => {
-        this.startSeconds =
-          parseInt(paramMap.get('startSeconds') || '0', 10) || 0;
-        this.endSeconds = parseInt(paramMap.get('endSeconds') || '0', 10) || 0;
-        console.log(this.startSeconds, this.endSeconds);
+      this.route.queryParamMap.subscribe((paramMap: ParamMap) => {
+        this.startSeconds = parseInt(paramMap.get('start') || '0', 10) || 0;
+        this.endSeconds = parseInt(paramMap.get('end') || '0', 10) || 0;
       })
     );
   }

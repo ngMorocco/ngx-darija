@@ -21,7 +21,7 @@ export class SearchComponent {
   config: any = {
     searchClient: algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76'),
     indexName: 'instant_search',
-    routing: true
+    routing: false
   };
   public isBrowser = isPlatformBrowser(this.platformId);
   constructor(
@@ -31,10 +31,11 @@ export class SearchComponent {
 
   onSearchHit(hit: SearchHit) {
     console.log(hit);
-    this.router.navigate([
-      '/sessions/rT0FUs7uUks',
-      this.count++ * 200,
-      this.count * 300
-    ]);
+    this.router.navigate(['/sessions/rT0FUs7uUks'], {
+      queryParams: {
+        start: this.count++ * 200,
+        end: this.count * 300
+      }
+    });
   }
 }
