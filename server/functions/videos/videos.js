@@ -1,31 +1,14 @@
-const { getVideo } = require('../../utils/youtube-api');
+const DB_FILE = __dirname + '/generated/db.json';
 
+const { getVideo } = require('../../lib/youtube-api');
 const { readJsonSync } = require('fs-extra');
-const path = require('path');
 
-const getCaseSensitiveVideoId = videoId => {
+const getVideoContent = videoId => {
   try {
-    const pathToMapping = path.resolve(
-      __dirname + '/case-sensitive-video-id-mapping.json'
+    const db = readJsonSync(DB_FILE);
+    return db.find(
+      video => video.videoId.toLowerCase() === videoId.toLowerCase()
     );
-    const mapping = readJsonSync(pathToMapping);
-    return mapping[videoId] ? mapping[videoId] : videoId;
-  } catch {
-    return videoId;
-  }
-};
-
-const getVideoMetadata = videoId => {
-  const fs = require('fs');
-  const fm = require('front-matter');
-  const fg = require('fast-glob');
-
-  try {
-    const [file] = fg.sync([
-      `server/functions/videos/sessions/*-${videoId}/index.md`
-    ]);
-    const data = fs.readFileSync(file, 'utf8');
-    return fm(data);
   } catch (e) {
     console.log(e);
     return {};
@@ -34,17 +17,21 @@ const getVideoMetadata = videoId => {
 
 exports.handler = async context => {
   try {
-    let videoId = context.path.split('/').pop();
-    videoId = getCaseSensitiveVideoId(videoId);
+    const { videoId, metadata } = getVideoContent(
+      context.path.split('/').pop()
+    );
     const {
       items: [data]
     } = await getVideo(videoId);
-    const meta = getVideoMetadata(videoId);
     return {
       statusCode: 200,
-      body: JSON.stringify({ ...data, meta: { description: meta.body } })
+      body: JSON.stringify({
+        ...data,
+        meta: metadata
+      })
     };
   } catch (e) {
+    console.log(e);
     return {
       statusCode: 500,
       body: 'Error while getting data from YT'

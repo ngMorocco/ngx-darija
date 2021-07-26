@@ -1,8 +1,9 @@
-const { getPlaylist } = require('../../utils/youtube-api');
+const { getPlaylist } = require('../../lib/youtube-api');
+const YOUTUBE_PLAYLIST_ID = process.env.YOUTUBE_PLAYLIST_ID;
 
 exports.handler = async () => {
   try {
-    const data = await getPlaylist('PLTCFcpZfnDoJxDofsnsNvvV_5djpEl4Bs');
+    const data = await getPlaylist(YOUTUBE_PLAYLIST_ID);
     return {
       statusCode: 200,
       body: JSON.stringify(data)
