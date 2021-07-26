@@ -6,8 +6,10 @@ const { readJsonSync } = require('fs-extra');
 const getVideoContent = videoId => {
   try {
     const db = readJsonSync(DB_FILE);
-    return db.find(
-      video => video.videoId.toLowerCase() === videoId.toLowerCase()
+    return (
+      db.find(
+        video => video.videoId.toLowerCase() === videoId.toLowerCase()
+      ) || { videoId }
     );
   } catch (e) {
     console.log(e);

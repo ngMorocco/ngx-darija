@@ -19,9 +19,9 @@ module.exports = cwd => videoId => {
       const fmData = fm(video);
       return { ...fmData.attributes, description: fmData.body, chapters };
     }
-    return {};
+    return undefined;
   } catch (e) {
     console.log(e);
-    return {};
+    return undefined;
   }
 };

@@ -1,4 +1,4 @@
 [build]
-command = "NODE_ENV=production npm run prerender:ci"
+command = "NODE_ENV=production npm run ssg"
 functions = "./server/functions"
 publish = "dist/ngx-darija/browser"
