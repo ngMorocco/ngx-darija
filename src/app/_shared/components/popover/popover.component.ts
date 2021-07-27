@@ -8,14 +8,13 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-search-hits',
-  templateUrl: './search-hits.component.html',
-  styleUrls: ['./search-hits.component.css'],
+  selector: 'app-popover',
+  templateUrl: './popover.component.html',
+  styleUrls: ['./popover.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchHitsComponent {
-  @Input() hits: any[] = [];
+export class PopoverComponent {
   @Input() display = false;
   // @ts-ignore
   @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;

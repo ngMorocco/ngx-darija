@@ -1,20 +1,37 @@
-<app-search-input
+<app-input
   [debounce]="400"
   [value]="query"
   (query)="onQuery($event)"
-></app-search-input>
-<ng-container *ngIf="(results$ | async)?.hits as hits">
-  <app-search-hits *ngIf="state.query" [display]="!!query" [hits]="hits">
-    <ng-template let-hit>
-      <ais-highlight attribute="session.category" [hit]="hit"></ais-highlight>
-      -
-      <ais-highlight attribute="session.title" [hit]="hit"></ais-highlight>
-      -
-      <ais-highlight
-        (click)="onSearchHit(hit)"
-        attribute="title"
-        [hit]="hit"
-      ></ais-highlight>
+></app-input>
+<ng-container *ngIf="results$ | async as hits">
+  <app-popover *ngIf="state.query" [display]="!!query">
+    <ng-template>
+      <div class="hit" *ngFor="let hit of hits">
+        <a
+          class="
+            text-lg
+            mt-4
+            lg:mt-0
+            font-medium
+            leading-normal
+            text-gray-700
+            hover:text-red-600
+          "
+        >
+          <ais-highlight
+            attribute="session.category"
+            [hit]="hit"
+          ></ais-highlight>
+          -
+          <ais-highlight attribute="session.title" [hit]="hit"></ais-highlight>
+          -
+          <ais-highlight
+            (click)="onSearchHit(hit)"
+            attribute="title"
+            [hit]="hit"
+          ></ais-highlight>
+        </a>
+      </div>
     </ng-template>
-  </app-search-hits>
+  </app-popover>
 </ng-container>

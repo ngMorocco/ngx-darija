@@ -7,8 +7,9 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { Router } from '@angular/router';
-import algoliasearch from 'algoliasearch/lite';
 import { timeToSeconds } from '@helpers/time';
+import algoliasearch from 'algoliasearch/lite';
+
 import { SearchHit } from './search-widget/search-widget.component';
 
 @Component({

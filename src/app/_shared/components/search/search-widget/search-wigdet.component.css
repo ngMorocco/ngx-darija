@@ -1,0 +1,44 @@
+/* Credits: @piyushpd codepen https://codepen.io/piyushpd/pen/JjNNOGQ */
+
+.ais-Highlight-highlighted {
+  color: rgba(220, 38, 38, var(--tw-text-opacity));
+}
+
+.hit {
+  font-size: 13px;
+  padding: 13px 0;
+  text-align: left;
+  font-weight: 500;
+  color: #909dc2;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid #e0e2e9;
+}
+
+.hit:hover .hit-icon {
+  fill: #f59d58;
+}
+
+.hit:hover {
+  color: #f59d58;
+}
+
+.hit:last-of-type {
+  border-bottom: 0;
+}
+
+.hit:before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 28px;
+  background-color: #f59d58;
+  left: -13px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.hit:hover:before {
+  display: block;
+}

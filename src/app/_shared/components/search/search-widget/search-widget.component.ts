@@ -33,6 +33,7 @@ export interface SearchHit {
 @Component({
   selector: 'app-search-widget',
   templateUrl: './search-widget.component.html',
+  styleUrls: ['./search-wigdet.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -59,10 +60,11 @@ export class SearchWidgetComponent
   ngOnInit() {
     super.ngOnInit();
     this.results$ = this.instantSearchInstance.change.pipe(
-      tap(() => {
+      tap(({ results }) => {
         this.query = this.state.query;
+        console.log({ results });
       }),
-      map(({ results }) => results)
+      map(({ results }: { results: any }) => results?.hits)
     );
   }
 
