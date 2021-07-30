@@ -1,10 +1,10 @@
 const YOUTUBE_PLAYLIST_ID = process.env.YOUTUBE_PLAYLIST_ID;
-const VIDEOS_DIR = __dirname + '/../content/videos';
-const GENERATED_DIR = __dirname + '/../content/generated';
+const VIDEOS_DIR = __dirname + '/../../content/videos';
+const GENERATED_DIR = __dirname + '/../../content/generated';
 const DB_DIR = __dirname + '/../functions/videos/generated';
 
 const path = require('path');
-const { mkdirpSync, writeJsonSync, writeFileSync } = require('fs-extra');
+const { mkdirpSync, writeJson, writeFile } = require('fs-extra');
 
 const { getPlaylist, getVideo } = require('../lib/youtube-api');
 const getVideoMetadata = require('../lib/video-metadata')(VIDEOS_DIR);
@@ -27,11 +27,19 @@ const indexSearch = require('../lib/index-db');
     (routes, videoId) => (routes += `/sessions/${videoId}\n`),
     ''
   );
+
   mkdirpSync(GENERATED_DIR);
-  writeFileSync(path.resolve(GENERATED_DIR, 'routes.txt'), routes);
+  writeFile(path.resolve(GENERATED_DIR, 'routes.txt'), routes, db, err => {
+    if (err) return console.error(err);
+    console.log('Preparing routes ✅');
+  });
 
   mkdirpSync(DB_DIR);
-  writeJsonSync(path.resolve(DB_DIR, 'db.json'), db);
+  writeJson(path.resolve(DB_DIR, 'db.json'), db, err => {
+    if (err) return console.error(err);
+    console.log('Preparing database ✅');
+  });
 
   indexSearch(db);
+  console.log('Indexing database ✅');
 })();
