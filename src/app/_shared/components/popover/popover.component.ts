@@ -15,7 +15,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PopoverComponent {
-  @Input() display = false;
   // @ts-ignore
   @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
 }

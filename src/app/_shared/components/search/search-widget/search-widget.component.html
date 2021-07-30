@@ -1,10 +1,10 @@
 <app-input
   [debounce]="400"
-  [value]="query"
+  [value]="state.query"
   (query)="onQuery($event)"
 ></app-input>
 <ng-container *ngIf="results$ | async as hits">
-  <app-popover *ngIf="state.query" [display]="!!query">
+  <app-popover *ngIf="!!state.query">
     <ng-template>
       <div class="hit" *ngFor="let hit of hits">
         <a
