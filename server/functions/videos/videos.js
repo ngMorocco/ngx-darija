@@ -11,9 +11,12 @@ const getVideoContent = videoId => {
         video => video.videoId.toLowerCase() === videoId.toLowerCase()
       ) || { videoId }
     );
-  } catch (e) {
-    console.log(e);
-    return {};
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      console.log('File db.json not found, not metadata!');
+      return { videoId };
+    }
+    throw err;
   }
 };
 
@@ -22,6 +25,7 @@ exports.handler = async context => {
     const { videoId, metadata } = getVideoContent(
       context.path.split('/').pop()
     );
+    console.log(videoId);
     const {
       items: [data]
     } = await getVideo(videoId);
