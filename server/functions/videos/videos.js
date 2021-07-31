@@ -25,13 +25,18 @@ exports.handler = async context => {
     const {
       items: [data]
     } = await getVideo(videoId);
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        ...data,
-        meta: metadata
-      })
-    };
+    return data
+      ? {
+          statusCode: 200,
+          body: JSON.stringify({
+            ...data,
+            meta: metadata
+          })
+        }
+      : {
+          statusCode: 404,
+          body: 'Video not found'
+        };
   } catch (e) {
     console.log(e);
     return {

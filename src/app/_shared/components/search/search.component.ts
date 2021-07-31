@@ -18,7 +18,6 @@ import { SearchHit } from './search-widget/search-widget.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent {
-  count = 0;
   config: any = {
     searchClient: algoliasearch(
       'GSQOLW7GQF',
