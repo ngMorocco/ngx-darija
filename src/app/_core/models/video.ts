@@ -9,6 +9,8 @@ export interface VideoItem {
     title: string;
     description: string;
     tags: string[];
+    videoFile?: string;
+    chaptersFile?: string;
   };
 }
 

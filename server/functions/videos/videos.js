@@ -25,7 +25,6 @@ exports.handler = async context => {
     const { videoId, metadata } = getVideoContent(
       context.path.split('/').pop()
     );
-    console.log(videoId);
     const {
       items: [data]
     } = await getVideo(videoId);

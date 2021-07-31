@@ -43,8 +43,31 @@
   "
   *ngIf="video?.meta?.description; else ytDescription"
 >
+  <a
+    *ngIf="video?.meta?.videoFile"
+    [attr.href]="
+      'https://github.com/ngMorocco/ngx-darija/edit/feat/algolia-search/content/videos/' +
+      video?.meta?.videoFile
+    "
+    target="_blank"
+    >Edit</a
+  >
   <markdown [data]="video?.meta?.description"> </markdown>
 </div>
+
+<h2>
+  Chapters
+  <a
+    *ngIf="video?.meta?.videoFile"
+    [attr.href]="
+      'https://github.com/ngMorocco/ngx-darija/edit/feat/algolia-search/content/videos/' +
+      video?.meta?.chaptersFile
+    "
+    target="_blank"
+    >Edit</a
+  >
+</h2>
+
 <ng-template #ytDescription>
   <p
     class="

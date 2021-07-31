@@ -17,7 +17,13 @@ module.exports = cwd => videoId => {
       const video = fs.readFileSync(path.resolve(cwd, videoFile), 'utf8');
       const chapters = readJsonSync(path.resolve(cwd, chaptersFile), 'utf8');
       const fmData = fm(video);
-      return { ...fmData.attributes, description: fmData.body, chapters };
+      return {
+        ...fmData.attributes,
+        description: fmData.body,
+        chapters,
+        videoFile,
+        chaptersFile
+      };
     }
     return undefined;
   } catch (e) {
