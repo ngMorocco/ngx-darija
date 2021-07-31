@@ -9,7 +9,6 @@ import {
 import { Router } from '@angular/router';
 import { timeToSeconds } from '@helpers/time';
 import algoliasearch from 'algoliasearch/lite';
-
 import { SearchHit } from './search-widget/search-widget.component';
 
 @Component({

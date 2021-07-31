@@ -36,11 +36,11 @@ You can [link your site to this project](https://docs.netlify.com/cli/get-starte
 
 ### Shell
 
-- `GOOGLE_API_KEY=AIzaSyB_xxxxxxxx NODE_ENV=production npm run prerender:ci`
+- `NODE_ENV=production npm run site:dev`
 
 ### PowerShell
 
-- `$env:GOOGLE_API_KEY="AIzaSyB_xxxxxxxx"; $env:NODE_ENV="production"; npm run prerender:ci`
+- `$env:NODE_ENV="production"; npm run site:dev`
 
 # Preview
 
