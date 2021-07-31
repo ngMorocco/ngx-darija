@@ -35,11 +35,11 @@ https://ngx-darija.netlify.app
 
 # Create content
 
-You can add content to the website **without having to have the project locally**.
+You can update a video's text content (description, chapters) **without having to have the project locally**.
 
-1. Go to the video page on the website.
+1. Go to the video page on the website, e.g. [Getting Started](https://ngx-darija.netlify.app/sessions/rT0FUs7uUks).
 
-2. Click on the **Edit** link on the section you want to update.
+2. Click on the **Edit** link in the section you want to update.
 
 3. GitHub should guide you through the editing process as described here: [Editing files in another user's repository](https://docs.github.com/en/github/managing-files-in-a-repository/managing-files-on-github/editing-files-in-another-users-repository).
 
