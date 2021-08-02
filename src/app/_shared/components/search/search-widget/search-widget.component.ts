@@ -46,8 +46,9 @@ export class SearchWidgetComponent
   results$: Observable<any> = EMPTY;
   state: {
     query: string;
+    nbHits: number;
     refine: (value: string) => void;
-  } = { query: '', refine: () => {} };
+  } = { query: '', nbHits: 0, refine: () => {} };
   constructor(
     @Inject(forwardRef(() => NgAisInstantSearch))
     public instantSearchInstance: NgAisInstantSearch

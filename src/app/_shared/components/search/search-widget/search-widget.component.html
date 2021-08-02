@@ -1,6 +1,6 @@
 <app-input
-  [debounce]="400"
   [value]="state.query"
+  [delay]="200"
   (query)="onQuery($event)"
 ></app-input>
 <ng-container *ngIf="results$ | async as hits">
