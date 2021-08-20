@@ -17,7 +17,7 @@ export class BaseUrlService {
   }
   get(): string {
     return `${
-      this.isPlatformBrowser() ? '' : environment.buildBaseUrl
+      this.isPlatformBrowser() ? '' : environment.baseUrl
     }/.netlify/functions`;
   }
 }
