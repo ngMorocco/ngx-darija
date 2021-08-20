@@ -1,25 +1,22 @@
-<div class="h-full flex flex-col">
+<div>
   <ng-container *ngIf="ytVideos$ | async as ytVideo">
     <ng-container *ngIf="(ytVideo?.videoList || []).length > 0">
-      <div class="relative bg-gray-200 overflow-hidden">
-        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div>
+        <div>
           <app-video-banner
             [video]="ytVideo.lastVideo || null"
           ></app-video-banner>
         </div>
       </div>
-      <div class="relative bg-white overflow-hidden">
-        <main class="mx-auto max-w-7xl pb-8 pt-6 px-4 sm:px-6 lg:px-8">
+      <div>
+        <main>
           <app-video-listing
             [ytVideos]="ytVideo.videoList || null"
           ></app-video-listing>
         </main>
       </div>
     </ng-container>
-    <div
-      class="relative bg-gray-200 overflow-hidden h-full flex justify-center items-center"
-      *ngIf="ytVideo.videoList?.length === 0"
-    >
+    <div *ngIf="ytVideo.videoList?.length === 0">
       <div>
         <app-ui-error [errorType]="'something-went-wrong'"></app-ui-error>
       </div>

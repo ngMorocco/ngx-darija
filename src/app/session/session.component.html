@@ -1,8 +1,5 @@
-<div class="relative bg-gray-200 overflow-hidden h-full flex flex-col">
-  <div
-    class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8"
-    *ngIf="!errorLoadingYoutubeVideo"
-  >
+<div>
+  <div *ngIf="!errorLoadingYoutubeVideo">
     <app-video-session
       [video]="video$ | async"
       [startSeconds]="startSeconds"
@@ -10,10 +7,7 @@
     ></app-video-session>
   </div>
 
-  <div
-    class="relative bg-gray-200 overflow-hidden h-full flex justify-center items-center"
-    *ngIf="errorLoadingYoutubeVideo"
-  >
+  <div *ngIf="errorLoadingYoutubeVideo">
     <app-ui-error
       [errorType]="'not-found'"
       [errorTitle]="'Video session not found'"

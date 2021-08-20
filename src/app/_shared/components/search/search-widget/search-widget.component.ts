@@ -33,8 +33,7 @@ export interface SearchHit {
 @Component({
   selector: 'app-search-widget',
   templateUrl: './search-widget.component.html',
-  styleUrls: ['./search-wigdet.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./search-wigdet.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchWidgetComponent

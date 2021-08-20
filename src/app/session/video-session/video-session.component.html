@@ -1,5 +1,5 @@
-<div class="flex flex-col lg:flex-row mb-6">
-  <div class="flex-grow">
+<div>
+  <div>
     <app-video-player
       *ngIf="video"
       videoId="{{ video.id }}"
@@ -7,15 +7,12 @@
       [endSeconds]="endSeconds"
     ></app-video-player>
   </div>
-  <div class="w-full lg:w-96 lg:pl-6">
-    <h3
-      class="text-xl mt-6 mb-1 font-medium leading-normal text-gray-800 lg:mt-0"
-    >
+  <div>
+    <h3>
       {{ video?.meta?.title || video?.title }}
     </h3>
-    <p class="mb-4 text-gray-500 flex items-center">
+    <p>
       <svg
-        class="h-6 w-6 inline-block mr-2"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -26,23 +23,14 @@
           clip-rule="evenodd"
         />
       </svg>
-      <span class="font-medium">{{ video?.publishedAt | date }}</span>
+      <span>{{ video?.publishedAt | date }}</span>
     </p>
     <app-video-statistics
       [videoStatistics]="video?.statistics"
     ></app-video-statistics>
   </div>
 </div>
-<div
-  class="
-    text-xl
-    font-light
-    leading-relaxed
-    mb-6
-    overflow-hidden overflow-ellipsis
-  "
-  *ngIf="video?.meta?.description; else ytDescription"
->
+<div *ngIf="video?.meta?.description; else ytDescription">
   <a
     *ngIf="video?.meta?.videoFile"
     [attr.href]="
@@ -69,14 +57,5 @@
 </h2>
 
 <ng-template #ytDescription>
-  <p
-    class="
-      text-xl
-      font-light
-      leading-relaxed
-      mb-6
-      overflow-hidden overflow-ellipsis
-    "
-    [innerText]="video?.description"
-  ></p>
+  <p [innerText]="video?.description"></p>
 </ng-template>

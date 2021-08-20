@@ -1,0 +1,35 @@
+header {
+  z-index: 20;
+  position: relative;
+  top: 0;
+  background-color: var(--bg-transparent);
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: nowrap;
+  position: sticky;
+  transition: background-color 0.3s, border-color, 0.3s;
+  .header-bar {
+    background: linear-gradient(
+      90deg,
+      var(--primary-color) 0%,
+      #fb8ec1 50%,
+      #940505 100%
+    );
+    padding: 2px;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    a {
+      color: currentColor;
+    }
+  }
+  .header-inner {
+    padding: 0 var(--space);
+    min-height: var(--header-height);
+  }
+  @media screen and (min-width: 992px) and (max-resolution: 1) {
+    backdrop-filter: blur(4px);
+  }
+  @media screen and (min-width: 992px) and (-webkit-max-device-pixel-ratio: 1) {
+    backdrop-filter: blur(4px);
+  }
+}

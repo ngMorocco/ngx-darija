@@ -1,4 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~tailwindcss/base';
-@import '~tailwindcss/components';
-@import '~tailwindcss/utilities';
+@import './styles/layout.scss';
+
+:root {
+  --body-color: #ebf4f1;
+  --bg: #091a28;
+  --bg-secondary: #071521;
+  --bg-teritary: #0e2233;
+  --bg-transparent: rgba(9, 26, 40, 0.88);
+  --border-color: #0d2538;
+  --border-color-darker: #0d2538;
+  --inline-code-text: #e24cb2;
+  --inline-code-bg: rgba(212, 53, 159, 0.1);
+  --primary-color: #c52033;
+  --primary-color-dark: #af2131;
+  --glow: 2px 2px 15px 0 #071521;
+}
+
+body,
+html {
+  background-color: var(--bg);
+  touch-action: manipulation;
+  width: 100%;
+  transition: background-color 0.3s;
+  margin: 0;
+  font-family: 'Jost';
+  color: var(--body-color);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}

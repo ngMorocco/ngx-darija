@@ -6,7 +6,7 @@
 <ng-container *ngIf="results$ | async as hits">
   <app-popover *ngIf="!!state.query">
     <ng-template>
-      <div class="hit" *ngFor="let hit of hits">
+      <div *ngFor="let hit of hits">
         <a
           class="
             text-lg

@@ -13,8 +13,7 @@ import {
 
 @Component({
   selector: 'app-session',
-  templateUrl: './session.component.html',
-  encapsulation: ViewEncapsulation.None
+  templateUrl: './session.component.html'
 })
 export class SessionComponent implements OnInit, OnDestroy {
   video$: Observable<VideoItem | null> = EMPTY;

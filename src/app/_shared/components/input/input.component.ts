@@ -22,7 +22,6 @@ import {
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent implements OnChanges, OnInit, OnDestroy {

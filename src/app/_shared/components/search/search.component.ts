@@ -14,7 +14,6 @@ import { SearchHit } from './search-widget/search-widget.component';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent {

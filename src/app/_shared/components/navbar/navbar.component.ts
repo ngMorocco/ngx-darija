@@ -7,7 +7,7 @@ import {
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {}
