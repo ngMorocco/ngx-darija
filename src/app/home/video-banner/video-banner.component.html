@@ -5,13 +5,28 @@
   <div class="w-full lg:w-96 lg:pl-5">
     <a [routerLink]="['/sessions', video.id]">
       <h3
-        class="text-xl my-6 font-medium leading-normal text-gray-800 hover:text-red-600 lg:mt-0"
+        class="
+          text-xl
+          my-6
+          font-medium
+          leading-normal
+          text-gray-800
+          hover:text-red-600
+          lg:mt-0
+        "
       >
-        {{ video.title }}
+        {{ video?.meta?.title || video?.title }}
       </h3>
     </a>
     <p
-      class="text-xl font-light leading-relaxed mb-6 max-h-96 overflow-hidden overflow-ellipsis"
+      class="
+        text-xl
+        font-light
+        leading-relaxed
+        mb-6
+        max-h-96
+        overflow-hidden overflow-ellipsis
+      "
       [innerText]="video.description"
     ></p>
   </div>

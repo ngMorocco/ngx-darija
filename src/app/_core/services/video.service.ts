@@ -14,6 +14,10 @@ type Video = YTVideo & {
   meta: any;
 };
 
+type PlayListVideo = PlaylistItem & {
+  meta: any;
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +27,7 @@ export class VideoService {
     private http: HttpClient
   ) {}
 
-  buildItem(item: Video | PlaylistItem): VideoItem {
+  buildItem(item: Video | PlayListVideo): VideoItem {
     return {
       id: '',
       title: item.snippet?.title || '',
@@ -33,22 +37,22 @@ export class VideoService {
     };
   }
 
-  getPlaylist(): Observable<VideoItem[]> {
-    return this.http
-      .get<PlaylistItemListResponse>(`${this.baseUrlService.get()}/playlist`)
-      .pipe(
-        map(
-          ({ items }) =>
-            items?.map(item => ({
-              ...this.buildItem(item),
-              id: item?.snippet?.resourceId?.videoId as string
-            })) || []
-        ),
-        catchError(e => {
-          console.log(e); // Put here to see when there is an issue during prerender
-          return of([]);
-        })
-      );
+  getPlaylist(playlistId?: string): Observable<VideoItem[]> {
+    const url = `${this.baseUrlService.get()}/playlist/` + (playlistId || '');
+    return this.http.get<PlayListVideo[]>(url).pipe(
+      map(
+        items =>
+          items?.map(item => ({
+            ...this.buildItem(item),
+            id: item?.snippet?.resourceId?.videoId as string,
+            meta: item.meta
+          })) || []
+      ),
+      catchError(e => {
+        console.log(e); // Put here to see when there is an issue during prerender
+        return of([]);
+      })
+    );
   }
 
   getVideo(videoId: string): Observable<VideoItem | null> {
