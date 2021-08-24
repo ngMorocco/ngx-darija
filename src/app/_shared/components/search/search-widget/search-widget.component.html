@@ -6,7 +6,7 @@
 <ng-container *ngIf="results$ | async as hits">
   <app-popover *ngIf="!!state.query">
     <ng-template>
-      <div class="hit" *ngFor="let hit of hits">
+      <div class="hit" *ngFor="let hit of hits" (click)="onSearchHit(hit)">
         <a
           class="
             text-lg
@@ -25,11 +25,7 @@
           -
           <ais-highlight attribute="session.title" [hit]="hit"></ais-highlight>
           -
-          <ais-highlight
-            (click)="onSearchHit(hit)"
-            attribute="title"
-            [hit]="hit"
-          ></ais-highlight>
+          <ais-highlight attribute="title" [hit]="hit"></ais-highlight>
         </a>
       </div>
     </ng-template>
