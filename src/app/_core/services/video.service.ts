@@ -2,12 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import {
-  PlaylistItem,
-  PlaylistItemListResponse,
-  Video as YTVideo,
-  VideoItem
-} from '../models';
+import { PlaylistItem, Video as YTVideo, VideoItem } from '../models';
 import { BaseUrlService } from './base-url.service';
 
 type Video = YTVideo & {

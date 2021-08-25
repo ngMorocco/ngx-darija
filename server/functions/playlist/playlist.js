@@ -3,9 +3,9 @@ const { getPlaylist } = require('../../lib/youtube-api');
 const DB_FILE = __dirname + '/../videos/generated/db.json';
 const YOUTUBE_PLAYLIST_ID = process.env.YOUTUBE_PLAYLIST_ID;
 
-exports.handler = async context => {
+exports.handler = async event => {
   try {
-    const playlistId = context.path.split('/').pop() || YOUTUBE_PLAYLIST_ID;
+    const playlistId = event.path.split('/').pop() || YOUTUBE_PLAYLIST_ID;
     const data = await getPlaylist(playlistId);
     if (data && !data.error) {
       try {

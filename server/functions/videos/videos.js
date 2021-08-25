@@ -20,11 +20,9 @@ const getVideoContent = videoId => {
   }
 };
 
-exports.handler = async context => {
+exports.handler = async event => {
   try {
-    const { videoId, metadata } = getVideoContent(
-      context.path.split('/').pop()
-    );
+    const { videoId, metadata } = getVideoContent(event.path.split('/').pop());
     const {
       items: [data]
     } = await getVideo(videoId);
