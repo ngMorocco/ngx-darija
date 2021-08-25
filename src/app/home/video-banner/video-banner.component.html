@@ -5,10 +5,10 @@
   <div>
     <a [routerLink]="['/sessions', video.id]">
       <h3>
-        {{ video.title }}
+        {{ video?.meta?.title || video?.title }}
       </h3>
     </a>
-    <p [innerText]="video.description"></p>
+    <p [innerText]="video?.meta?.description || video?.description"></p>
   </div>
 </div>
 <div *ngIf="video === null">

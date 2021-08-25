@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { VideoItem } from '@core/models';
 import { ServerStateService } from '@core/services/server-state.service';
 import { VideoService } from '@core/services/video.service';
+import { ActivatedRoute } from '@angular/router';
 
 interface HomeVideos {
   lastVideo: VideoItem;
@@ -19,11 +20,14 @@ export class HomeComponent {
 
   constructor(
     private videoService: VideoService,
-    private serverStateService: ServerStateService
+    private serverStateService: ServerStateService,
+    private route: ActivatedRoute
   ) {
-    this.ytVideos$ = this.videoService.getPlaylist().pipe(
-      map(res => ({ lastVideo: res[res.length - 1], videoList: res })),
-      this.serverStateService.hydrate('videos')
-    );
+    this.ytVideos$ = this.videoService
+      .getPlaylist(this.route.snapshot.paramMap.get('playlistId') || undefined)
+      .pipe(
+        map(res => ({ lastVideo: res[res.length - 1], videoList: res })),
+        this.serverStateService.hydrate('videos')
+      );
   }
 }

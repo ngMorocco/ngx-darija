@@ -1,14 +1,43 @@
+const { readJsonSync } = require('fs-extra');
 const { getPlaylist } = require('../../lib/youtube-api');
+const DB_FILE = __dirname + '/../videos/generated/db.json';
 const YOUTUBE_PLAYLIST_ID = process.env.YOUTUBE_PLAYLIST_ID;
 
-exports.handler = async () => {
+exports.handler = async event => {
   try {
-    const data = await getPlaylist(YOUTUBE_PLAYLIST_ID);
+    const playlistId = event.path.split('/').pop() || YOUTUBE_PLAYLIST_ID;
+    const data = await getPlaylist(playlistId);
+    if (data && !data.error) {
+      try {
+        const db = readJsonSync(DB_FILE);
+        data.items = data.items.map(ytVideo => {
+          const video = db.find(dbVideo => {
+            return (
+              dbVideo &&
+              dbVideo.videoId.toLowerCase() ===
+                ytVideo.snippet.resourceId.videoId.toLowerCase()
+            );
+          });
+          const metadata = video ? video.metadata : undefined;
+          return {
+            ...ytVideo,
+            meta: metadata
+          };
+        });
+      } catch (e) {
+        console.log('No cache available for playlist videos');
+      }
+      return {
+        statusCode: 200,
+        body: JSON.stringify(data.items)
+      };
+    }
     return {
-      statusCode: 200,
-      body: JSON.stringify(data)
+      statusCode: data.error.code,
+      body: data.error.message
     };
   } catch (e) {
+    console.log(e);
     return {
       statusCode: 500,
       body: 'Error while getting data from YT'

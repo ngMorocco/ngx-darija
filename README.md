@@ -2,7 +2,7 @@
 
 **Angular in Darija** is a Live Coding Series on Youtube aiming to demystify Angular core concepts in Darija (Moroccan dialect).
 
-https://ngx-darija.netlify.app
+The application is hosted on https://angularindarija.dev.
 
 # Quick start
 

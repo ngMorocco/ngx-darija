@@ -9,6 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { timeToSeconds } from '@helpers/time';
 import algoliasearch from 'algoliasearch/lite';
+import { environment } from 'src/environments/environment';
 import { SearchHit } from './search-widget/search-widget.component';
 
 @Component({
@@ -19,10 +20,10 @@ import { SearchHit } from './search-widget/search-widget.component';
 export class SearchComponent {
   config: any = {
     searchClient: algoliasearch(
-      'GSQOLW7GQF',
-      '264f94ff8f90757b95530f094904563e'
+      environment.algolia.appId,
+      environment.algolia.apiKey
     ),
-    indexName: 'ngx-darija',
+    indexName: environment.algolia.indexName,
     routing: false
   };
   public isBrowser = isPlatformBrowser(this.platformId);

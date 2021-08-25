@@ -23,7 +23,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@ngx-env/builder:browser",
           "options": {
             "outputPath": "dist/ngx-darija/browser",
             "index": "src/index.html",
@@ -69,18 +69,22 @@
           "defaultConfiguration": ""
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@ngx-env/builder:dev-server",
           "options": {
             "browserTarget": "ngx-darija:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ngx-darija:build:production"
+            },
+            "development": {
+              "browserTarget": "ngx-darija:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@ngx-env/builder:extract-i18n",
           "options": {
             "browserTarget": "ngx-darija:build"
           }
@@ -92,7 +96,7 @@
           }
         },
         "server": {
-          "builder": "@angular-devkit/build-angular:server",
+          "builder": "@ngx-env/builder:server",
           "options": {
             "outputPath": "dist/ngx-darija/server",
             "main": "server.ts",

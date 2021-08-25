@@ -6,18 +6,8 @@
 <ng-container *ngIf="results$ | async as hits">
   <app-popover *ngIf="!!state.query">
     <ng-template>
-      <div *ngFor="let hit of hits">
-        <a
-          class="
-            text-lg
-            mt-4
-            lg:mt-0
-            font-medium
-            leading-normal
-            text-gray-700
-            hover:text-red-600
-          "
-        >
+      <div *ngFor="let hit of hits" (click)="onSearchHit(hit)">
+        <a>
           <ais-highlight
             attribute="session.category"
             [hit]="hit"
@@ -25,11 +15,7 @@
           -
           <ais-highlight attribute="session.title" [hit]="hit"></ais-highlight>
           -
-          <ais-highlight
-            (click)="onSearchHit(hit)"
-            attribute="title"
-            [hit]="hit"
-          ></ais-highlight>
+          <ais-highlight attribute="title" [hit]="hit"></ais-highlight>
         </a>
       </div>
     </ng-template>

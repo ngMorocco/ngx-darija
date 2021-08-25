@@ -4,13 +4,12 @@ import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':playlistId',
     component: HomeComponent
   },
   {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
+    path: '',
+    component: HomeComponent
   }
 ];
 @NgModule({
