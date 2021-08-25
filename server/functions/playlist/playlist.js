@@ -11,12 +11,14 @@ exports.handler = async event => {
       try {
         const db = readJsonSync(DB_FILE);
         data.items = data.items.map(ytVideo => {
-          const metadata = db.find(dbVideo => {
+          const video = db.find(dbVideo => {
             return (
-              dbVideo?.videoId.toLowerCase() ===
-              ytVideo.snippet.resourceId.videoId.toLowerCase()
+              dbVideo &&
+              dbVideo.videoId.toLowerCase() ===
+                ytVideo.snippet.resourceId.videoId.toLowerCase()
             );
-          })?.metadata;
+          });
+          const metadata = video ? video.metadata : undefined;
           return {
             ...ytVideo,
             meta: metadata
