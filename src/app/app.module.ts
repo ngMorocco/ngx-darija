@@ -5,6 +5,7 @@ import {
   BrowserTransferStateModule
 } from '@angular/platform-browser';
 import { ErrorModule, FooterModule, NavbarModule } from '@shared/components';
+import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 @NgModule({
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     FooterModule,
     NavbarModule,
-    ErrorModule
+    ErrorModule,
+    MarkdownModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })

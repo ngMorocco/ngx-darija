@@ -7,6 +7,8 @@ import { ErrorModule } from '@shared/components/error/error.module';
 import { VideoPlayerModule } from '@shared/components';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { MarkdownModule } from 'ngx-markdown';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,13 @@ import { HomeRoutingModule } from './home-routing.module';
     VideoItemComponent,
     VideoListingComponent
   ],
-  imports: [CommonModule, HomeRoutingModule, ErrorModule, VideoPlayerModule]
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    ErrorModule,
+    VideoPlayerModule,
+    YouTubePlayerModule,
+    MarkdownModule.forChild()
+  ]
 })
 export class HomeModule {}

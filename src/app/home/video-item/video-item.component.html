@@ -1,4 +1,4 @@
-<div *ngIf="video !== null">
+<!-- <div *ngIf="video !== null">
   <div>
     <a [routerLink]="['/sessions', video.id]">
       <img src="{{ video.thumbnailUrl }}" />
@@ -11,5 +11,29 @@
       </h3>
     </a>
     <p [innerText]="video?.meta?.description || video?.description"></p>
+  </div>
+</div> -->
+
+<div *ngIf="video !== null" class="item container container-md">
+  <div class="card">
+    <a [routerLink]="['/sessions', video.id]" class="card__link"> Read more </a>
+    <div class="card__inner">
+      <h1>
+        {{ video?.meta?.title || video?.title }}
+      </h1>
+      <div>
+        <youtube-player
+          class="app-video-player"
+          [videoId]="'AGO4mqa7u-8'"
+        ></youtube-player>
+        <!-- <app-video-player
+          [videoId]="'AGO4mqa7u-8'"
+          [startSeconds]="0"
+        ></app-video-player> -->
+      </div>
+      <!-- <markdown [data]="video?.meta?.description || video?.meta?.description">
+      </markdown> -->
+    </div>
+    <!-- <div class="item__top"></div> -->
   </div>
 </div>

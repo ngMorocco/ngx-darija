@@ -19,7 +19,7 @@ import { MarkdownModule } from 'ngx-markdown';
     SessionRoutingModule,
     VideoPlayerModule,
     ErrorModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forChild()
   ]
 })
 export class SessionModule {}

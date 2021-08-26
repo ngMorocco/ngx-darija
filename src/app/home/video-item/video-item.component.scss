@@ -1,0 +1,33 @@
+.item {
+  height: 500px;
+  overflow-y: scroll;
+  &__top {
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    // background: linear-gradient(
+    //   90deg,
+    //   var(--primary-color) 0%,
+    //   #8ed6fb 50%,
+    //   #d32e9d 100%
+    // );
+    background-color: var(--primary-color);
+  }
+  &__form {
+    margin-bottom: 0;
+  }
+  &__field {
+    min-width: 200px;
+    margin-bottom: 1rem;
+  }
+  &__button {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}

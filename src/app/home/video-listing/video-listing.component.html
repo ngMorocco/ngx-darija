@@ -1,5 +1,5 @@
-<div>
-  <div *ngFor="let video of ytVideos">
+<div class="flex flex-align-top">
+  <div *ngFor="let video of ytVideos" class="item mb">
     <app-video-item [video]="video"></app-video-item>
   </div>
 </div>

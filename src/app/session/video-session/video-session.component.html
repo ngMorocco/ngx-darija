@@ -2,7 +2,7 @@
   <div>
     <app-video-player
       *ngIf="video"
-      videoId="{{ video.id }}"
+      [videoId]="video.id"
       [startSeconds]="startSeconds"
       [endSeconds]="endSeconds"
     ></app-video-player>

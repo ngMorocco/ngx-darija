@@ -1,6 +1,6 @@
 <div *ngIf="video !== null">
   <div>
-    <app-video-player videoId="{{ video.id }}"></app-video-player>
+    <app-video-player [videoId]="video.id"></app-video-player>
   </div>
   <div>
     <a [routerLink]="['/sessions', video.id]">
