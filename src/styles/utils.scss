@@ -37,3 +37,19 @@
     display: inherit;
   }
 }
+
+.gap-10 > * {
+  margin-right: 10px;
+}
+
+.gap-15 > * {
+  margin-right: 15px;
+}
+
+.gap-30 > * {
+  margin-right: 30px;
+}
+
+::selection {
+  background: var(--select-color);
+}

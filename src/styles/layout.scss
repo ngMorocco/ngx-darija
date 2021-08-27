@@ -1,9 +1,6 @@
 .container {
   max-width: 1300px;
-  width: 100%;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
 
   &,
   &-md,
@@ -14,7 +11,7 @@
     padding: 0 var(--space);
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    // width: 100%;
   }
   &-md {
     max-width: 760px;

@@ -9,14 +9,15 @@
 
 :root {
   --body-color: #ebf4f1;
-  --bg-secondary: #071521;
-  --bg-teritary: #0e2233;
-  --bg-transparent: rgba(9, 26, 40, 0.88);
-  --bg: #091a28;
+  // --bg-secondary: #181a1b;
+  --bg-secondary: #202427;
+  --bg-teritary: #2d343a;
+  --bg-transparent: #283035e0;
+  --bg: #202427;
   --body-color: #ebf4f1;
-  --border-color-darker: #0d2538;
+  --border-color-darker: #22303b;
   --border-color: #0d2538;
-  --glow: 2px 2px 15px 0 #071521;
+  --glow: 2px 2px 15px 0 #121b22;
   --inline-code-bg: rgba(212, 53, 159, 0.1);
   --inline-code-text: #e24cb2;
   --primary-color-dark: #aa0000;
@@ -25,12 +26,12 @@
   --inline-code-bg: rgba(212, 53, 159, 0.03);
   --code-bg: #0e2233;
   --code-color: #fdf9f3;
-  --dark-bg: #0d2538;
+  --dark-bg: #23303a;
   --inline-code-text: #b32585;
   --mark-color: #fff8ec;
   --select-color: rgba(212, 53, 159, 0.2);
-  --space-x2: 50px;
   --space: 25px;
+  --space-x2: 50px;
   --success-bg: #5bb19640;
 
   @media screen and (max-width: 550px) {
@@ -117,20 +118,4 @@ input {
   border: 0;
   transition: background 0.3s, box-shadow 0.3s;
   background-color: var(--bg-teritary);
-}
-
-.gap-10 > * {
-  margin-right: 10px;
-}
-
-.gap-15 > * {
-  margin-right: 15px;
-}
-
-.gap-30 > * {
-  margin-right: 30px;
-}
-
-::selection {
-  background: var(--select-color);
 }

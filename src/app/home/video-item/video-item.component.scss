@@ -1,6 +1,7 @@
 .item {
-  height: 500px;
-  overflow-y: scroll;
+  height: 300px;
+  width: 600px;
+  overflow: hidden;
   &__top {
     height: 1px;
     position: absolute;

@@ -1,33 +1,28 @@
-<div class="container flex flex-justify-center">
+<section class="section intro">
+  <div class="section--inner container">
+    <!-- <div class="section__dots-bg dots-bg"></div> -->
+    <div class="container flex flex-justify-center">
+      <div>
+        <img width="300px" src="assets/angular.svg" alt="Person fixing bugs" />
+      </div>
+      <div class="text-center">
+        <div class="intro__title">Angular In Darija</div>
+        <p class="intro__lead lead">Your best companion to learning Angular</p>
+        <p class="intro__links">
+          <a href="/docs/" class="button primary button--large"
+            ><span>Coming Soon...</span></a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
   <div class="section__dots-bg dots-bg"></div>
-  <div>
-    <img width="300px" src="assets/angular.svg" alt="Person fixing bugs" />
-  </div>
-  <div class="text-center">
-    <p class="intro__title">Angular In Darija</p>
-    <p class="intro__lead lead">Your best companion to learning Angular</p>
-    <p class="intro__links">
-      <a href="/docs/" class="button primary button--large"
-        ><span>Watch</span></a
-      >
-    </p>
-    <!-- <p class="intro__info">
-    <span>Open-source MIT Licensed. </span
-    ><a
-      href="//github.com/gridsome/gridsome"
-      target="_blank"
-      rel="noopener noreferrer"
-      ><span>GitHub (v0.7.23)</span></a
-    >
-  </p> -->
-  </div>
-</div>
-
+</section>
+<!-- 
 <section class="section section--secondary">
   <div class="section--inner container">
     <ng-container *ngIf="ytVideos$ | async as ytVideo">
       <ng-container *ngIf="(ytVideo?.videoList || []).length > 0">
-        <!-- <app-video-banner [video]="ytVideo.lastVideo || null"></app-video-banner> -->
         <app-video-listing
           [ytVideos]="ytVideo.videoList || null"
         ></app-video-listing>
@@ -37,17 +32,16 @@
       </div>
     </ng-container>
   </div>
-</section>
+</section> -->
 
 <section class="section section--secondary">
   <div class="section--inner container">
     <div class="container container-md mb">
       <div class="card newsletter" id="mc_embed_signup">
-        <!----><!----><!---->
         <div class="card__inner">
           <p class="mb-half">
-            <strong>👋 Stay in the loop.</strong> Subscribe to Gridsome
-            newsletter!
+            <strong>👋 Stay in the loop.</strong> Subscribe to Angular In Darija
+            Newsletter!
           </p>
           <form
             action="https://gridsome.us19.list-manage.com/subscribe/post?u=960a357f3405a688ff935a10e&amp;id=42bbd30818"
@@ -58,7 +52,7 @@
             novalidate="novalidate"
             class="newsletter__form validate"
           >
-            <div id="mc_embed_signup_scroll" class="flex">
+            <div class="flex">
               <div
                 class="newsletter__field mc-field-group flex-fit"
                 style="margin-right: 15px"

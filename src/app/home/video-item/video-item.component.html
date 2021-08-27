@@ -22,18 +22,15 @@
         {{ video?.meta?.title || video?.title }}
       </h1>
       <div>
-        <youtube-player
-          class="app-video-player"
-          [videoId]="'AGO4mqa7u-8'"
-        ></youtube-player>
         <!-- <app-video-player
-          [videoId]="'AGO4mqa7u-8'"
+          [videoId]="video.id"
           [startSeconds]="0"
-        ></app-video-player> -->
+        ></app-video-player>
+      </div> -->
+        <markdown [data]="video?.meta?.description || video?.meta?.description">
+        </markdown>
       </div>
-      <!-- <markdown [data]="video?.meta?.description || video?.meta?.description">
-      </markdown> -->
+      <!-- <div class="item__top"></div> -->
     </div>
-    <!-- <div class="item__top"></div> -->
   </div>
 </div>
