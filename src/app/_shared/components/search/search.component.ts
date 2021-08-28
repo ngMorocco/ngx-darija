@@ -33,7 +33,7 @@ export class SearchComponent {
   ) {}
 
   onSearchHit(hit: SearchHit) {
-    this.router.navigate([`/sessions/${hit.session.videoId}`], {
+    this.router.navigate([`/playlist/${hit.session.videoId}`], {
       queryParams: {
         start: timeToSeconds(hit.start),
         end: timeToSeconds(hit.end)

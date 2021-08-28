@@ -1,22 +1,3 @@
-<!-- <header>
-  <div>
-    <nav aria-label="Global">
-      <div>
-        <div>
-          <a routerLink="/">
-            <img src="assets/logo-small.png" />
-          </a>
-        </div>
-        <div>Angular in darija</div>
-      </div>
-
-      <div>
-        
-      </div>
-    </nav>
-  </div>
-</header> -->
-
 <header>
   <div class="header-bar"></div>
   <div class="header-inner container flex gap-30">
@@ -27,55 +8,33 @@
         title="Back to home"
         class="logo__link active--exact active"
       >
+        <img width="40px" src="assets/angular.svg" alt="Person fixing bugs" />
         Angular In Darija
       </a>
     </div>
-    <!-- <a
-      href="/"
-      aria-current="page"
-      title="Back to home"
-      class="logo__link active--exact active"
-      routerLink="/"
-    >
-      <img src="assets/logo-small.png" />
-    </a> -->
     <nav class="main-nav flex gap-15 flex-fit">
-      <a
-        routerLink="/blog"
-        routerLinkActive="active--exact active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><span class="main-nav__label">Blog</span></a
-      >
-      <a
-        routerLink="/news"
-        routerLinkActive="active--exact active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><span class="main-nav__label">News</span></a
-      >
-      <a
-        routerLink="/videos"
-        routerLinkActive="active--exact active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><span class="main-nav__label">Videos</span></a
-      >
-      <a
-        routerLink="/tips"
-        routerLinkActive="active--exact active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><span class="main-nav__label">Tips</span></a
-      >
-      <a
-        routerLink="/about"
-        routerLinkActive="active--exact active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><span class="main-nav__label">About</span></a
-      >
+      <a routerLink="/playlist" routerLinkActive="active--exact active">
+        <span class="main-nav__label">Playlist</span>
+      </a>
+      <a class="wip" routerLink="/blog" routerLinkActive="active--exact active"
+        ><span class="main-nav__label">Blog</span>
+      </a>
+      <a class="wip" routerLink="/news" routerLinkActive="active--exact active"
+        ><span class="main-nav__label">News</span>
+      </a>
+      <a class="wip" routerLink="/tips" routerLinkActive="active--exact active"
+        ><span class="main-nav__label">Tips</span>
+      </a>
+      <a class="wip" routerLink="/about" routerLinkActive="active--exact active"
+        ><span class="main-nav__label">About</span>
+      </a>
     </nav>
     <form id="search" class="header-search">
       <app-search></app-search>
     </form>
     <nav class="header-actions flex">
       <a
+        class="wip"
         aria-label="YouTube"
         href="//bit.ly/ngDarija"
         rel="noopener noreferrer"
@@ -85,19 +44,19 @@
         En
       </a>
       <a
+        class="wip"
         role="button"
-        aria-label="Toggle sepia"
-        title="Toggle sepia"
+        aria-label="Light mode"
+        title="Light mode"
         class="toggle-theme"
-        ><span data-theme="light"></span> <span data-theme="dark"></span>
-        <span data-theme="sepia"></span>
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke="grey"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"

@@ -8,12 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'videos',
-    loadChildren: () =>
-      import('./videos/videos.module').then(m => m.VideosModule)
-  },
-  {
-    path: 'sessions',
+    path: 'playlist',
     loadChildren: () =>
       import('./session/session.module').then(m => m.SessionModule)
   },

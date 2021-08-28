@@ -1,28 +1,36 @@
-<!-- <p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <span>{{ video?.publishedAt | date }}</span>
-        </p> 
-
-      -->
-<!-- ?start=605&end=900 -->
-<div class="flex flex-align-top">
-  <div class="sidebar">
-    <ng-container *ngIf="video?.meta?.chaptersFile">
+<div *ngIf="stream$ | async as stream" class="flex flex-align-top">
+  <section class="section video">
+    <div class="section--inner container">
+      <app-video-player
+        [videoId]="stream.video?.id"
+        [startSeconds]="stream.seek.startSeconds"
+        [endSeconds]="stream.seek.endSeconds"
+      ></app-video-player>
+      <div *ngIf="stream.video?.meta?.description; else ytDescription">
+        <markdown [data]="stream.video?.meta?.description"> </markdown>
+      </div>
+      <hr />
+      <a
+        *ngIf="stream.video?.meta?.videoFile"
+        [attr.href]="
+          'https://github.com/ngMorocco/ngx-darija/edit/feat/algolia-search/content/videos/' +
+          stream.video?.meta?.videoFile
+        "
+        target="_blank"
+        >Edit</a
+      >
+      <ng-template #ytDescription>
+        <p [innerText]="stream.video?.description"></p>
+      </ng-template>
+    </div>
+  </section>
+  <div class="sidebar sidebar--right">
+    <ng-container *ngIf="stream.video?.meta?.chaptersFile">
       <h3>Chapters</h3>
       <a
         routerLink="."
         [queryParams]="{ start: 605, end: 900 }"
-        *ngFor="let chapter of video?.meta?.chapters"
+        *ngFor="let chapter of stream.video?.meta?.chapters"
       >
         {{ chapter.title }}
       </a>
@@ -30,49 +38,14 @@
       <a
         [attr.href]="
           'https://github.com/ngMorocco/ngx-darija/edit/feat/algolia-search/content/videos/' +
-          video?.meta?.chaptersFile
+          stream.video?.meta?.chaptersFile
         "
         target="_blank"
       >
         Edit
       </a>
-      <!-- <pre>
-    {{ video?.meta | json }}
-  </pre
-    > -->
     </ng-container>
-  </div>
-  <section class="section video flex-fit">
-    <div class="section--inner container">
-      <!-- <h1>{{ video?.meta?.title || video?.title }}</h1> -->
-      <app-video-player
-        *ngIf="video"
-        [videoId]="video.id"
-        [startSeconds]="startSeconds"
-        [endSeconds]="endSeconds"
-      ></app-video-player>
-      <div *ngIf="video?.meta?.description; else ytDescription">
-        <markdown [data]="video?.meta?.description" (ready)="onReady($event)">
-        </markdown>
-      </div>
-      <hr />
-      <a
-        *ngIf="video?.meta?.videoFile"
-        [attr.href]="
-          'https://github.com/ngMorocco/ngx-darija/edit/feat/algolia-search/content/videos/' +
-          video?.meta?.videoFile
-        "
-        target="_blank"
-        >Edit</a
-      >
-      <ng-template #ytDescription>
-        <p [innerText]="video?.description"></p>
-      </ng-template>
-    </div>
-  </section>
-
-  <div class="sidebar sidebar--right">
-    <h3>Content</h3>
-    <a href="./#description" class="submenu__link"> Description </a>
+    <!-- <h3>Content</h3>
+    <a href="./#description" class="submenu__link"> Description </a> -->
   </div>
 </div>

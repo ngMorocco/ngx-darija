@@ -36,7 +36,6 @@
     "instantsearch.js": "4.25.0-experimental-typescript.0",
     "marked": "^2.1.3",
     "ngx-markdown": "^12.0.1",
-    "nouislider": "10.1.0",
     "rxjs": "~7.2.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

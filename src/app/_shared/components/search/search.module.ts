@@ -7,16 +7,9 @@ import { NgAisModule } from 'angular-instantsearch';
 import { SearchComponent } from './search.component';
 import { SearchWidgetComponent } from './search-widget/search-widget.component';
 import { InputModule } from '../input/input.module';
-import { PopoverModule } from '../popover/popover.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    InputModule,
-    PopoverModule,
-    NgAisModule.forRoot()
-  ],
+  imports: [CommonModule, RouterModule, InputModule, NgAisModule.forRoot()],
   declarations: [SearchComponent, SearchWidgetComponent],
   exports: [SearchComponent]
 })

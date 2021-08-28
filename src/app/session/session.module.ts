@@ -7,12 +7,14 @@ import { SessionComponent } from './session.component';
 import { VideoSessionComponent } from './video-session/video-session.component';
 import { VideoStatisticsComponent } from './video-statistics/video-statistics.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { SessionIntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
     SessionComponent,
     VideoSessionComponent,
-    VideoStatisticsComponent
+    VideoStatisticsComponent,
+    SessionIntroComponent
   ],
   imports: [
     CommonModule,

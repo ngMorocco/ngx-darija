@@ -1,18 +1,22 @@
 <div class="container">
-  <div *ngIf="video$ | async as video">
-    <app-video-session
-      [video]="video"
-      [startSeconds]="startSeconds"
-      [endSeconds]="endSeconds"
-    ></app-video-session>
-  </div>
-
-  <div *ngIf="errorLoadingYoutubeVideo">
-    <app-ui-error
-      [errorType]="'not-found'"
-      [errorTitle]="'Video session not found'"
-      [errorActionLabel]="'browse all video sessions'"
-      [errorActionRouterLink]="'/'"
-    ></app-ui-error>
+  <div class="flex flex-align-top flex-justify-center">
+    <div class="sidebar">
+      <a
+        routerLink="."
+        routerLinkActive="active--exact active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Introdution</a
+      >
+      <a
+        [routerLink]="[item.id]"
+        routerLinkActive="active--exact active"
+        *ngFor="let item of playlist$ | async"
+      >
+        {{ item?.meta?.title || item?.title }}
+      </a>
+    </div>
+    <div class="content flex-fit">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

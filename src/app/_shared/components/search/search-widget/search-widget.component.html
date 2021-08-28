@@ -3,21 +3,15 @@
   [delay]="200"
   (query)="onQuery($event)"
 ></app-input>
+
 <ng-container *ngIf="results$ | async as hits">
-  <app-popover *ngIf="!!state.query">
-    <ng-template>
-      <div *ngFor="let hit of hits" (click)="onSearchHit(hit)">
-        <a>
-          <ais-highlight
-            attribute="session.category"
-            [hit]="hit"
-          ></ais-highlight>
-          -
-          <ais-highlight attribute="session.title" [hit]="hit"></ais-highlight>
-          -
-          <ais-highlight attribute="title" [hit]="hit"></ais-highlight>
-        </a>
-      </div>
-    </ng-template>
-  </app-popover>
+  <div class="drop-down" *ngIf="!!state.query">
+    <div class="hit" *ngFor="let hit of hits" (click)="onSearchHit(hit)">
+      <ais-highlight attribute="session.category" [hit]="hit"></ais-highlight>
+      -
+      <ais-highlight attribute="session.title" [hit]="hit"></ais-highlight>
+      -
+      <ais-highlight attribute="title" [hit]="hit"></ais-highlight>
+    </div>
+  </div>
 </ng-container>

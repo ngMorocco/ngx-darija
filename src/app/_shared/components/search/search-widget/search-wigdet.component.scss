@@ -1,44 +1,32 @@
-/* Credits: @piyushpd codepen https://codepen.io/piyushpd/pen/JjNNOGQ */
+.drop-down {
+  position: absolute;
+  margin-top: 5px;
+  padding: 12px;
+  border-radius: 5px;
+  color: var(--body-color);
+  border: 0;
+  transition: background 0.3s, box-shadow 0.3s;
+  background-color: var(--bg-transparent);
+  opacity: 1;
+}
 
-.ais-Highlight-highlighted {
-  color: rgba(220, 38, 38, var(--tw-text-opacity));
+.drop-down:before {
+  content: '';
+  background-color: transparent;
+  border-right: 8px solid transparent;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid var(--bg-transparent);
+  border-top: 8px solid transparent;
+  top: -15px;
+  right: 18px;
 }
 
 .hit {
-  font-size: 13px;
-  padding: 13px 0;
-  text-align: left;
-  font-weight: 500;
-  color: #909dc2;
+  padding: 10px 0;
   cursor: pointer;
-  position: relative;
-  border-bottom: 1px solid #e0e2e9;
 }
 
-.hit:hover .hit-icon {
-  fill: #f59d58;
-}
-
-.hit:hover {
-  color: #f59d58;
-}
-
-.hit:last-of-type {
-  border-bottom: 0;
-}
-
-.hit:before {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 28px;
-  background-color: #f59d58;
-  left: -13px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: none;
-}
-
-.hit:hover:before {
-  display: block;
+.ais-Highlight-highlighted {
+  color: var(--primary-color) !important;
 }

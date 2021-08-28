@@ -34,7 +34,8 @@ export interface SearchHit {
   selector: 'app-search-widget',
   templateUrl: './search-widget.component.html',
   styleUrls: ['./search-wigdet.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class SearchWidgetComponent
   extends BaseWidget

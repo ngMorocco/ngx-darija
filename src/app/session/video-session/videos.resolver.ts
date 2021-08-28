@@ -17,9 +17,6 @@ export class VideosResolver implements Resolve<Observable<VideoItem[]>> {
   resolve(route: ActivatedRouteSnapshot): Observable<VideoItem[]> {
     return this.videoService
       .getPlaylist(route.paramMap.get('playlistId') || undefined)
-      .pipe(
-        // map(res => ({ lastVideo: res[res.length - 1], videoList: res })),
-        this.serverStateService.hydrate('videos')
-      );
+      .pipe(this.serverStateService.hydrate('videos'));
   }
 }
