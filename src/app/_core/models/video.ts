@@ -11,6 +11,14 @@ export interface VideoItem {
     tags: string[];
     videoFile?: string;
     chaptersFile?: string;
+    chapters?: [
+      {
+        title: string;
+        start: string;
+        end: string;
+        tags: string[];
+      }
+    ];
   };
 }
 

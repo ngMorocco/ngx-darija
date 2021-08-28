@@ -1,19 +1,14 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { VideoItem } from '@core/models';
 import { VideoService } from '@core/services/video.service';
-import { EMPTY, Observable, Subscription } from 'rxjs';
-import {
-  distinctUntilChanged,
-  filter,
-  map,
-  switchMap,
-  tap
-} from 'rxjs/operators';
+import { EMPTY, Observable, of, Subscription } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-session',
-  templateUrl: './session.component.html'
+  templateUrl: './session.component.html',
+  styleUrls: ['./session.component.scss']
 })
 export class SessionComponent implements OnInit, OnDestroy {
   video$: Observable<VideoItem | null> = EMPTY;
@@ -28,19 +23,28 @@ export class SessionComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.video$ = this.route.paramMap.pipe(
-      map((paramMap: ParamMap) => paramMap.get('videoId') || ''),
-      filter((videoId: string) => !!videoId),
-      distinctUntilChanged(),
-      switchMap((videoId: string) =>
-        this.videoService.getVideo(videoId).pipe(
-          tap(video => {
-            if (!video) {
-              this.errorLoadingYoutubeVideo = true;
-            }
-          })
-        )
-      )
+    // this.video$ = this.route.paramMap.pipe(
+    //   skip(1),
+    //   map((paramMap: ParamMap) => paramMap.get('videoId') || ''),
+    //   filter((videoId: string) => !!videoId),
+    //   distinctUntilChanged(),
+    //   switchMap((videoId: string) =>
+    //     this.videoService.getVideo(videoId).pipe(
+    //       tap(video => {
+    //         if (!video) {
+    //           this.errorLoadingYoutubeVideo = true;
+    //         }
+    //       })
+    //     )
+    //   ),
+    //   startWith()
+    // );
+    this.video$ = this.route.data.pipe(
+      map(data => data.session),
+      catchError(() => {
+        this.errorLoadingYoutubeVideo = true;
+        return of(null);
+      })
     );
 
     this.subscription.add(

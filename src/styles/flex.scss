@@ -1,0 +1,71 @@
+.flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  > *:last-child {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--align-equal {
+    align-items: stretch;
+    > * {
+      align-self: stretch;
+    }
+  }
+
+  &--no-wrap {
+    flex-wrap: no-wrap;
+  }
+
+  &--space-between {
+    justify-content: space-between;
+  }
+}
+
+.gap {
+  &-15 {
+    > * {
+      margin-right: 15px;
+    }
+  }
+
+  &-20 {
+    > * {
+      margin-right: 20px;
+    }
+  }
+
+  &-30 {
+    > * {
+      margin-right: 30px;
+    }
+  }
+
+  &-60 {
+    > * {
+      margin-right: 60px;
+    }
+  }
+}
+
+.flex-fit {
+  flex: 1;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex-align-top {
+  align-items: flex-start;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}

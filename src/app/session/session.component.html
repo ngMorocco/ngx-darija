@@ -1,7 +1,7 @@
-<div>
-  <div *ngIf="!errorLoadingYoutubeVideo">
+<div class="container">
+  <div *ngIf="video$ | async as video">
     <app-video-session
-      [video]="video$ | async"
+      [video]="video"
       [startSeconds]="startSeconds"
       [endSeconds]="endSeconds"
     ></app-video-session>

@@ -1,109 +1,21 @@
 <section class="section intro">
   <div class="section--inner container">
-    <!-- <div class="section__dots-bg dots-bg"></div> -->
-    <div class="container flex flex-justify-center">
-      <div>
-        <img width="290px" src="assets/angular.svg" alt="Person fixing bugs" />
-      </div>
-      <div class="text-center">
-        <div class="intro__title">Angular In Darija</div>
-        <p class="intro__lead lead">Interactive Live Coding Series</p>
-        <p class="intro__links">
-          <a href="/" class="button primary button--large"
-            ><span>Coming soon...</span></a
-          >
-        </p>
-      </div>
-    </div>
+    <app-intro></app-intro>
   </div>
   <div class="section__dots-bg dots-bg"></div>
 </section>
 
-<!-- <section class="section section--secondary">
-  <div class="section--inner container">
-    <ng-container *ngIf="ytVideos$ | async as ytVideo">
-      <ng-container *ngIf="(ytVideo?.videoList || []).length > 0">
+<!-- <ng-container *ngIf="ytVideos$ | async as ytVideo">
+  <ng-container *ngIf="(ytVideo?.videoList || []).length > 0">
+    <section class="section section--secondary">
+      <div class="section--inner container">
         <app-video-listing
           [ytVideos]="ytVideo.videoList || null"
         ></app-video-listing>
-      </ng-container>
-      <div *ngIf="ytVideo.videoList?.length === 0">
-        <app-ui-error [errorType]="'something-went-wrong'"></app-ui-error>
       </div>
-    </ng-container>
-  </div>
-</section> -->
-
-<section class="section section--secondary">
-  <div class="section--inner container">
-    <div class="container container-md mb">
-      <div class="card newsletter" id="mc_embed_signup">
-        <div class="card__inner">
-          <p class="mb-half">
-            <strong>👋 Stay in the loop.</strong> Subscribe to Angular In Darija
-            Newsletter!
-          </p>
-          <form
-            action="https://gridsome.us19.list-manage.com/subscribe/post?u=960a357f3405a688ff935a10e&amp;id=42bbd30818"
-            method="post"
-            id="mc-embedded-subscribe-form"
-            name="mc-embedded-subscribe-form"
-            target="_blank"
-            novalidate="novalidate"
-            class="newsletter__form validate"
-          >
-            <div class="flex">
-              <div
-                class="newsletter__field mc-field-group flex-fit"
-                style="margin-right: 15px"
-              >
-                <input
-                  type="email"
-                  aria-label="Email"
-                  placeholder="your@email.com"
-                  value=""
-                  name="EMAIL"
-                  id="mce-EMAIL"
-                  class="required email"
-                />
-              </div>
-              <div class="newsletter__button">
-                <button
-                  type="submit"
-                  value="Subscribe"
-                  name="subscribe"
-                  id="mc-embedded-subscribe"
-                  class="button primary"
-                >
-                  Subscribe
-                </button>
-              </div>
-              <div id="mce-responses" class="clear">
-                <div
-                  id="mce-error-response"
-                  class="response"
-                  style="display: none"
-                ></div>
-                <div
-                  id="mce-success-response"
-                  class="response"
-                  style="display: none"
-                ></div>
-              </div>
-              <div aria-hidden="true" style="position: absolute; left: -5000px">
-                <input
-                  type="text"
-                  name="b_960a357f3405a688ff935a10e_42bbd30818"
-                  tabindex="-1"
-                  value=""
-                />
-              </div>
-            </div>
-          </form>
-          <div class="newsletter__top"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section__dots-bg dots-bg"></div>
-</section>
+    </section>
+  </ng-container>
+</ng-container> -->
+<!-- <div *ngIf="ytVideo.videoList?.length === 0">
+  <app-ui-error [errorType]="'something-went-wrong'"></app-ui-error>
+</div> -->

@@ -1,28 +1,28 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { VideoPlayerModule } from '@shared/components';
+import { ErrorModule } from '@shared/components/error/error.module';
+import { MarkdownModule } from 'ngx-markdown';
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
 import { VideoBannerComponent } from './video-banner/video-banner.component';
 import { VideoItemComponent } from './video-item/video-item.component';
 import { VideoListingComponent } from './video-listing/video-listing.component';
-import { ErrorModule } from '@shared/components/error/error.module';
-import { VideoPlayerModule } from '@shared/components';
-import { HomeComponent } from './home.component';
-import { HomeRoutingModule } from './home-routing.module';
-import { MarkdownModule } from 'ngx-markdown';
-import { YouTubePlayerModule } from '@angular/youtube-player';
+import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     VideoBannerComponent,
     VideoItemComponent,
-    VideoListingComponent
+    VideoListingComponent,
+    IntroComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     ErrorModule,
     VideoPlayerModule,
-    YouTubePlayerModule,
     MarkdownModule.forChild()
   ]
 })

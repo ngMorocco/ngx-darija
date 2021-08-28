@@ -1,0 +1,24 @@
+.intro {
+  padding: 10px 0;
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    @media screen and (max-width: 850px) {
+      & {
+        font-size: 2rem;
+      }
+    }
+  }
+  &__lead {
+    max-width: 650px;
+    font-size: 1.3rem;
+    @media screen and (max-width: 850px) {
+      & {
+        font-size: 1rem;
+      }
+    }
+  }
+  &__info {
+    font-size: 0.9rem;
+  }
+}

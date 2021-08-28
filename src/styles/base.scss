@@ -7,10 +7,6 @@ html {
   color: var(--body-color);
 }
 
-#app {
-  color: var(--body-color);
-}
-
 *,
 *:before,
 *:after {
@@ -37,6 +33,7 @@ svg {
 }
 
 hr {
+  border: 1px solid var(--border-color);
   background-color: var(--border-color) !important;
 }
 
