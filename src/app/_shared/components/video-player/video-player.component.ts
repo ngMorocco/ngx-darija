@@ -26,7 +26,7 @@ export class VideoPlayerComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     const { startSeconds } = changes;
-    if (startSeconds) {
+    if (startSeconds && this.player) {
       // FIX: doesn't work when component is already loaded
       this.player.seekTo(this.startSeconds, true);
       this.player.playVideo();

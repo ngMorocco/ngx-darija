@@ -4,6 +4,7 @@ import {
   BrowserModule,
   BrowserTransferStateModule
 } from '@angular/platform-browser';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { ErrorModule, FooterModule, NavbarModule } from '@shared/components';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
     FooterModule,
     NavbarModule,
     ErrorModule,
+    LoadingBarRouterModule,
     MarkdownModule.forRoot()
   ],
   bootstrap: [AppComponent]
