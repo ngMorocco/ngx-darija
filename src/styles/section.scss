@@ -5,8 +5,8 @@
   flex: 1;
   &--secondary {
     background-color: var(--bg-secondary);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    // border-top: 1px solid var(--border-color);
+    // border-bottom: 1px solid var(--border-color);
     + .section--secondary {
       border-top-color: transparent;
       margin-top: -1px;

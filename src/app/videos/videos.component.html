@@ -1,0 +1,9 @@
+<ng-container *ngIf="playlist$ | async as playlist">
+  <ng-container *ngIf="(playlist || []).length > 0">
+    <section class="section section--secondary">
+      <div class="section--inner container">
+        <app-video-listing [ytVideos]="playlist || null"></app-video-listing>
+      </div>
+    </section>
+  </ng-container>
+</ng-container>

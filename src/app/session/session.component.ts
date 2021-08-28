@@ -23,22 +23,6 @@ export class SessionComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.video$ = this.route.paramMap.pipe(
-    //   skip(1),
-    //   map((paramMap: ParamMap) => paramMap.get('videoId') || ''),
-    //   filter((videoId: string) => !!videoId),
-    //   distinctUntilChanged(),
-    //   switchMap((videoId: string) =>
-    //     this.videoService.getVideo(videoId).pipe(
-    //       tap(video => {
-    //         if (!video) {
-    //           this.errorLoadingYoutubeVideo = true;
-    //         }
-    //       })
-    //     )
-    //   ),
-    //   startWith()
-    // );
     this.video$ = this.route.data.pipe(
       map(data => data.session),
       catchError(() => {
