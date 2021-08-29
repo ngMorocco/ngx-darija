@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  Inject,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID
+} from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { VideoItem } from '@core/models';
 import {
@@ -23,8 +30,12 @@ export class VideoSessionComponent implements OnInit, OnDestroy {
   }> = EMPTY;
   errorLoadingYoutubeVideo = false;
   subscription = new Subscription();
+  public isBrowser = isPlatformBrowser(this.platformId);
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: any
+  ) {}
 
   ngOnInit(): void {
     const video$ = this.route.data.pipe(

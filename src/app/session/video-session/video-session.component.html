@@ -2,12 +2,14 @@
   <section class="section video">
     <div class="section--inner container">
       <app-video-player
+        *ngIf="isBrowser"
         [videoId]="stream.video?.id"
         [startSeconds]="stream.seek.startSeconds"
         [endSeconds]="stream.seek.endSeconds"
       ></app-video-player>
       <div *ngIf="stream.video?.meta?.description; else ytDescription">
-        <markdown [data]="stream.video?.meta?.description"> </markdown>
+        <markdown *ngIf="isBrowser" [data]="stream.video?.meta?.description">
+        </markdown>
       </div>
       <hr />
       <a
