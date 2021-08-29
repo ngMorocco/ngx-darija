@@ -76,8 +76,9 @@ header {
     font-size: 0.9rem;
     flex: 1;
     @media screen and (max-width: 440px) {
-      order: 10;
-      margin: 10px;
+      display: none;
+      // order: 10;
+      // margin: 10px;
     }
   }
   @media screen and (min-width: 992px) and (max-resolution: 1) {

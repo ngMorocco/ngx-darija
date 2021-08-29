@@ -43,11 +43,11 @@
   a {
     color: currentColor;
     opacity: 1;
-    font-weight: 400;
     display: flex;
     text-decoration: none;
 
     &.active--exact {
+      font-weight: 400;
       color: var(--primary-color-dark);
     }
 
@@ -62,22 +62,9 @@
     font-size: 0.95rem;
 
     &.active {
-      color: var(--primary-color-dark);
+      color: var(--primary-color);
       position: relative;
-      padding-left: 0.8rem;
-
-      &:before {
-        content: ' ';
-        width: 8px;
-        height: 8px;
-        border-radius: 10px;
-        position: absolute;
-        left: -1px;
-        top: 50%;
-        margin-top: -5px;
-        background-color: var(--primary-color-dark);
-        animation: scaleIn 0.7s forwards;
-      }
+      padding-left: 0.8rem 0;
     }
   }
 

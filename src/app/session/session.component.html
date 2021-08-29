@@ -2,12 +2,14 @@
   <div class="flex flex-align-top flex-justify-center">
     <div class="sidebar">
       <a
+        class="menu-link"
         routerLink="."
         routerLinkActive="active--exact active"
         [routerLinkActiveOptions]="{ exact: true }"
         >Introdution</a
       >
       <a
+        class="menu-link"
         [routerLink]="[item.id]"
         routerLinkActive="active--exact active"
         *ngFor="let item of playlist$ | async"
