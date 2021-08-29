@@ -24,13 +24,6 @@
   }
 }
 
-@media screen and (max-width: 850px) {
-  .main-nav {
-    order: 10;
-    min-width: 100%;
-  }
-}
-
 header {
   backdrop-filter: blur(4px);
   z-index: 20;
@@ -41,6 +34,9 @@ header {
   flex-wrap: nowrap;
   position: sticky;
   transition: background-color 0.3s, border-color, 0.3s;
+  @media screen and (max-width: 440px) {
+    padding: 0px;
+  }
   .header-bar {
     background: linear-gradient(
       90deg,
@@ -62,6 +58,17 @@ header {
     min-height: var(--header-height);
     .main-nav {
       flex-wrap: nowrap;
+      @media screen and (max-width: 850px) {
+        order: 10;
+        min-width: 100%;
+        justify-content: center;
+        margin: auto;
+      }
+    }
+    @media screen and (max-width: 440px) {
+      justify-content: center;
+      margin: auto;
+      padding: 0px;
     }
   }
   .header-search {
@@ -69,7 +76,8 @@ header {
     font-size: 0.9rem;
     flex: 1;
     @media screen and (max-width: 440px) {
-      display: none;
+      order: 10;
+      margin: 10px;
     }
   }
   @media screen and (min-width: 992px) and (max-resolution: 1) {

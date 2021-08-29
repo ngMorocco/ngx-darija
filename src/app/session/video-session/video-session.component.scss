@@ -8,5 +8,7 @@ svg {
 }
 
 .video {
-  max-width: 680px;
+  @media screen and (max-width: 640px) {
+    max-width: 400px;
+  }
 }

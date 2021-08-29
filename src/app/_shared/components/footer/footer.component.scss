@@ -4,9 +4,13 @@ footer {
   border-top: 1px solid var(--border-color);
   margin-top: -1px;
   padding: 0 20px;
-  z-index: 10;
-  justify-content: flex-start;
-  @media screen and (max-width: 450px) {
+  text-align: right;
+  .flex {
     justify-content: flex-end;
+    @media screen and (max-width: 890px) {
+      justify-content: center;
+      margin: auto;
+      padding: 0px;
+    }
   }
 }
