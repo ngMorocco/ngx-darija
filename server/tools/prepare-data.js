@@ -26,7 +26,7 @@ const indexSearch = require('../lib/index-db');
     );
 
     const routes = videoIds.reduce(
-      (routes, videoId) => (routes += `/sessions/${videoId}\n`),
+      (routes, videoId) => (routes += `/playlist/${videoId}\n`),
       ''
     );
     mkdirpSync(GENERATED_DIR);
