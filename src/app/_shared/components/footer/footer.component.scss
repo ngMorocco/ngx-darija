@@ -5,4 +5,8 @@ footer {
   margin-top: -1px;
   padding: 0 20px;
   z-index: 10;
+  justify-content: flex-start;
+  @media screen and (max-width: 450px) {
+    justify-content: flex-end;
+  }
 }

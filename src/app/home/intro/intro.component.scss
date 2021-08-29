@@ -1,5 +1,13 @@
 .intro {
-  // padding: 10px 0;
+  .unsplash {
+    width: 700px;
+  }
+  &.container {
+    @media screen and (max-width: 1115px) {
+      text-align: center;
+      justify-content: center;
+    }
+  }
   &__title {
     font-size: 2.5rem;
     font-weight: 600;
