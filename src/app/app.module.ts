@@ -9,6 +9,10 @@ import { ErrorModule, FooterModule, NavbarModule } from '@shared/components';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {
+  NgxGoogleAnalyticsModule,
+  NgxGoogleAnalyticsRouterModule
+} from 'ngx-google-analytics';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,7 +24,9 @@ import { AppComponent } from './app.component';
     NavbarModule,
     ErrorModule,
     LoadingBarRouterModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    NgxGoogleAnalyticsModule.forRoot('G-32WYWRYZQF'),
+    NgxGoogleAnalyticsRouterModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,8 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { VideoItem } from '@core/models';
 import { timeToSeconds } from '@helpers/time';
-import { catchError, combineLatest, EMPTY, map, Observable, of } from 'rxjs';
+import {
+  catchError,
+  combineLatest,
+  EMPTY,
+  map,
+  Observable,
+  of,
+  tap
+} from 'rxjs';
 
 @Component({
   selector: 'app-video-session',
@@ -16,11 +25,18 @@ export class VideoSessionComponent implements OnInit {
   }> = EMPTY;
   errorLoadingYoutubeVideo = false;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private title: Title
+  ) {}
 
   ngOnInit(): void {
     const video$ = this.route.data.pipe(
       map(data => data.session),
+      tap((video: VideoItem) => {
+        this.title.setTitle(video.meta?.title || video.title);
+      }),
       catchError(() => {
         this.errorLoadingYoutubeVideo = true;
         return of(null);
