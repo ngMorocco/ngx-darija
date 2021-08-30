@@ -8,6 +8,7 @@ import { VideoSessionComponent } from './video-session/video-session.component';
 import { VideoStatisticsComponent } from './video-statistics/video-statistics.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { SessionIntroComponent } from './intro/intro.component';
+import { IsBrowserModule } from '@shared/directives/is-browser/is-browser.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SessionIntroComponent } from './intro/intro.component';
     CommonModule,
     SessionRoutingModule,
     VideoPlayerModule,
+    IsBrowserModule,
     ErrorModule,
     MarkdownModule.forChild()
   ]

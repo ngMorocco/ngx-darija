@@ -36,7 +36,8 @@ export class SearchComponent {
     this.router.navigate([`/playlist/${hit.session.videoId}`], {
       queryParams: {
         start: timeToSeconds(hit.start),
-        end: timeToSeconds(hit.end)
+        end: timeToSeconds(hit.end),
+        ts: new Date().getTime()
       }
     });
   }

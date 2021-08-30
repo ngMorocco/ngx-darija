@@ -1,16 +1,17 @@
 <div *ngIf="stream$ | async as stream" class="flex flex-align-top">
   <section class="section video">
     <div class="section--inner container">
-      <app-video-player
-        *ngIf="isBrowser"
-        [videoId]="stream.video?.id"
-        [startSeconds]="stream.seek.startSeconds"
-        [endSeconds]="stream.seek.endSeconds"
-      ></app-video-player>
-      <div *ngIf="stream.video?.meta?.description; else ytDescription">
-        <markdown *ngIf="isBrowser" [data]="stream.video?.meta?.description">
-        </markdown>
-      </div>
+      <ng-container *appIsBrowser>
+        <app-video-player
+          [videoId]="stream.video?.id"
+          [startSeconds]="stream.seek.startSeconds"
+          [endSeconds]="stream.seek.endSeconds"
+          [timestamp]="stream.seek.timestamp"
+        ></app-video-player>
+        <div *ngIf="stream.video?.meta?.description; else ytDescription">
+          <markdown [data]="stream.video?.meta?.description"> </markdown>
+        </div>
+      </ng-container>
       <hr />
       <a
         *ngIf="stream.video?.meta?.videoFile"
@@ -30,9 +31,8 @@
     <ng-container *ngIf="stream.video?.meta?.chaptersFile">
       <h3>Chapters</h3>
       <a
-        routerLink="."
-        [queryParams]="{ start: 605, end: 900 }"
         *ngFor="let chapter of stream.video?.meta?.chapters"
+        (click)="onSeek(chapter)"
       >
         {{ chapter.title }}
       </a>

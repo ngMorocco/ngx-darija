@@ -1,13 +1,7 @@
-import { isPlatformBrowser } from '@angular/common';
-import {
-  Component,
-  Inject,
-  OnDestroy,
-  OnInit,
-  PLATFORM_ID
-} from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { VideoItem } from '@core/models';
+import { timeToSeconds } from '@helpers/time';
 import {
   catchError,
   combineLatest,
@@ -15,7 +9,7 @@ import {
   map,
   Observable,
   of,
-  Subscription
+  tap
 } from 'rxjs';
 
 @Component({
@@ -23,19 +17,14 @@ import {
   templateUrl: './video-session.component.html',
   styleUrls: ['./video-session.component.scss']
 })
-export class VideoSessionComponent implements OnInit, OnDestroy {
+export class VideoSessionComponent implements OnInit {
   stream$: Observable<{
     video: VideoItem | null;
-    seek: { startSeconds: number; endSeconds: number };
+    seek: { startSeconds: number; endSeconds: number; timestamp: number };
   }> = EMPTY;
   errorLoadingYoutubeVideo = false;
-  subscription = new Subscription();
-  public isBrowser = isPlatformBrowser(this.platformId);
 
-  constructor(
-    private route: ActivatedRoute,
-    @Inject(PLATFORM_ID) private platformId: any
-  ) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     const video$ = this.route.data.pipe(
@@ -46,19 +35,26 @@ export class VideoSessionComponent implements OnInit, OnDestroy {
       })
     );
     const seek$ = this.route.queryParamMap.pipe(
+      // tap(console.log),
       map((paramMap: ParamMap) => ({
         startSeconds: parseInt(paramMap.get('start') || '0', 10) || 0,
-        endSeconds: parseInt(paramMap.get('end') || '0', 10) || 0
+        endSeconds: parseInt(paramMap.get('end') || '0', 10) || 0,
+        timestamp: parseInt(paramMap.get('ts') || '0', 10) || 0
       }))
     );
     this.stream$ = combineLatest([video$, seek$]).pipe(
       map(([video, seek]) => ({ video, seek }))
     );
-
-    this.subscription.add();
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  onSeek({ start, end }: { start: string; end: string }) {
+    this.router.navigate(['./'], {
+      queryParams: {
+        start: timeToSeconds(start),
+        end: timeToSeconds(end),
+        ts: new Date().getTime()
+      },
+      relativeTo: this.route
+    });
   }
 }

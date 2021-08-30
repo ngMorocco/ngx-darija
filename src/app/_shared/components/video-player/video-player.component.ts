@@ -15,6 +15,7 @@ import { YouTubePlayer } from '@angular/youtube-player';
 })
 export class VideoPlayerComponent implements OnChanges {
   @Input() videoId: string | undefined = undefined;
+  @Input() timestamp = 0;
   @Input() startSeconds = 0;
   @Input() endSeconds = 0;
   // @ts-ignore
@@ -24,9 +25,8 @@ export class VideoPlayerComponent implements OnChanges {
     rel: 0
   };
 
-  ngOnChanges(changes: SimpleChanges) {
-    const { startSeconds } = changes;
-    if (startSeconds && this.player) {
+  ngOnChanges() {
+    if (this.player) {
       // FIX: doesn't work when component is already loaded
       this.player.seekTo(this.startSeconds, true);
       this.player.playVideo();
