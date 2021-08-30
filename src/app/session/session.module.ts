@@ -9,6 +9,7 @@ import { VideoStatisticsComponent } from './video-statistics/video-statistics.co
 import { MarkdownModule } from 'ngx-markdown';
 import { SessionIntroComponent } from './intro/intro.component';
 import { IsBrowserModule } from '@shared/directives/is-browser/is-browser.module';
+import { RerenderModule } from '@shared/directives/rerender/rerender.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { IsBrowserModule } from '@shared/directives/is-browser/is-browser.module
     SessionRoutingModule,
     VideoPlayerModule,
     IsBrowserModule,
+    RerenderModule,
     ErrorModule,
     MarkdownModule.forChild()
   ]

@@ -2,15 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { VideoItem } from '@core/models';
 import { timeToSeconds } from '@helpers/time';
-import {
-  catchError,
-  combineLatest,
-  EMPTY,
-  map,
-  Observable,
-  of,
-  tap
-} from 'rxjs';
+import { catchError, combineLatest, EMPTY, map, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-video-session',
@@ -35,7 +27,6 @@ export class VideoSessionComponent implements OnInit {
       })
     );
     const seek$ = this.route.queryParamMap.pipe(
-      // tap(console.log),
       map((paramMap: ParamMap) => ({
         startSeconds: parseInt(paramMap.get('start') || '0', 10) || 0,
         endSeconds: parseInt(paramMap.get('end') || '0', 10) || 0,

@@ -3,6 +3,7 @@
     <div class="section--inner container">
       <ng-container *appIsBrowser>
         <app-video-player
+          *appRerender="stream.video?.id"
           [videoId]="stream.video?.id"
           [startSeconds]="stream.seek.startSeconds"
           [endSeconds]="stream.seek.endSeconds"

@@ -2,6 +2,7 @@ import {
   Component,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
   ViewChild,
   ViewEncapsulation
@@ -27,7 +28,6 @@ export class VideoPlayerComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.player) {
-      // FIX: doesn't work when component is already loaded
       this.player.seekTo(this.startSeconds, true);
       this.player.playVideo();
     }
