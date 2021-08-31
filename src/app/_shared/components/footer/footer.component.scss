@@ -6,8 +6,7 @@ footer {
   padding: 0 20px;
   text-align: right;
   .flex {
-    justify-content: flex-end;
-    @media screen and (max-width: 890px) {
+    @media screen and (max-width: 450px) {
       justify-content: center;
       margin: auto;
       padding: 0px;

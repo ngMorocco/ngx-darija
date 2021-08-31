@@ -3,8 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Inject,
-  PLATFORM_ID,
-  ViewEncapsulation
+  PLATFORM_ID
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { timeToSeconds } from '@helpers/time';

@@ -11,8 +11,7 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "changeDetection": "OnPush",
-          "viewEncapsulation": "None"
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:application": {
           "strict": true

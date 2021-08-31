@@ -1,9 +1,8 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnChanges,
-  OnInit,
-  SimpleChanges,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
@@ -13,7 +12,8 @@ import { YouTubePlayer } from '@angular/youtube-player';
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VideoPlayerComponent implements OnChanges {
   @Input() videoId: string | undefined = undefined;
