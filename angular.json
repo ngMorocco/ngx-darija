@@ -31,7 +31,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "src/_redirects"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/_redirects",
+              "src/sitemap.xml",
+              "src/robots.txt"
+            ],
             "styles": ["src/styles.scss"],
             "scripts": ["node_modules/marked/lib/marked.js"]
           },
