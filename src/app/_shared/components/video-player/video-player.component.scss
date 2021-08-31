@@ -1,13 +1,10 @@
 // tricks for making embed iframe video responsive
 .app-video-player {
-  display: block;
   position: relative;
   width: 100%;
-  padding: 0;
-  overflow: hidden;
+  padding-top: 56.25%;
   &::before {
     box-sizing: border-box;
-    // padding-top: 56.25%; // aspect ratio of a video is 16:9. (9 is 56.25% of 16)
     display: block;
     content: '';
   }

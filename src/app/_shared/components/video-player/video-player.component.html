@@ -1,5 +1,6 @@
 <div class="app-video-player">
   <youtube-player
+    *appRerender="videoId"
     [videoId]="videoId"
     [playerVars]="playerVars"
     [startSeconds]="startSeconds"

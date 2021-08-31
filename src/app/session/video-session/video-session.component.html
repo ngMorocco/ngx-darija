@@ -1,18 +1,20 @@
 <div *ngIf="stream$ | async as stream" class="flex flex-align-top">
-  <section class="section video">
+  <section class="section">
     <div class="section--inner container">
-      <ng-container *appIsBrowser>
+      <div class="video" *appIsBrowser>
         <app-video-player
-          *appRerender="stream.video?.id"
           [videoId]="stream.video?.id"
           [startSeconds]="stream.seek.startSeconds"
           [endSeconds]="stream.seek.endSeconds"
           [timestamp]="stream.seek.timestamp"
         ></app-video-player>
-        <div *ngIf="stream.video?.meta?.description; else ytDescription">
-          <markdown [data]="stream.video?.meta?.description"> </markdown>
+
+        <div>
+          <p *ngIf="stream.video?.meta?.description; else ytDescription">
+            <markdown [data]="stream.video?.meta?.description"> </markdown>
+          </p>
         </div>
-      </ng-container>
+      </div>
       <hr />
       <a
         *ngIf="stream.video?.meta?.videoFile"

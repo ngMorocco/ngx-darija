@@ -12,7 +12,8 @@ import { YouTubePlayer } from '@angular/youtube-player';
 @Component({
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
-  styleUrls: ['./video-player.component.scss']
+  styleUrls: ['./video-player.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class VideoPlayerComponent implements OnChanges {
   @Input() videoId: string | undefined = undefined;
