@@ -8,5 +8,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class FooterComponent {
   version = process.env.NG_APP_VERSION || 'v1.0';
-  sha1 = process.env.NG_APP_COMMIT_REF || 'xxx';
+  sha1 = (process.env.NG_APP_COMMIT_REF || 'xxx').substr(0, 5);
 }
