@@ -16,6 +16,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'contribute',
+        pathMatch: 'full'
+      },
+      {
+        path: 'contribute',
         component: ContributeComponent
       },
       {
