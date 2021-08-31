@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SessionResolver implements Resolve<Observable<VideoItem | null>> {
+export class VideoResolver implements Resolve<Observable<VideoItem | null>> {
   constructor(private videoService: VideoService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<VideoItem | null> {

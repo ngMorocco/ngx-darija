@@ -1,31 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SessionIntroComponent } from './intro/intro.component';
-import { SessionComponent } from './session.component';
-import { SessionResolver } from './session.resolver';
+import { ContributeComponent } from './contribute/contribute.component';
+import { PlaylistComponent } from './playlist.component';
+import { PlaylistResolver } from './playlist.resolver';
 import { VideoSessionComponent } from './video-session/video-session.component';
-import { VideosResolver } from './video-session/videos.resolver';
+import { VideoResolver } from './video-session/video.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: SessionComponent,
+    component: PlaylistComponent,
+    resolve: {
+      videos: PlaylistResolver
+    },
     children: [
       {
         path: '',
-        component: SessionIntroComponent
+        component: ContributeComponent
       },
       {
         path: ':videoId',
         component: VideoSessionComponent,
         resolve: {
-          session: SessionResolver
+          session: VideoResolver
         }
       }
-    ],
-    resolve: {
-      videos: VideosResolver
-    }
+    ]
   }
 ];
 @NgModule({

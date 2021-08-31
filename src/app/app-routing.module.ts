@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'playlist',
     loadChildren: () =>
-      import('./session/session.module').then(m => m.SessionModule)
+      import('./playlist/playlist.module').then(m => m.SessionModule)
   },
   {
     path: '**',

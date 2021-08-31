@@ -4,18 +4,18 @@ import { VideoPlayerModule } from '@shared/components';
 import { ErrorModule } from '@shared/components/error/error.module';
 import { IsBrowserModule } from '@shared/directives/is-browser/is-browser.module';
 import { MarkdownModule } from 'ngx-markdown';
-import { SessionIntroComponent } from './intro/intro.component';
-import { SessionRoutingModule } from './session-routing.module';
-import { SessionComponent } from './session.component';
+import { ContributeComponent } from './contribute/contribute.component';
+import { SessionRoutingModule } from './playlist-routing.module';
+import { PlaylistComponent } from './playlist.component';
 import { VideoSessionComponent } from './video-session/video-session.component';
 import { VideoStatisticsComponent } from './video-statistics/video-statistics.component';
 
 @NgModule({
   declarations: [
-    SessionComponent,
+    PlaylistComponent,
+    ContributeComponent,
     VideoSessionComponent,
-    VideoStatisticsComponent,
-    SessionIntroComponent
+    VideoStatisticsComponent
   ],
   imports: [
     CommonModule,

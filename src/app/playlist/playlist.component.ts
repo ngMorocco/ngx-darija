@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { VideoItem } from '@core/models';
 import { SeoService } from '@core/services/seo.service';
@@ -8,10 +7,10 @@ import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-session',
-  templateUrl: './session.component.html',
-  styleUrls: ['./session.component.scss']
+  templateUrl: './playlist.component.html',
+  styleUrls: ['./playlist.component.scss']
 })
-export class SessionComponent implements OnInit {
+export class PlaylistComponent implements OnInit {
   playlist$: Observable<VideoItem[]> = EMPTY;
 
   constructor(private route: ActivatedRoute, private seo: SeoService) {

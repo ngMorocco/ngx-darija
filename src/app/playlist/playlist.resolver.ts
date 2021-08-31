@@ -3,12 +3,12 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { VideoItem } from '@core/models';
 import { ServerStateService } from '@core/services/server-state.service';
 import { VideoService } from '@core/services/video.service';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class VideosResolver implements Resolve<Observable<VideoItem[]>> {
+export class PlaylistResolver implements Resolve<Observable<VideoItem[]>> {
   constructor(
     private videoService: VideoService,
     private serverStateService: ServerStateService
