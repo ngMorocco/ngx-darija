@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { VideoItem } from '@core/models';
+import { SeoService } from '@core/services/seo.service';
 import { timeToSeconds } from '@helpers/time';
 import {
   catchError,
@@ -28,14 +28,14 @@ export class VideoSessionComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private title: Title
+    private seo: SeoService
   ) {}
 
   ngOnInit(): void {
     const video$ = this.route.data.pipe(
       map(data => data.session),
       tap((video: VideoItem) => {
-        this.title.setTitle(video.meta?.title || video.title);
+        this.seo.setText(video.meta?.title || video.title);
       }),
       catchError(() => {
         this.errorLoadingYoutubeVideo = true;
