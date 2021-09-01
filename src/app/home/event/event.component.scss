@@ -1,3 +1,7 @@
+.event {
+  justify-content: space-around;
+}
+
 .date {
   flex: 0.4;
   margin-top: 10px;
@@ -13,6 +17,7 @@
 }
 
 .description {
+  max-width: 600px;
   flex: 0.6;
   @media screen and (max-width: 1180px) {
     flex: 1;
