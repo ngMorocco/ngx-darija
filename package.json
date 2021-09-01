@@ -83,7 +83,7 @@
      "prettier --write"
    ],
    "*.{js,ts}": [
-     "npm run lint --fix"
+     "eslint --fix"
    ]
  }
 }

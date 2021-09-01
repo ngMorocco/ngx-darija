@@ -8,20 +8,6 @@
     }
   }
   margin: auto;
-  //   font-size: 32px;
-  &__top {
-    height: 2px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-      90deg,
-      var(--primary-color) 0%,
-      #a2a7aa 50%,
-      #d32e44 100%
-    );
-  }
   &__form {
     margin-bottom: 0;
   }
