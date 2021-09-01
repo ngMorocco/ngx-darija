@@ -22,16 +22,6 @@ export class VideoService {
     private http: HttpClient
   ) {}
 
-  buildItem(item: Video | PlayListVideo): VideoItem {
-    return {
-      id: '',
-      title: item.snippet?.title || '',
-      description: item.snippet?.description || '',
-      publishedAt: item.snippet?.publishedAt || '',
-      thumbnailUrl: item.snippet?.thumbnails?.maxres?.url || ''
-    };
-  }
-
   getPlaylist(playlistId?: string): Observable<VideoItem[]> {
     const url = `${this.baseUrlService.get()}/playlist/` + (playlistId || '');
     return this.http.get<PlayListVideo[]>(url).pipe(
@@ -73,5 +63,15 @@ export class VideoService {
           return of(null);
         })
       );
+  }
+
+  private buildItem(item: Video | PlayListVideo): VideoItem {
+    return {
+      id: '',
+      title: item.snippet?.title || '',
+      description: item.snippet?.description || '',
+      publishedAt: item.snippet?.publishedAt || '',
+      thumbnailUrl: item.snippet?.thumbnails?.maxres?.url || ''
+    };
   }
 }
