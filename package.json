@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "build",
     "lint": "ng lint",
     "prepare-data": "node ./server/tools/prepare-data.js",
     "prepare-data:dev": "dotenv node ./server/tools/prepare-data.js",
@@ -83,7 +83,7 @@
      "prettier --write"
    ],
    "*.{js,ts}": [
-     "eslint --fix"
+     "npm run lint --fix"
    ]
  }
 }
