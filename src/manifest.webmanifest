@@ -1,7 +1,7 @@
 {
   "name": "Angular In Darija",
   "short_name": "Angular In Darija",
-  "theme_color": "#1976d2",
+  "theme_color": "#202427",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
