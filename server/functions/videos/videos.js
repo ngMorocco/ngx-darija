@@ -1,29 +1,45 @@
-const { getVideos } = require('../utils/youtube-api');
+const DB_FILE = __dirname + '/generated/db.json';
 
+const { getVideo } = require('../../lib/youtube-api');
 const { readJsonSync } = require('fs-extra');
-const path = require('path');
 
-const getCaseSensitiveVideoId = videoId => {
+const getVideoContent = videoId => {
   try {
-    const pathToMapping = path.resolve(
-      __dirname + '/case-sensitive-video-id-mapping.json'
+    const db = readJsonSync(DB_FILE);
+    return (
+      db.find(
+        video => video.videoId.toLowerCase() === videoId.toLowerCase()
+      ) || { videoId }
     );
-    const mapping = readJsonSync(pathToMapping);
-    return mapping[videoId] ? mapping[videoId] : videoId;
-  } catch {
-    return videoId;
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      console.log('File db.json not found, not metadata!');
+      return { videoId };
+    }
+    throw err;
   }
 };
-exports.handler = async context => {
+
+exports.handler = async event => {
   try {
-    let videoId = context.path.split('/').pop();
-    videoId = getCaseSensitiveVideoId(videoId);
-    const data = await getVideos(videoId);
-    return {
-      statusCode: 200,
-      body: JSON.stringify(data)
-    };
+    const { videoId, metadata } = getVideoContent(event.path.split('/').pop());
+    const {
+      items: [data]
+    } = await getVideo(videoId);
+    return data
+      ? {
+          statusCode: 200,
+          body: JSON.stringify({
+            ...data,
+            meta: metadata
+          })
+        }
+      : {
+          statusCode: 404,
+          body: 'Video not found'
+        };
   } catch (e) {
+    console.log(e);
     return {
       statusCode: 500,
       body: 'Error while getting data from YT'

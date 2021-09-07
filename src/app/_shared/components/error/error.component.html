@@ -1,29 +1,22 @@
-<div
-  *ngIf="errorType === 'something-went-wrong'"
-  class="flex flex-col items-center justify-center"
->
-  <img
-    class="w-1/3"
-    src="assets/undraw_bug_fixing.svg"
-    alt="Person fixing bugs"
-  />
-  <h2 class="text-lg mt-2">Aaaaah! Something went wrong</h2>
-  <p class="mt-2 text-sm text-gray-400">
-    Brace yourself till we get the error fixed.<br/>
+<div *ngIf="errorType === 'something-went-wrong'">
+  <img src="assets/undraw_bug_fixing.svg" alt="Person fixing bugs" />
+  <h2>Aaaaah! Something went wrong</h2>
+  <p>
+    Brace yourself till we get the error fixed.<br />
     You may also refresh the page or try again later.
   </p>
 </div>
 
-<div *ngIf="errorType === 'not-found'"
-     class="flex flex-col items-center justify-center"
->
-  <img class="w-1/3" src="assets/undraw_page_not_found.svg" alt="Page not found"/>
-  <h2 *ngIf="errorTitle" class="mt-2 text-sm text-gray-400">{{errorTitle}}</h2>
-  <p class="mt-2 text-sm text-gray-400" *ngIf="errorSubtitle">
-    {{errorSubtitle}}
+<div *ngIf="errorType === 'not-found'">
+  <img src="assets/undraw_page_not_found.svg" alt="Page not found" />
+  <h2 *ngIf="errorTitle">{{ errorTitle }}</h2>
+  <p *ngIf="errorSubtitle">
+    {{ errorSubtitle }}
   </p>
-  <a *ngIf="errorActionLabel && errorActionRouterLink" [routerLink]="errorActionRouterLink"
-     class=" mt-2 focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">
-    {{errorActionLabel}}</a>
-
+  <a
+    *ngIf="errorActionLabel && errorActionRouterLink"
+    [routerLink]="errorActionRouterLink"
+  >
+    {{ errorActionLabel }}</a
+  >
 </div>

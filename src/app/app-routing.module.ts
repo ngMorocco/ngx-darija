@@ -8,11 +8,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'sessions',
+    path: 'playlist',
     loadChildren: () =>
-      import('./session/session.module').then(m => m.SessionModule)
+      import('./playlist/playlist.module').then(m => m.SessionModule)
   },
-  // Redirect all unknown paths to home
   {
     path: '**',
     redirectTo: '',
@@ -22,7 +21,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      initialNavigation: 'enabled'
+      initialNavigation: 'enabled',
+      scrollPositionRestoration: 'enabled'
     })
   ],
   exports: [RouterModule]

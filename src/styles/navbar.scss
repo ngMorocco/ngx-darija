@@ -1,0 +1,45 @@
+nav a {
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 15px 5px;
+  text-decoration: none;
+  position: relative;
+  font-size: 0.95rem;
+
+  @media screen and (max-width: 850px) {
+    & {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+  }
+
+  svg {
+    margin: 2px 6px;
+  }
+
+  &:not(.active):not(:hover):not(.button) {
+    color: currentColor;
+    opacity: 0.85;
+  }
+
+  &:hover {
+    color: var(--primary-color);
+
+    &:after {
+      background-color: var(--primary-color);
+    }
+  }
+
+  &.active {
+    color: var(--primary-color);
+
+    &:after {
+      background-color: var(--primary-color);
+      width: 100%;
+    }
+  }
+}

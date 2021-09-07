@@ -1,0 +1,29 @@
+.newsletter {
+  @media screen and (max-width: 450px) {
+    p {
+      text-align: center;
+    }
+    .flex {
+      justify-content: center;
+    }
+  }
+  margin: auto;
+  &__form {
+    margin-bottom: 0;
+  }
+  &__field {
+    margin-right: 15px;
+    min-width: 200px;
+    margin-bottom: 1rem;
+    @media screen and (max-width: 400px) {
+      margin-right: 0px;
+    }
+  }
+  &__button {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}

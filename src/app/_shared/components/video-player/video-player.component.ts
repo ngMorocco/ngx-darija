@@ -1,0 +1,36 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
+import { YouTubePlayer } from '@angular/youtube-player';
+
+@Component({
+  selector: 'app-video-player',
+  templateUrl: './video-player.component.html',
+  styleUrls: ['./video-player.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class VideoPlayerComponent implements OnChanges {
+  @Input() videoId: string | undefined = undefined;
+  @Input() timestamp = 0;
+  @Input() startSeconds = 0;
+  @Input() endSeconds = 0;
+  // @ts-ignore
+  @ViewChild(YouTubePlayer) player: YouTubePlayer;
+  playerVars: YT.PlayerVars = {
+    autoplay: 0,
+    rel: 0
+  };
+
+  ngOnChanges() {
+    if (this.player) {
+      this.player.seekTo(this.startSeconds, true);
+      this.player.playVideo();
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="flex flex-align-top">
+    <div class="sidebar">
+      <a
+        routerLink="/playlist/contribute"
+        class="menu-link"
+        routerLinkActive="active--exact active"
+        >Introdution</a
+      >
+      <a
+        class="menu-link"
+        [routerLink]="[item.id]"
+        routerLinkActive="active--exact active"
+        *ngFor="let item of playlist$ | async"
+      >
+        {{ item?.meta?.title || item?.title }}
+      </a>
+    </div>
+    <div class="content flex-fit">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

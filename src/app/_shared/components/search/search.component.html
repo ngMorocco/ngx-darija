@@ -1,0 +1,11 @@
+<ais-instantsearch *ngIf="isBrowser" [config]="config">
+  <ais-configure
+    [searchParameters]="{
+      attributesToSnippet: ['description:10'],
+      snippetEllipsisText: '…',
+      removeWordsIfNoResults: 'allOptional'
+    }"
+  >
+  </ais-configure>
+  <app-search-widget (searchHit)="onSearchHit($event)"></app-search-widget>
+</ais-instantsearch>

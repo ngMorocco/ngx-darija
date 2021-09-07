@@ -1,0 +1,42 @@
+body,
+html {
+  background-color: var(--bg);
+  transition: background-color 0.3s;
+  margin: 0;
+  font-family: 'Jost';
+  color: var(--body-color);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body *:target {
+  animation: target 2s;
+}
+
+@keyframes target {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+img,
+svg {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+hr {
+  border: 1px solid var(--border-color);
+  background-color: var(--border-color) !important;
+}
+
+::selection {
+  background: var(--select-color);
+}

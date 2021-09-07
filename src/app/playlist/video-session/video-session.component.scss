@@ -1,0 +1,18 @@
+svg {
+  width: 50px;
+}
+
+.title {
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+a {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1189px) {
+  .session {
+    flex-direction: column;
+  }
+}

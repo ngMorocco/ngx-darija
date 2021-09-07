@@ -1,0 +1,32 @@
+.drop-down {
+  position: absolute;
+  margin-top: 5px;
+  padding: 12px;
+  border-radius: 5px;
+  color: var(--body-color);
+  border: 0;
+  transition: background 0.3s, box-shadow 0.3s;
+  background-color: var(--bg-transparent);
+  opacity: 1;
+}
+
+.drop-down:before {
+  content: '';
+  background-color: transparent;
+  border-right: 8px solid transparent;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid var(--bg-transparent);
+  border-top: 8px solid transparent;
+  top: -15px;
+  right: 18px;
+}
+
+.hit {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.ais-Highlight-highlighted {
+  color: var(--primary-color) !important;
+}

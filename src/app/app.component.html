@@ -1,9 +1,6 @@
-<div class="flex flex-col h-screen">
-  <app-navbar></app-navbar>
-  <div class="flex flex-col flex-1">
-    <main class="flex-1">
-      <router-outlet></router-outlet>
-    </main>
-    <app-footer></app-footer>
-  </div>
-</div>
+<ngx-loading-bar [includeBar]="false" [color]="'#e62424'"></ngx-loading-bar>
+<app-navbar></app-navbar>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

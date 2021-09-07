@@ -50,4 +50,4 @@ Thumbs.db
 
 # Generated files for dynamic route pre rendering
 routes.txt
-server/functions/videos/case-sensitive-video-id-mapping.json
+generated

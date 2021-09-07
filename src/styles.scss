@@ -1,5 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import './styles/vars.scss';
+@import './styles/sidebar.scss';
+@import './styles/navbar.scss';
+@import './styles/scrollbar.scss';
+@import './styles/input.scss';
+@import './styles/base.scss';
+@import './styles/layout.scss';
+@import './styles/flex.scss';
+@import './styles/button.scss';
+@import './styles/dots-bg.scss';
+@import './styles/section.scss';
+@import './styles/utils.scss';
+@import './styles/card.scss';
+@import './styles/links.scss';

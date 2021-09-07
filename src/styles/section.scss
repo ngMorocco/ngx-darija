@@ -1,0 +1,45 @@
+.section {
+  padding: calc(2% + var(--space)) 0;
+  position: relative;
+  width: 100%;
+  flex: 1;
+  &--secondary {
+    background-color: var(--bg-secondary);
+    // border-top: 1px solid var(--border-color);
+    // border-bottom: 1px solid var(--border-color);
+    + .section--secondary {
+      border-top-color: transparent;
+      margin-top: -1px;
+    }
+  }
+  &__dots-bg {
+    height: 700px;
+    max-width: 1500px;
+    max-height: 100%;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 1;
+  }
+  &--inner {
+    position: relative;
+    z-index: 2;
+  }
+  &--dark {
+    color: #fff;
+    background: var(--dark-bg);
+    p {
+      color: currentColor;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    a {
+      color: #fff;
+    }
+  }
+}

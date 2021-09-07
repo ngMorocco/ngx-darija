@@ -1,37 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { VideoBannerComponent } from './video-banner/video-banner.component';
-import { YtVideoItemComponent } from './video-item/video-item.component';
-import { VideoListingComponent } from './video-listing/video-listing.component';
-import { RouterModule } from '@angular/router';
-import { ErrorModule } from '@shared/components/error/error.module';
-import { YtVideoPlayerModule } from '@shared/components';
+import { CommonModule } from '@angular/common';
+import { IntroComponent } from './intro/intro.component';
+import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-
-const DECLARATIONS = [
-  HomeComponent,
-  VideoBannerComponent,
-  VideoListingComponent,
-  YtVideoItemComponent
-];
+import { NewsletterModule } from '@shared/components/newsletter/newsletter.module';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
-  declarations: DECLARATIONS,
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: '**',
-        redirectTo: '',
-        pathMatch: 'full'
-      }
-    ]),
-    ErrorModule,
-    YtVideoPlayerModule
-  ]
+  declarations: [HomeComponent, IntroComponent, EventComponent],
+  imports: [CommonModule, HomeRoutingModule, NewsletterModule]
 })
 export class HomeModule {}
