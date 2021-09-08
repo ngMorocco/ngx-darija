@@ -22,10 +22,17 @@ The application is hosted on https://angularindarija.dev.
 
    Follow these [instructions](https://developers.google.com/maps/documentation/maps-static/get-api-key?hl=en) to set up an API key with your Google account
 
-   Add the key to your .env file
+   Add the key to your .env.local file
 
    ```sh
    GOOGLE_API_KEY=AIzaSyB_xxxxxxxx
+   ```
+
+   If you want to work on Algolia Search indexing (Node.js):
+
+   Add the Algolia key to your .env.local file
+   ```sh
+   ALGOLIA_APP_KEY=xxxxxx
    ```
 
 4. **Start local server**
