@@ -1,6 +1,10 @@
 <ngx-loading-bar [includeBar]="false" [color]="'#e62424'"></ngx-loading-bar>
 <app-navbar></app-navbar>
-<main>
-  <router-outlet></router-outlet>
-</main>
-<app-footer></app-footer>
+<div class="flex viewport">
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <app-footer></app-footer>
+  </div>
+</div>

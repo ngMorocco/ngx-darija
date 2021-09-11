@@ -11,7 +11,6 @@
     position: sticky;
     transition: border-color 0.3s;
     top: var(--header-height);
-    height: calc(100vh + (var(--header-height) * -1) - 5px);
     width: 260px;
   }
 
