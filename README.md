@@ -12,11 +12,17 @@ The application is hosted on https://angularindarija.dev.
    git clone git@github.com:your-username/ngx-darija.git
    ```
 
-2. **Install Netlify CLI**
+
+2. **Install dependencies**
 
    ```sh
+   # Netlify CLI
    npm install -g netlify-cli
-   ```
+
+   cd ngx-darija
+   npm install
+   ```   
+
 
 3. **Prepare your environment**
 
