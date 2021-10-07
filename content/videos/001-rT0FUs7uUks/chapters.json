@@ -1,8 +1,92 @@
 [
   {
-    "title": "Introduction",
-    "start": "00:00",
-    "end": "02:00",
-    "tags": ["introduction"]
+    "title": "Introduction to the Series",
+    "start": "03:07",
+    "end": "05:55",
+    "tags": ["nutshell"]
+  },
+  {
+    "title": "The History of Angular",
+    "start": "06:05",
+    "end": "14:20",
+    "tags": ["nutshell", "creation"]
+  },
+  {
+    "title": "Angular in Morocco",
+    "start": "14:30",
+    "end": "17:50",
+    "tags": ["morocco", "job", "offers"]
+  },
+  {
+    "title": "What is a Single Page Application?",
+    "start": "20:42",
+    "end": "27:16",
+    "tags": ["nutshell", "definition"]
+  },
+  {
+    "title": "Single Page Applications and SEO",
+    "start": "27:16",
+    "end": "28:58",
+    "tags": ["nutshell", "seo", "ssr"]
+  },
+  {
+    "title": "Angular for Backend developers",
+    "start": "29:00",
+    "end": "29:58",
+    "tags": ["nutshell", "java", "c#", "python", "php"]
+  },
+  {
+    "title": "SPA and routing in a nutshell",
+    "start": "30:35",
+    "end": "34:40",
+    "tags": ["nutshell"]
+  },
+  {
+    "title": "Introduction to components",
+    "start": "40:38",
+    "end": "47:12",
+    "tags": ["beginner", "components"]
+  },
+  {
+    "title": "How data-binding works?",
+    "start": "47:13",
+    "end": "47:14",
+    "tags": ["intermediate", "data-binding"]
+  },
+  {
+    "title": "Declaring components",
+    "start": "50:13",
+    "end": "55:44",
+    "tags": ["beginner", "components"]
+  },
+  {
+    "title": "Why we need modules?",
+    "start": "55:55",
+    "end": "01:01:08",
+    "tags": ["advanced", "modules"]
+  },
+  {
+    "title": "Changing interpolation signs?",
+    "start": "01:01:08",
+    "end": "01:04:50",
+    "tags": ["advanced", "components"]
+  },
+  {
+    "title": "Angular CLI project structure",
+    "start": "01:05:40",
+    "end": "01:15:02",
+    "tags": ["intermediate", "cli"]
+  },
+  {
+    "title": "Angular dependencies",
+    "start": "01:06:09",
+    "end": "01:11:43",
+    "tags": ["intermediate", "node", "npm"]
+  },
+  {
+    "title": "TSConfig target config",
+    "start": "01:11:44",
+    "end": "01:12:33",
+    "tags": ["intermediate", "typescript", "tsconfig"]
   }
 ]

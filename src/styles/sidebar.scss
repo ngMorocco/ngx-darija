@@ -30,7 +30,7 @@
 
   &--right {
     border-right: 0;
-    width: 220px;
+    width: 290px;
     position: sticky;
   }
 
@@ -99,6 +99,20 @@
       padding: 0.2rem 0.4rem;
       font-size: 0.8rem;
       opacity: 0.8;
+    }
+  }
+
+  &.sidebar--right {
+    a {
+      margin: 0;
+      padding: 0.2rem 0;
+      font-size: 0.95rem;
+
+      &.active {
+        color: var(--primary-color);
+        position: relative;
+        padding-left: 0.8rem 0;
+      }
     }
   }
 }
