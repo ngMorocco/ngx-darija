@@ -5,16 +5,7 @@ tags: ['components', 'architecture', 'binding', 'dataflow']
 category: 'Lessons'
 ---
 
-In this interactive series we're going to explain and demystify Angular Core Concepts through practical live-coding and deep dive into understanding theory.
-
-We will pick and answer attendees' questions on the fly.
-
-Everything in Darija
-
-Presented by;
-
-- Chihab Otmani https://twitter.com/chihabotmani
-- Ilyas Elfouih https://twitter.com/elfouih
+### Plan
 
 - Interpolation and expressions
 - Property binding
@@ -22,11 +13,14 @@ Presented by;
 - Two-way binding
 - Template #ref variables
 
-# Links
+### Additional info related to XSS
 
-- [Amazon Kinesis](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html)
+To systematically block XSS bugs, Angular treats all values as untrusted by default. When a value is inserted into the DOM from a template binding, or interpolation, Angular sanitizes and escapes untrusted values. If a value was already sanitized outside of Angular and is considered safe, communicate this to Angular by marking the value as trusted.
+
+[Source](https://angular.io/guide/security)
 
 # Panel
 
 [Chihab Otmani](https://twitter.com/chihabotmani)
+
 [Ilyas Elfouih ](https://twitter.com/elfouih)

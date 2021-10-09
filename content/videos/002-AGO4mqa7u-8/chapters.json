@@ -1,8 +1,110 @@
 [
   {
+    "title": "Root Component",
+    "start": "09:20",
+    "end": "10:04",
+    "tags": ["components", "tree", "binding"]
+  },
+  {
     "title": "Thinking in HTML",
     "start": "10:05",
     "end": "15:00",
     "tags": ["components", "tree", "binding"]
+  },
+  {
+    "title": "Vanilla JavaScript and DOM",
+    "start": "16:05",
+    "end": "24:21",
+    "tags": ["components", "incremental dom", "binding"]
+  },
+  {
+    "title": "One-way binding - Interpolation",
+    "start": "21:21",
+    "end": "28:36",
+    "tags": ["components", "incremental dom", "binding"]
+  },
+  {
+    "title": "What UI library? Material or Bootstrap?",
+    "start": "21:21",
+    "end": "31:08",
+    "tags": ["components", "style", "question"]
+  },
+  {
+    "title": "Difference between properties and attributes",
+    "start": "31:08",
+    "end": "36:33",
+    "tags": ["components", "html", "dom"]
+  },
+  {
+    "title": "Property Binding",
+    "start": "36:33",
+    "end": "42:04",
+    "tags": ["components", "data binding", "input", "dom"]
+  },
+  {
+    "title": "Property Binding vs Interpolation",
+    "start": "01:00:38",
+    "end": "01:04:35",
+    "tags": ["components", "data binding"]
+  },
+  {
+    "title": "Binding methods in templates",
+    "start": "01:05:00",
+    "end": "01:06:40",
+    "tags": ["components", "data binding"]
+  },
+  {
+    "title": "Method expressions in templates and Performance",
+    "start": "01:06:40",
+    "end": "01:17:15",
+    "tags": ["components", "data binding", "performance"]
+  },
+  {
+    "title": "Change detection and incremental DOM",
+    "start": "01:08:34",
+    "end": "01:17:15",
+    "tags": ["components", "virtual dom", "react", "performance"]
+  },
+  {
+    "title": "Event Binding",
+    "start": "01:17:43",
+    "end": "01:25:29",
+    "tags": ["components", "data binding"]
+  },
+  {
+    "title": "Angular and XSS",
+    "start": "01:25:29",
+    "end": "01:31:05",
+    "tags": ["components", "security", "question"]
+  },
+  {
+    "title": "Two-way binding",
+    "start": "01:31:29",
+    "end": "01:34:34",
+    "tags": ["components", "ngModel", "forms"]
+  },
+  {
+    "title": "Syntaxic sugar in [(ngModel)]",
+    "start": "01:34:34",
+    "end": "01:40:51",
+    "tags": ["components", "ngModel", "forms"]
+  },
+  {
+    "title": "Smart and Dumb components in a Nutshell",
+    "start": "01:42:02",
+    "end": "01:47:06",
+    "tags": ["components", "architecture", "containers"]
+  },
+  {
+    "title": "State in Angular",
+    "start": "01:47:06",
+    "end": "01:49:30",
+    "tags": ["components", "redux", "ngrx"]
+  },
+  {
+    "title": "Dumb components in a Module",
+    "start": "01:49:31",
+    "end": "01:54:57",
+    "tags": ["components", "architecture", "question"]
   }
 ]
