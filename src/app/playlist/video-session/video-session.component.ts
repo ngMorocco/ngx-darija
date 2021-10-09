@@ -12,6 +12,7 @@ import {
   of,
   tap
 } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-video-session',
@@ -24,6 +25,7 @@ export class VideoSessionComponent implements OnInit {
     seek: { startSeconds: number; endSeconds: number; timestamp: number };
   }> = EMPTY;
   errorLoadingYoutubeVideo = false;
+  branch = environment.application.branch || 'main';
 
   constructor(
     private route: ActivatedRoute,

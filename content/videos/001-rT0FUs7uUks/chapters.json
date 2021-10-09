@@ -60,16 +60,16 @@
     "tags": ["beginner", "components"]
   },
   {
-    "title": "Why we need modules?",
+    "title": "Why do we need modules?",
     "start": "55:55",
     "end": "01:01:08",
     "tags": ["advanced", "modules"]
   },
   {
-    "title": "Changing interpolation signs?",
+    "title": "Changing interpolation signs",
     "start": "01:01:08",
     "end": "01:04:50",
-    "tags": ["advanced", "components"]
+    "tags": ["advanced", "components", "wassim chegham"]
   },
   {
     "title": "Angular CLI project structure",

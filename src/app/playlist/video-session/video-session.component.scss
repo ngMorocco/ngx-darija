@@ -3,8 +3,15 @@ svg {
 }
 
 .title {
-  font-size: 32px;
-  margin-right: 10px;
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-right: 5px;
+  }
+  a {
+    color: var(--primary-color);
+  }
 }
 
 a {

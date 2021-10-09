@@ -5,8 +5,6 @@ tags: ['components', 'architecture', 'binding', 'dataflow']
 category: 'Lessons'
 ---
 
-# Description
-
 In this interactive series we're going to explain and demystify Angular Core Concepts through practical live-coding and deep dive into understanding theory.
 
 We will pick and answer attendees' questions on the fly.

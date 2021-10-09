@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-  version = process.env.NG_APP_VERSION || 'v1.0';
-  sha1 = (process.env.NG_APP_COMMIT_REF || 'xxx').substr(0, 5);
+  version = environment.application.version || 'v1.0';
+  sha1 = (environment.application.commit || 'xxx').substr(0, 5);
 }

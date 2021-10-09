@@ -4,20 +4,12 @@ tags: ['introduction', 'getting started', 'file structure']
 category: 'Lessons'
 ---
 
-# Description
+During this session, as an introduction to the series, we briefly presented the history of Angular and then discussed the state of the Moroccan market regarding the adoption of Angular.
 
-In this interactive series we're going to explain and demystify Angular Core Concepts through practical live-coding and deep dive into understanding theory.
-
-We will pick and answer attendees' questions on the fly.
-
-Everything in Darija
-
-Presented by;
-
-- Chihab Otmani https://twitter.com/chihabotmani
-- Ilyas Elfouih https://twitter.com/elfouih
+Then, we explained the structure of a CLI project, introduced the notion of component and finally we answered the questions of the audience.
 
 # Panel
 
 [Chihab Otmani](https://twitter.com/chihabotmani)
+
 [Ilyas Elfouih ](https://twitter.com/elfouih)

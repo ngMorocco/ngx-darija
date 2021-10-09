@@ -4,8 +4,6 @@ tags: ['reactive', 'programming', 'rxjs']
 category: 'Lessons'
 ---
 
-# Description
-
 # Links
 
 # Panel

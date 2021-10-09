@@ -9,22 +9,25 @@
           [timestamp]="stream.seek.timestamp"
         ></app-video-player>
 
-        <div>
-          <p *ngIf="stream.video?.meta?.description; else ytDescription">
-            <markdown [data]="stream.video?.meta?.description"> </markdown>
-          </p>
+        <div class="flex title">
+          <h1>Description</h1>
+          <a
+            *ngIf="stream.video?.meta?.videoFile"
+            [attr.href]="
+              'https://github.com/ngMorocco/ngx-darija/edit/' +
+              branch +
+              '/content/videos/' +
+              stream.video?.meta?.videoFile
+            "
+            target="_blank"
+          >
+            edit
+          </a>
+        </div>
+        <div *ngIf="stream.video?.meta?.description; else ytDescription">
+          <markdown [data]="stream.video?.meta?.description"> </markdown>
         </div>
       </div>
-      <hr />
-      <a
-        *ngIf="stream.video?.meta?.videoFile"
-        [attr.href]="
-          'https://github.com/ngMorocco/ngx-darija/edit/feat/algolia-search/content/videos/' +
-          stream.video?.meta?.videoFile
-        "
-        target="_blank"
-        >Edit</a
-      >
       <ng-template #ytDescription>
         <p [innerText]="stream.video?.description"></p>
       </ng-template>
@@ -32,22 +35,26 @@
   </section>
   <div class="sidebar sidebar--right">
     <ng-container *ngIf="stream.video?.meta?.chaptersFile">
-      <h4>Chapters</h4>
+      <div class="flex title">
+        <h4>Chapters</h4>
+        <a
+          [attr.href]="
+            'https://github.com/ngMorocco/ngx-darija/edit/' +
+            branch +
+            '/content/videos/' +
+            stream.video?.meta?.chaptersFile
+          "
+          target="_blank"
+          class="primary"
+        >
+          edit
+        </a>
+      </div>
       <a
         *ngFor="let chapter of stream.video?.meta?.chapters"
         (click)="onSeek(chapter)"
       >
         {{ chapter.title }}
-      </a>
-      <hr />
-      <a
-        [attr.href]="
-          'https://github.com/ngMorocco/ngx-darija/edit/feat/algolia-search/content/videos/' +
-          stream.video?.meta?.chaptersFile
-        "
-        target="_blank"
-      >
-        Edit
       </a>
     </ng-container>
     <!-- <h3>Content</h3>
