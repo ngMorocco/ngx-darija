@@ -9,10 +9,9 @@
           [timestamp]="stream.seek.timestamp"
         ></app-video-player>
 
-        <div class="flex title">
-          <h1>Description</h1>
+        <div class="flex title" *ngIf="!!stream.video?.meta">
+          <h1>{{ stream.video?.meta?.title }}</h1>
           <a
-            *ngIf="stream.video?.meta?.videoFile"
             [attr.href]="
               'https://github.com/ngMorocco/ngx-darija/edit/' +
               branch +
@@ -57,7 +56,5 @@
         {{ chapter.title }}
       </a>
     </ng-container>
-    <!-- <h3>Content</h3>
-    <a href="./#description" class="submenu__link"> Description </a> -->
   </div>
 </div>

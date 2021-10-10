@@ -1,5 +1,5 @@
 ---
-title: 'Component Architecture'
+title: 'Component Fundamentals'
 subtitle: 'Templates and Data Binding'
 tags: ['components', 'architecture', 'binding', 'dataflow']
 category: 'Lessons'
