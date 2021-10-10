@@ -22,11 +22,28 @@
   right: 18px;
 }
 
+.title {
+  h3 {
+    padding: 5px 5px;
+    margin: 0;
+    margin-right: 15px;
+  }
+  vertical-align: top;
+}
+
 .hit {
-  padding: 10px 0;
+  padding: 5px 5px;
   cursor: pointer;
 }
 
 .ais-Highlight-highlighted {
   color: var(--primary-color) !important;
+}
+
+.algolia {
+  margin-top: 10px;
+  text-align: right;
+  img {
+    height: 20px;
+  }
 }

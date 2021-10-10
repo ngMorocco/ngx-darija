@@ -4,14 +4,29 @@
   (query)="onQuery($event)"
 ></app-input>
 
-<ng-container *ngIf="results$ | async as hits">
+<ng-container *ngIf="results$ | async as results">
   <div class="drop-down" *ngIf="!!state.query">
-    <div class="hit" *ngFor="let hit of hits" (click)="onSearchHit(hit)">
-      <ais-highlight attribute="session.category" [hit]="hit"></ais-highlight>
-      -
-      <ais-highlight attribute="session.title" [hit]="hit"></ais-highlight>
-      -
-      <ais-highlight attribute="title" [hit]="hit"></ais-highlight>
+    <ng-template #noResults> No results. </ng-template>
+    <ng-container *ngIf="results.size; else noResults">
+      <table>
+        <tr *ngFor="let result of results | keyvalue">
+          <td class="title">
+            <h3>{{ result.key }}</h3>
+          </td>
+          <td>
+            <div
+              class="hit"
+              *ngFor="let hit of result.value"
+              (click)="onSearchHit(hit)"
+            >
+              <ais-highlight attribute="title" [hit]="hit"></ais-highlight>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </ng-container>
+    <div class="algolia">
+      <img src="/assets/algolia.svg" alt="Search by Algilia" />
     </div>
   </div>
 </ng-container>
