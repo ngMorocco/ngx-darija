@@ -4,6 +4,12 @@
 
 The application is hosted on https://angularindarija.dev.
 
+<div style="display: flex;">
+ <img src="https://user-images.githubusercontent.com/196852/136914325-6468a9c4-a291-46ec-9f97-cdef0ac2afbc.png" alt="drawing" height="250"/>
+ <img src="https://user-images.githubusercontent.com/196852/136914601-2d079eef-64ad-4349-917b-23914fdbdd16.png" alt="drawing" height="250"/>
+ <img src="https://user-images.githubusercontent.com/196852/136916044-031b9d23-8e6d-4b28-9ee7-2359c5173c1a.png" alt="drawing" height="250"/>
+</div>
+
 # Quick start
 
 1. **Fork and clone the project**
