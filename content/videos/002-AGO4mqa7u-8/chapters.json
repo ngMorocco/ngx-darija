@@ -14,7 +14,7 @@
   {
     "title": "Vanilla JavaScript and DOM",
     "start": "16:05",
-    "end": "24:21",
+    "end": "21:20",
     "tags": ["components", "incremental dom", "binding"]
   },
   {
@@ -25,7 +25,7 @@
   },
   {
     "title": "What UI library? Material or Bootstrap?",
-    "start": "21:21",
+    "start": "28:37",
     "end": "31:08",
     "tags": ["components", "style", "question"]
   },
