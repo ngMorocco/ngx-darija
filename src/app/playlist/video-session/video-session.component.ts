@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { VideoItem } from '@core/models';
+import { Chapter, VideoItem } from '@core/models';
 import { SeoService } from '@core/services/seo.service';
 import { timeToSeconds } from '@helpers/time';
 import {
@@ -26,6 +26,7 @@ export class VideoSessionComponent implements OnInit {
   }> = EMPTY;
   errorLoadingYoutubeVideo = false;
   branch = environment.application.branch || 'main';
+  currentTime = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -52,7 +53,29 @@ export class VideoSessionComponent implements OnInit {
       }))
     );
     this.stream$ = combineLatest([video$, seek$]).pipe(
-      map(([video, seek]) => ({ video, seek }))
+      map(([video, seek]) => {
+        if (video?.meta?.chapters) {
+          const chapters: Chapter[] = video.meta.chapters.map(chapter => ({
+            ...chapter,
+            startInSeconds: timeToSeconds(chapter.start),
+            endInSeconds: timeToSeconds(chapter.end)
+          }));
+          return {
+            video: {
+              ...video,
+              meta: {
+                ...video.meta,
+                chapters
+              }
+            },
+            seek
+          };
+        }
+        return {
+          video,
+          seek
+        };
+      })
     );
   }
 

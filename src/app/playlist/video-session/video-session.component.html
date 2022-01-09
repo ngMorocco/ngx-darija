@@ -7,6 +7,7 @@
           [startSeconds]="stream.seek.startSeconds"
           [endSeconds]="stream.seek.endSeconds"
           [timestamp]="stream.seek.timestamp"
+          (currentTime)="currentTime = $event"
         ></app-video-player>
 
         <div class="flex title" *ngIf="!!stream.video?.meta">
@@ -50,10 +51,16 @@
         </a>
       </div>
       <a
+        [ngClass]="{
+          active:
+            currentTime >= chapter.startInSeconds &&
+            currentTime < chapter.endInSeconds
+        }"
         *ngFor="let chapter of stream.video?.meta?.chapters"
         (click)="onSeek(chapter)"
       >
         {{ chapter.title }}
+        <span *ngIf="">x</span>
       </a>
     </ng-container>
   </div>

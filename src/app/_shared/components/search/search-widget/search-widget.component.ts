@@ -72,7 +72,6 @@ export class SearchWidgetComponent
           titles.push(hit);
           return grouped;
         }, new Map<string, any[]>());
-        console.log(groupedBySession);
         return groupedBySession;
       })
     );

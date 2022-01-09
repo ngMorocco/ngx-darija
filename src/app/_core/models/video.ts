@@ -1,3 +1,12 @@
+export interface Chapter {
+  title: string;
+  start: string;
+  startInSeconds: number;
+  end: string;
+  endInSeconds: number;
+  tags: string[];
+}
+
 export interface VideoItem {
   id: string;
   title: string;
@@ -11,14 +20,7 @@ export interface VideoItem {
     tags: string[];
     videoFile?: string;
     chaptersFile?: string;
-    chapters?: [
-      {
-        title: string;
-        start: string;
-        end: string;
-        tags: string[];
-      }
-    ];
+    chapters?: Chapter[];
   };
 }
 
