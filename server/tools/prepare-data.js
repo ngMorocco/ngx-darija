@@ -30,7 +30,7 @@ const indexSearch = require('../lib/index-db');
       ''
     );
     mkdirpSync(GENERATED_DIR);
-    writeFile(path.resolve(GENERATED_DIR, 'routes.txt'), routes, db, err => {
+    writeFile(path.resolve(GENERATED_DIR, 'routes.txt'), routes, err => {
       if (err) return console.error(err);
       console.log('Preparing routes ✅');
     });

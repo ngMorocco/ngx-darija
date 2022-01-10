@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
+    "prepare-metadata": "dotenv node ./server/tools/prepare-metadata.js",
     "prepare-data": "node ./server/tools/prepare-data.js",
     "prepare-data:dev": "dotenv node ./server/tools/prepare-data.js",
     "prerender": "start-server-and-test serve:function http://localhost:8889/.netlify/functions/playlist/ prerender:routes",
