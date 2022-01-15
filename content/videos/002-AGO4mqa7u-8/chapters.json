@@ -7,20 +7,20 @@
   },
   {
     "title": "Thinking in HTML",
-    "start": "10:05",
-    "end": "15:00",
+    "start": "10:04",
+    "end": "16:05",
     "tags": ["components", "tree", "binding"]
   },
   {
     "title": "Vanilla JavaScript and DOM",
     "start": "16:05",
-    "end": "21:20",
+    "end": "21:21",
     "tags": ["components", "incremental dom", "binding"]
   },
   {
     "title": "One-way binding - Interpolation",
     "start": "21:21",
-    "end": "28:36",
+    "end": "28:37",
     "tags": ["components", "incremental dom", "binding"]
   },
   {
@@ -38,13 +38,13 @@
   {
     "title": "Property Binding",
     "start": "36:33",
-    "end": "42:04",
+    "end": "01:00:38",
     "tags": ["components", "data binding", "input", "dom"]
   },
   {
     "title": "Property Binding vs Interpolation",
     "start": "01:00:38",
-    "end": "01:04:35",
+    "end": "01:05:00",
     "tags": ["components", "data binding"]
   },
   {
@@ -56,13 +56,13 @@
   {
     "title": "Method expressions in templates and Performance",
     "start": "01:06:40",
-    "end": "01:17:15",
+    "end": "01:08:34",
     "tags": ["components", "data binding", "performance"]
   },
   {
     "title": "Change detection and incremental DOM",
     "start": "01:08:34",
-    "end": "01:17:15",
+    "end": "01:17:43",
     "tags": ["components", "virtual dom", "react", "performance"]
   },
   {
@@ -74,7 +74,7 @@
   {
     "title": "Angular and XSS",
     "start": "01:25:29",
-    "end": "01:31:05",
+    "end": "01:31:29",
     "tags": ["components", "security", "question"]
   },
   {
@@ -86,7 +86,7 @@
   {
     "title": "Syntaxic sugar in [(ngModel)]",
     "start": "01:34:34",
-    "end": "01:40:51",
+    "end": "01:42:02",
     "tags": ["components", "ngModel", "forms"]
   },
   {
@@ -98,7 +98,7 @@
   {
     "title": "State in Angular",
     "start": "01:47:06",
-    "end": "01:49:30",
+    "end": "01:49:31",
     "tags": ["components", "redux", "ngrx"]
   },
   {
