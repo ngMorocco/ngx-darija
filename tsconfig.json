@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2020",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
