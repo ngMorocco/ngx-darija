@@ -15,8 +15,10 @@ export class PlaylistResolver implements Resolve<Observable<VideoItem[]>> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<VideoItem[]> {
-    return this.videoService
-      .getPlaylist(route.queryParamMap.get('id') || undefined)
-      .pipe(this.serverStateService.hydrate('videos'));
+    return this.serverStateService.hydrate<VideoItem[]>(
+      'videos',
+      this.videoService.getPlaylist(route.queryParamMap.get('id') || undefined),
+      []
+    );
   }
 }
