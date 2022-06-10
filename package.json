@@ -13,7 +13,7 @@
     "prerender:routes": "ng run ngx-darija:prerender --routes-file content/generated/routes.txt",
     "site": "npm run prepare-data && npm run prerender",
     "site:dev": "dotenv npm run site",
-    "serve:function": "netlify functions:serve -p 8889"
+    "serve:function": "npx netlify-cli functions:serve -p 8889"
   },
   "private": true,
   "dependencies": {
