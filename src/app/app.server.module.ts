@@ -4,10 +4,10 @@ import {
   ServerTransferStateModule
 } from '@angular/platform-server';
 import { AppComponent } from './app.component';
-import { AppModule } from './app.module';
+import { modules } from './app.modules';
 
 @NgModule({
-  imports: [AppModule, ServerModule, ServerTransferStateModule],
+  imports: [AppComponent, ...modules, ServerModule, ServerTransferStateModule],
   bootstrap: [AppComponent]
 })
 export class AppServerModule {}

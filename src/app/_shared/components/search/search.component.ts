@@ -1,20 +1,42 @@
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   Inject,
   PLATFORM_ID
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { timeToSeconds } from '@helpers/time';
 import algoliasearch from 'algoliasearch/lite';
+import { NgAisModule } from 'angular-instantsearch';
 import { environment } from 'src/environments/environment';
-import { SearchHit } from './search-widget/search-widget.component';
+import { InputComponent } from '../input/input.component';
+import { SearchHit, SearchWidgetComponent } from './search-widget.component';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: `
+    <ais-instantsearch *ngIf="isBrowser" [config]="config">
+      <ais-configure
+        [searchParameters]="{
+          attributesToSnippet: ['description:10'],
+          snippetEllipsisText: '…',
+          removeWordsIfNoResults: 'allOptional'
+        }"
+      >
+      </ais-configure>
+      <app-search-widget (searchHit)="onSearchHit($event)"></app-search-widget>
+    </ais-instantsearch>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    InputComponent,
+    SearchWidgetComponent,
+    NgAisModule
+  ]
 })
 export class SearchComponent {
   config: any = {

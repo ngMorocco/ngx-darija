@@ -4,13 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    loadComponent: () =>
+      import('./home/home.component').then(m => m.HomeComponent),
     pathMatch: 'full'
   },
   {
     path: 'playlist',
     loadChildren: () =>
-      import('./playlist/playlist.module').then(m => m.SessionModule)
+      import('./playlist/playlist.module').then(m => m.PlaylistModule)
+    /*loadComponent: () =>
+      import('./playlist/playlist.component').then(m => m.PlaylistComponent)*/
   },
   {
     path: '**',

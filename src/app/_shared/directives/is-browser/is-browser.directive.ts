@@ -10,7 +10,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appIsBrowser]'
+  selector: '[appIsBrowser]',
+  standalone: true
 })
 export class IsBrowserDirective implements OnInit {
   @Input() appIsBrowser: boolean | string = true;

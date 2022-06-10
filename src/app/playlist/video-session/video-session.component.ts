@@ -1,8 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Chapter, VideoItem } from '@core/models';
 import { SeoService } from '@core/services/seo.service';
 import { timeToSeconds } from '@helpers/time';
+import { VideoPlayerComponent } from '@shared/components/search/video-player.component';
+import { IsBrowserDirective } from '@shared/directives/is-browser/is-browser.directive';
+import { MarkdownModule } from 'ngx-markdown';
 import {
   catchError,
   combineLatest,
@@ -17,7 +21,14 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-video-session',
   templateUrl: './video-session.component.html',
-  styleUrls: ['./video-session.component.scss']
+  styleUrls: ['./video-session.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    IsBrowserDirective,
+    VideoPlayerComponent,
+    MarkdownModule
+  ]
 })
 export class VideoSessionComponent implements OnInit {
   stream$: Observable<{

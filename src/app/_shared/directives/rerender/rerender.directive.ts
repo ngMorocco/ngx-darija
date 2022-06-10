@@ -1,7 +1,8 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[appRerender]'
+  selector: '[appRerender]',
+  standalone: true
 })
 export class RerenderDirective {
   constructor(

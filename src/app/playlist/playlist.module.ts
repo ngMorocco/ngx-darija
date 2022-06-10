@@ -1,29 +1,39 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { VideoPlayerModule } from '@shared/components';
-import { ErrorModule } from '@shared/components/error/error.module';
-import { IsBrowserModule } from '@shared/directives/is-browser/is-browser.module';
-import { MarkdownModule } from 'ngx-markdown';
+import { RouterModule, Routes } from '@angular/router';
 import { ContributeComponent } from './contribute/contribute.component';
-import { SessionRoutingModule } from './playlist-routing.module';
 import { PlaylistComponent } from './playlist.component';
+import { PlaylistResolver } from './playlist.resolver';
 import { VideoSessionComponent } from './video-session/video-session.component';
-import { VideoStatisticsComponent } from './video-statistics/video-statistics.component';
+import { VideoResolver } from './video-session/video.resolver';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: PlaylistComponent,
+    resolve: {
+      videos: PlaylistResolver
+    },
+    children: [
+      {
+        path: '',
+        redirectTo: 'contribute',
+        pathMatch: 'full'
+      },
+      {
+        path: 'contribute',
+        component: ContributeComponent
+      },
+      {
+        path: ':videoId',
+        component: VideoSessionComponent,
+        resolve: {
+          session: VideoResolver
+        }
+      }
+    ]
+  }
+];
 @NgModule({
-  declarations: [
-    PlaylistComponent,
-    ContributeComponent,
-    VideoSessionComponent,
-    VideoStatisticsComponent
-  ],
-  imports: [
-    CommonModule,
-    SessionRoutingModule,
-    VideoPlayerModule,
-    IsBrowserModule,
-    ErrorModule,
-    MarkdownModule.forChild()
-  ]
+  imports: [RouterModule.forChild(routes)]
 })
-export class SessionModule {}
+export class PlaylistModule {}
