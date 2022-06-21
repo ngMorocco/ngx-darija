@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
@@ -10,10 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'playlist',
-    loadChildren: () =>
-      import('./playlist/playlist.module').then(m => m.PlaylistModule)
-    /*loadComponent: () =>
-      import('./playlist/playlist.component').then(m => m.PlaylistComponent)*/
+    loadChildren: () => import('./playlist/playlist.routes').then(m => m.routes)
   },
   {
     path: '**',
@@ -21,13 +17,3 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledBlocking',
-      scrollPositionRestoration: 'enabled'
-    })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
