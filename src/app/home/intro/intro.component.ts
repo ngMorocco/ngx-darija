@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
         <p class="intro__text">Live, hands-on learning in Moroccan Darija</p>
         <div class="intro__links">
           <a routerLink="/playlist" class="button primary button--large">
-            <span>Watch</span>
+            Watch
           </a>
         </div>
       </div>
