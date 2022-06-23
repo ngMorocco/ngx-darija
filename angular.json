@@ -106,6 +106,7 @@
         "server": {
           "builder": "@ngx-env/builder:server",
           "options": {
+            "inlineStyleLanguage": "scss",
             "outputPath": "dist/ngx-darija/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",

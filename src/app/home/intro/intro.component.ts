@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -9,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         <p class="intro__text">Live, hands-on learning in Moroccan Darija</p>
         <div class="intro__links">
           <a routerLink="/playlist" class="button primary button--large">
-            <span>Watch</span>
+            Watch
           </a>
         </div>
       </div>
@@ -64,6 +65,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true
+  standalone: true,
+  imports: [RouterModule]
 })
 export class IntroComponent {}

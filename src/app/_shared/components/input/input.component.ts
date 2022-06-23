@@ -9,7 +9,7 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { distinctUntilChanged, Subscription, throttleTime } from 'rxjs';
 
 @Component({
@@ -69,7 +69,9 @@ export class InputComponent implements OnChanges, OnInit, OnDestroy {
   @Output() query = new EventEmitter<string>();
 
   subscription: Subscription = new Subscription();
-  control: UntypedFormControl = new UntypedFormControl(this.value);
+  control = new FormControl(this.value, {
+    nonNullable: true
+  });
 
   ngOnInit() {
     this.subscription.add(
@@ -78,7 +80,7 @@ export class InputComponent implements OnChanges, OnInit, OnDestroy {
           throttleTime(this.delay, undefined, { trailing: true }),
           distinctUntilChanged()
         )
-        .subscribe((query: string) => {
+        .subscribe(query => {
           this.query.emit(query);
         })
     );
