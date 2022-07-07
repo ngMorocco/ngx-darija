@@ -15,11 +15,13 @@ import { IntroComponent } from './intro/intro.component';
       <div class="section__dots-bg dots-bg"></div>
     </section>
 
+    <!--
     <section class="section event">
       <div class="section--inner container">
         <app-event></app-event>
       </div>
     </section>
+    -->
 
     <app-newsletter></app-newsletter>
 

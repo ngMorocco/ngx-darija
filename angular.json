@@ -40,7 +40,7 @@
             ],
             "styles": ["src/styles.scss"],
             "scripts": ["node_modules/marked/lib/marked.js"],
-            "serviceWorker": true,
+            "serviceWorker": false,
             "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {

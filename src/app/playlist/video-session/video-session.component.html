@@ -1,15 +1,21 @@
 <div *ngIf="stream$ | async as stream" class="flex flex-align-top session">
   <section class="section">
     <div class="section--inner container">
-      <div class="video">
-        <app-video-player
-          *appIsBrowser
+      <div class="video" *appIsBrowser>
+        <app-video-player-lite
+          *ngIf="stream.video?.id === 'X-nQpY9Yuh0'; else defaultPlayer"
           [videoId]="stream.video?.id"
-          [startSeconds]="stream.seek.startSeconds"
-          [endSeconds]="stream.seek.endSeconds"
-          [timestamp]="stream.seek.timestamp"
-          (currentTime)="currentTime = $event"
-        ></app-video-player>
+        ></app-video-player-lite>
+
+        <ng-template #defaultPlayer>
+          <app-video-player
+            [videoId]="stream.video?.id"
+            [startSeconds]="stream.seek.startSeconds"
+            [endSeconds]="stream.seek.endSeconds"
+            [timestamp]="stream.seek.timestamp"
+            (currentTime)="currentTime = $event"
+          ></app-video-player>
+        </ng-template>
 
         <div class="flex title" *ngIf="!!stream.video?.meta">
           <h1>{{ stream.video?.meta?.title }}</h1>
