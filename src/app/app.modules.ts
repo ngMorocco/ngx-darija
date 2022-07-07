@@ -12,7 +12,7 @@ import {
   NgxGoogleAnalyticsRouterModule
 } from 'ngx-google-analytics';
 import { MarkdownModule } from 'ngx-markdown';
-import { environment } from '../environments/environment';
+// import { environment } from '../environments/environment';
 import { routes } from './app-routing.module';
 
 export const modules = [
@@ -27,11 +27,11 @@ export const modules = [
   MarkdownModule.forRoot(),
   NgxGoogleAnalyticsModule.forRoot('G-32WYWRYZQF'),
   NgxGoogleAnalyticsRouterModule,
-  ServiceWorkerModule.register('ngsw-worker.js', {
-    enabled: environment.production,
-    // Register the ServiceWorker as soon as the app is stable
-    // or after 30 seconds (whichever comes first).
-    registrationStrategy: 'registerWhenStable:30000'
-  }),
+  // ServiceWorkerModule.register('ngsw-worker.js', {
+  //   enabled: environment.production,
+  //   // Register the ServiceWorker as soon as the app is stable
+  //   // or after 30 seconds (whichever comes first).
+  //   registrationStrategy: 'registerWhenStable:30000'
+  // }),
   NgAisModule.forRoot()
 ];

@@ -27,7 +27,7 @@ const indexSearch = require('../lib/index-db');
 
     const routes = videoIds.reduce(
       (routes, videoId) => (routes += `/playlist/${videoId}\n`),
-      ''
+      '/playlist/contribute\n'
     );
     mkdirpSync(GENERATED_DIR);
     writeFile(path.resolve(GENERATED_DIR, 'routes.txt'), routes, err => {

@@ -4,7 +4,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Chapter, VideoItem } from '@core/models';
 import { SeoService } from '@core/services/seo.service';
 import { timeToSeconds } from '@helpers/time';
-import { VideoPlayerComponent } from '@shared/components/search/video-player.component';
+import { VideoPlayerLiteComponent } from '@shared/components/video-player-lite/video-player-lite.component';
+import { VideoPlayerComponent } from '@shared/components/video-player/video-player.component';
 import { IsBrowserDirective } from '@shared/directives/is-browser/is-browser.directive';
 import { MarkdownModule } from 'ngx-markdown';
 import {
@@ -27,6 +28,7 @@ import { environment } from 'src/environments/environment';
     CommonModule,
     IsBrowserDirective,
     VideoPlayerComponent,
+    VideoPlayerLiteComponent,
     MarkdownModule
   ]
 })
