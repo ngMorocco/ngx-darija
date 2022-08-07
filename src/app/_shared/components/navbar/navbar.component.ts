@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Inject,
+  OnInit,
   PLATFORM_ID
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -108,7 +109,7 @@ import { SearchComponent } from '../search/search.component';
   standalone: true,
   imports: [RouterModule, CommonModule]
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   searchComponentClass: Promise<typeof SearchComponent> | null = null;
   constructor(@Inject(PLATFORM_ID) private platformId: any) {}
   ngOnInit() {
