@@ -4,15 +4,12 @@ import {
   BrowserTransferStateModule
 } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { NgAisModule } from 'angular-instantsearch';
-import {
-  NgxGoogleAnalyticsModule,
-  NgxGoogleAnalyticsRouterModule
-} from 'ngx-google-analytics';
-import { MarkdownModule } from 'ngx-markdown';
-// import { environment } from '../environments/environment';
+// import {
+//   NgxGoogleAnalyticsModule,
+//   NgxGoogleAnalyticsRouterModule
+// } from 'ngx-google-analytics';
 import { routes } from './app-routing.module';
 
 export const modules = [
@@ -24,14 +21,7 @@ export const modules = [
   }),
   HttpClientModule,
   LoadingBarRouterModule,
-  MarkdownModule.forRoot(),
-  NgxGoogleAnalyticsModule.forRoot('G-32WYWRYZQF'),
-  NgxGoogleAnalyticsRouterModule,
-  // ServiceWorkerModule.register('ngsw-worker.js', {
-  //   enabled: environment.production,
-  //   // Register the ServiceWorker as soon as the app is stable
-  //   // or after 30 seconds (whichever comes first).
-  //   registrationStrategy: 'registerWhenStable:30000'
-  // }),
-  NgAisModule.forRoot()
+  NgAisModule.forRoot() // TODO: provide with lazt loaded component
+  // NgxGoogleAnalyticsModule.forRoot('G-32WYWRYZQF'),
+  // NgxGoogleAnalyticsRouterModule,
 ];
