@@ -2,6 +2,11 @@ svg {
   width: 50px;
 }
 
+.video {
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
   h1,
   h2,
@@ -16,6 +21,12 @@ svg {
 
 a {
   cursor: pointer;
+}
+
+@media screen and (max-width: 440px) {
+  .video {
+    flex-direction: column-reverse;
+  }
 }
 
 @media screen and (max-width: 1189px) {

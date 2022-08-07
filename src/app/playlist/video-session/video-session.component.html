@@ -1,12 +1,25 @@
 <div *ngIf="stream$ | async as stream" class="flex flex-align-top session">
   <section class="section">
     <div class="section--inner container">
+      <div class="flex title" *ngIf="!!stream.video?.meta">
+        <h1>{{ stream.video?.meta?.title }}</h1>
+        <a
+          [attr.href]="
+            'https://github.com/ngMorocco/ngx-darija/edit/' +
+            branch +
+            '/content/videos/' +
+            stream.video?.meta?.videoFile
+          "
+          target="_blank"
+        >
+          edit
+        </a>
+      </div>
       <div class="video" *appIsBrowser>
         <app-video-player-lite
           *ngIf="stream.video?.id === 'X-nQpY9Yuh0'; else defaultPlayer"
           [videoId]="stream.video?.id"
         ></app-video-player-lite>
-
         <ng-template #defaultPlayer>
           <app-video-player
             [videoId]="stream.video?.id"
@@ -16,28 +29,13 @@
             (currentTime)="currentTime = $event"
           ></app-video-player>
         </ng-template>
-
-        <div class="flex title" *ngIf="!!stream.video?.meta">
-          <h1>{{ stream.video?.meta?.title }}</h1>
-          <a
-            [attr.href]="
-              'https://github.com/ngMorocco/ngx-darija/edit/' +
-              branch +
-              '/content/videos/' +
-              stream.video?.meta?.videoFile
-            "
-            target="_blank"
-          >
-            edit
-          </a>
-        </div>
         <div *ngIf="stream.video?.meta?.description; else ytDescription">
           <markdown [data]="stream.video?.meta?.description"> </markdown>
         </div>
+        <ng-template #ytDescription>
+          <div><p [innerText]="stream.video?.description"></p></div>
+        </ng-template>
       </div>
-      <ng-template #ytDescription>
-        <p [innerText]="stream.video?.description"></p>
-      </ng-template>
     </div>
   </section>
   <div class="sidebar sidebar--right">
