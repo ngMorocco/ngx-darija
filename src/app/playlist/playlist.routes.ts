@@ -1,4 +1,6 @@
+import { importProvidersFrom } from '@angular/core';
 import { Routes } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 import { ContributeComponent } from './contribute/contribute.component';
 import { PlaylistComponent } from './playlist.component';
 import { PlaylistResolver } from './playlist.resolver';
@@ -9,6 +11,7 @@ export const routes: Routes = [
   {
     path: '',
     component: PlaylistComponent,
+    providers: [importProvidersFrom(MarkdownModule.forRoot())],
     resolve: {
       videos: PlaylistResolver
     },

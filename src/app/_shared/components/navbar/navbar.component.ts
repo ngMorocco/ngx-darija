@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from '../search/search.component';
 
@@ -53,8 +60,12 @@ import { SearchComponent } from '../search/search.component';
             ><span class="main-nav__label">About</span>
           </a>
         </nav>
-        <form id="search" class="header-search">
-          <app-search></app-search>
+        <form
+          id="search"
+          class="header-search"
+          *ngIf="searchComponentClass | async as SearchComponent"
+        >
+          <ng-template [ngComponentOutlet]="SearchComponent"></ng-template>
         </form>
         <nav class="header-actions flex">
           <a
@@ -96,6 +107,15 @@ import { SearchComponent } from '../search/search.component';
   styleUrls: ['./navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [RouterModule, SearchComponent]
+  imports: [RouterModule, CommonModule]
 })
-export class NavbarComponent {}
+export class NavbarComponent implements OnInit {
+  searchComponentClass: Promise<typeof SearchComponent> | null = null;
+  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId) && window.innerWidth > 440)
+      this.searchComponentClass = import('../search/search.component').then(
+        m => m.SearchComponent
+      );
+  }
+}
