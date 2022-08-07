@@ -5,7 +5,6 @@ import {
 } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-import { NgAisModule } from 'angular-instantsearch';
 // import {
 //   NgxGoogleAnalyticsModule,
 //   NgxGoogleAnalyticsRouterModule
@@ -20,8 +19,7 @@ export const modules = [
     scrollPositionRestoration: 'enabled'
   }),
   HttpClientModule,
-  LoadingBarRouterModule,
-  NgAisModule.forRoot() // TODO: provide with lazt loaded component
+  LoadingBarRouterModule
   // NgxGoogleAnalyticsModule.forRoot('G-32WYWRYZQF'),
   // NgxGoogleAnalyticsRouterModule,
 ];
