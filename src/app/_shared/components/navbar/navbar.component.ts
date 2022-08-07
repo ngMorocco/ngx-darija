@@ -62,7 +62,7 @@ import { SearchComponent } from '../search/search.component';
         <form
           id="search"
           class="header-search"
-          *ngIf="SearchComponentClass | async as SearchComponent"
+          *ngIf="searchComponentClass | async as SearchComponent"
         >
           <ng-template [ngComponentOutlet]="SearchComponent"></ng-template>
         </form>
@@ -109,11 +109,11 @@ import { SearchComponent } from '../search/search.component';
   imports: [RouterModule, CommonModule]
 })
 export class NavbarComponent {
-  SearchComponentClass: Promise<typeof SearchComponent> | null = null;
+  searchComponentClass: Promise<typeof SearchComponent> | null = null;
   constructor(@Inject(PLATFORM_ID) private platformId: any) {}
   ngOnInit() {
     if (isPlatformBrowser(this.platformId) && window.innerWidth > 440)
-      this.SearchComponentClass = import('../search/search.component').then(
+      this.searchComponentClass = import('../search/search.component').then(
         m => m.SearchComponent
       );
   }
