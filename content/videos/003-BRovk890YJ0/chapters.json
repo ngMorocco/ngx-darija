@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "title": "Introduction and welcoming",
+    "start": "01:30",
+    "end": "03:45",
+    "tags": []
+  },
+  {
+    "title": "Angular 10 is out!",
+    "start": "03:45",
+    "end": "21:00",
+    "tags": ["news", "angular 10"]
+  },
+  {
+    "title": "Concepts recap",
+    "start": "21:00",
+    "end": "34:15",
+    "tags": ["recap"]
+  },
+  {
+    "title": "What is a Pipe?",
+    "start": "34:15",
+    "end": "40:30",
+    "tags": ["pipes", "definition", "nutshell"]
+  },
+  {
+    "title": "How & Where pipes should be used",
+    "start": "40:30",
+    "end": "46:32",
+    "tags": ["best practices", "pipes", "usage"]
+  },
+  {
+    "title": "Directive: Definition and types",
+    "start": "46:32",
+    "end": "1:19:15",
+    "tags": ["directives", "definition", "attribute directives", "structural directives"]
+  }
+]
