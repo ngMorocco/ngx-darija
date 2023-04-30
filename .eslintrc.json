@@ -2,9 +2,14 @@
   "root": true,
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "parserOptions": {
-        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
         "createDefaultProgram": true
       },
       "extends": [
@@ -30,14 +35,21 @@
             "style": "camelCase"
           }
         ],
-        "arrow-parens": ["off", "always"],
-        "brace-style": ["off", "off"],
+        "arrow-parens": [
+          "off",
+          "always"
+        ],
+        "brace-style": [
+          "off",
+          "off"
+        ],
         "linebreak-style": "off",
         "new-parens": "off",
         "newline-per-chained-call": "off",
         "no-extra-semi": "off",
         "no-irregular-whitespace": "off",
         "no-trailing-spaces": "off",
+        "jsdoc/newline-after-description": "off",
         "react/jsx-curly-spacing": "off",
         "react/jsx-equals-spacing": "off",
         "react/jsx-tag-spacing": [
@@ -48,12 +60,19 @@
           }
         ],
         "react/jsx-wrap-multilines": "off",
-        "space-in-parens": ["off", "never"]
+        "space-in-parens": [
+          "off",
+          "never"
+        ]
       }
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
       "rules": {}
     }
   ]
