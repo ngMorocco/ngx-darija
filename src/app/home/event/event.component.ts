@@ -7,31 +7,33 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
       <div class="card container">
         <div class="event flex flex-align-top">
           <div class="date">
-            <p>Saturday, July 2nd @ 6:30 PM</p>
+            <p>Saturday, May 13rd @ 6:00 PM</p>
             <img src="/assets/date-picker.svg" alt="Calendar" />
           </div>
           <div class="description">
-            <h2>Standalone Components</h2>
+            <h2>Signals 🚦</h2>
+            <h1> The future of Angular reactivity</h1>
             <p>
-              We are back with a new episode about the long-awaited "Standalone
-              components" feature available in v14!
+              Back again with a new Angular in Darija live session in this one we will be talking about Signals in Angular.
             </p>
             <ul>
-              <li>Why do/did we need NgModules again?</li>
-              <li>What are Standalone Components?</li>
-              <li>How to provide services?</li>
-              <li>How to use with third party libraries?</li>
-              <li>Single File Components</li>
-              <li>What are the best strategies to migrate?</li>
-              <li>Angular In Darija app migration to SC</li>
-              <li>Are Standalone APIs ready for production?</li>
-              <li>What is the Future?</li>
+              <li>Why do we need Signals?</li>
+              <li>Change Detection without Signals</li>
+              <li>Reactivity with Signals</li>
+              <li>Zonless Angular</li>
+              <li>Signals API</li>
+              <li>Why not RxJS?</li>
+              <li>Interop with RxJS</li>
+              <li>Coming features</li>
             </ul>
             <p>We will pick and answer your questions on the fly.</p>
             <p>
               Hosted by
               <a href="//twitter.com/chihabotmani">Chihab Otmani</a> and
               <a href="//twitter.com/elfouih">Ilyass Elfouih</a>
+            </p>
+            <p>
+              RSVP: <a href="https://www.meetup.com/ngmorocco/events/293298157/">https://www.meetup.com/ngmorocco/events/293298157/</a>
             </p>
           </div>
         </div>
@@ -72,4 +74,4 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
-export class EventComponent {}
+export class EventComponent { }
