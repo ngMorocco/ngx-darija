@@ -15,15 +15,14 @@ import { IntroComponent } from './intro/intro.component';
       <div class="section__dots-bg dots-bg"></div>
     </section>
 
-    <!--
+    
     <section class="section event">
       <div class="section--inner container">
         <app-event></app-event>
       </div>
     </section>
-    -->
-
-    <app-newsletter></app-newsletter>
+   
+    <!-- <app-newsletter></app-newsletter> -->
 
     <!-- <section class="section numbers">
       <div class="section--inner container flex flex-space-between">
@@ -58,7 +57,7 @@ import { IntroComponent } from './intro/intro.component';
   imports: [CommonModule, NewsletterComponent, EventComponent, IntroComponent]
 })
 export class HomeComponent implements OnInit {
-  constructor(private seo: SeoService) {}
+  constructor(private seo: SeoService) { }
 
   ngOnInit() {
     this.seo.setText('Angular In Darija');

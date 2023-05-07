@@ -26,7 +26,7 @@ The application is hosted on https://angularindarija.dev.
    npm install -g netlify-cli
 
    cd ngx-darija
-   yarn install
+   npm install
    ```   
 
 
