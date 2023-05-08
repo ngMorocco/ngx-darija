@@ -33,7 +33,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
               <a href="//twitter.com/elfouih">Ilyass Elfouih</a>
             </p>
             <p>
-              RSVP: <a href="https://www.meetup.com/ngmorocco/events/293298157/">https://www.meetup.com/ngmorocco/events/293298157/</a>
+              RSVP on <a href="https://www.meetup.com/ngmorocco/events/293298157/">Meetup.com.</a>
             </p>
           </div>
         </div>
