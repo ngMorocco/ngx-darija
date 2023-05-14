@@ -7,24 +7,21 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
       <div class="card container">
         <div class="event flex flex-align-top">
           <div class="date">
-            <p>Saturday, May 13rd @ 6:00 PM</p>
+            <p>Saturday, May 27nd @ 6:00 PM</p>
             <img src="/assets/date-picker.svg" alt="Calendar" />
           </div>
           <div class="description">
-            <h2>Signals 🚦</h2>
-            <h1> The future of Angular reactivity</h1>
-            <p>
-              Back again with a new Angular in Darija live session in this one we will be talking about Signals in Angular.
-            </p>
+            <h2>Angular v16 new features</h2>
+            <h1>Live update of AngularInDarija.dev</h1>
+            <p>Back with a new live session of Angular in Darija. In this session, we will update the angularindarija.dev site with the latest Angular 16 features.</p>
             <ul>
-              <li>Why do we need Signals?</li>
-              <li>Change Detection without Signals</li>
-              <li>Reactivity with Signals</li>
-              <li>Zonless Angular</li>
-              <li>Signals API</li>
-              <li>Why not RxJS?</li>
-              <li>Interop with RxJS</li>
-              <li>Coming features</li>
+              <li>Upgrade to Angular 16</li>
+              <li>Use self-closing tags</li>
+              <li>Bind route parameters to Component's input</li>
+              <li>Use experimental Signals API</li>
+              <li>Setup non-destructive hydration</li>
+              <li>Setup experimental Jest</li>
+              <li>Bonus: Setup experimental esbuild builder</li>
             </ul>
             <p>We will pick and answer your questions on the fly.</p>
             <p>
@@ -32,9 +29,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
               <a href="//twitter.com/chihabotmani">Chihab Otmani</a> and
               <a href="//twitter.com/elfouih">Ilyass Elfouih</a>
             </p>
-            <p>
+            <!-- <p>
               RSVP on <a href="https://www.meetup.com/ngmorocco/events/293298157/">Meetup.com.</a>
-            </p>
+            </p> -->
           </div>
         </div>
         <div class="border-top"></div>
