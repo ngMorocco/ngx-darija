@@ -82,6 +82,7 @@ export class InputComponent implements OnChanges, OnInit, OnDestroy {
         )
         .subscribe(query => {
           this.query.emit(query);
+          console.log(query);
         })
     );
   }
