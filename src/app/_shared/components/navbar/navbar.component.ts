@@ -111,7 +111,7 @@ import { SearchComponent } from '../search/search.component';
 })
 export class NavbarComponent implements OnInit {
   searchComponentClass: Promise<typeof SearchComponent> | null = null;
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: any) { }
   ngOnInit() {
     if (isPlatformBrowser(this.platformId) && window.innerWidth > 440)
       this.searchComponentClass = import('../search/search.component').then(

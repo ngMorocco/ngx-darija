@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "es2022",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -13,6 +13,7 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "useDefineForClassFields": false,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -20,11 +21,20 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "module": "es2020",
-    "lib": ["es2018", "dom"],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
-      "@core/*": ["src/app/_core/*"],
-      "@shared/*": ["src/app/_shared/*"],
-      "@helpers/*": ["src/app/_helpers/*"]
+      "@core/*": [
+        "src/app/_core/*"
+      ],
+      "@shared/*": [
+        "src/app/_shared/*"
+      ],
+      "@helpers/*": [
+        "src/app/_helpers/*"
+      ]
     }
   },
   "angularCompilerOptions": {
