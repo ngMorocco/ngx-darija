@@ -109,3 +109,28 @@ Thank you for your contribution.
 # Discord
 
 Join the Community Discord Server [here](https://bit.ly/ngDiscord).
+
+# Contributors ✨
+
+Thanks go to these wonderful people for their contributions to this project:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<table>
+   <tr>
+   <td align="center" valign="top" width="14.28%"><a href="https://github.com/chihab">
+   <img src="https://avatars.githubusercontent.com/u/196852?v=4" width="100px;" alt="Chihab Otmani"/><br /><sub><b>Chihab Otmani</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
+   
+   
+   
+   </td>
+   </tr>
+</table>
+  
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
