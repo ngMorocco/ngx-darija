@@ -122,10 +122,29 @@ Thanks go to these wonderful people for their contributions to this project:
    <tr>
    <td align="center" valign="top" width="14.28%"><a href="https://github.com/chihab">
    <img src="https://avatars.githubusercontent.com/u/196852?v=4" width="100px;" alt="Chihab Otmani"/><br /><sub><b>Chihab Otmani</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
-   
-   
-   
    </td>
+
+   <td align="center" valign="top" width="14.28%"><a href="https://github.com/Mubramaj">
+   <img src="https://avatars.githubusercontent.com/u/20217427?v=4" width="100px;" alt="Loudghiri Ahmed"/><br /><sub><b>Loudghiri Ahmed</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
+   </td>
+
+
+   <td align="center" valign="top" width="14.28%"><a href="https://github.com/Mubramaj">
+   <img src="https://avatars.githubusercontent.com/u/9744226?v=4" width="100px;" alt="Slimane IKOURFALN"/><br /><sub><b>Slimane IKOURFALN</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
+   </td>
+   
+
+
+
+   <td align="center" valign="top" width="14.28%"><a href="https://github.com/rabraghib">
+   <img src="https://avatars.githubusercontent.com/u/49442862?v=4" width="100px;" alt="Rabyâ Raghib"/><br /><sub><b>Rabyâ Raghib</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
+   </td>
+
+
+   <td align="center" valign="top" width="14.28%"><a href="https://github.com/ilyassFouih">
+   <img src="https://avatars.githubusercontent.com/u/33469478?v=4" width="100px;" alt="Ilyass Fouih"/><br /><sub><b>Ilyass Fouih</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
+   </td>
+
    </tr>
 </table>
   
