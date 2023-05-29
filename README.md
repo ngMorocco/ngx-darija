@@ -118,13 +118,13 @@ Thanks go to these wonderful people for their contributions to this project:
 <table>
    <tr>
    <td align="center" valign="top" width="14.28%"><a href="https://github.com/chihab">
-   <img src="https://avatars.githubusercontent.com/u/196852?v=4" width="100px;" alt="Chihab Otmani"/><br /><sub><b>Chihab Otmani</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="https://github.com/ngMorocco/ngx-darija/commits?author=chihab" title="Code">💻</a> <a href="#talk-kentcdodds" title="Talks">📢</a><a href="https://www.youtube.com/@ngMorocco/streams" title="videos">📹</a>
+   <img src="https://avatars.githubusercontent.com/u/196852?v=4" width="100px;" alt="Chihab Otmani"/><br /><sub><b>Chihab Otmani</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="https://github.com/ngMorocco/ngx-darija/commits?author=chihab" title="Code">💻</a><a href="https://www.youtube.com/@ngMorocco/streams" title="videos">📹</a>
    <a href="https://www.meetup.com/fr-FR/ngmorocco/members/?op=leaders" title="Event Organizers">📋</a> 
    <a href="https://github.com/ngMorocco/ngx-darija/issues" title="Answering Questions">💬</a> 
    </td>
 
    <td align="center" valign="top" width="14.28%"><a href="https://github.com/Mubramaj">
-   <img src="https://avatars.githubusercontent.com/u/20217427?v=4" width="100px;" alt="Loudghiri Ahmed"/><br /><sub><b>Loudghiri Ahmed</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
+   <img src="https://avatars.githubusercontent.com/u/20217427?v=4" width="100px;" alt="Loudghiri Ahmed"/><br /><sub><b>Loudghiri Ahmed</b></sub></a><br /><a href="https://github.com/ngMorocco/ngx-darija/commits?author=Mubramaj" title="Code">💻</a> <a href="" title="Documentation">📖</a> <a href="https://github.com/ngMorocco/ngx-darija/commit/4e189d2e8947cd9c4f7fcb48c425d1212ad7a806" title="tests">test</a>
    </td>
 
 
@@ -136,7 +136,7 @@ Thanks go to these wonderful people for their contributions to this project:
 
 
    <td align="center" valign="top" width="14.28%"><a href="https://github.com/rabraghib">
-   <img src="https://avatars.githubusercontent.com/u/49442862?v=4" width="100px;" alt="Rabyâ Raghib"/><br /><sub><b>Rabyâ Raghib</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="https://github.com/ngMorocco/ngx-darija/commits?author=rabraghib" title="Documentation">📖</a> <a href="" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a>
+   <img src="https://avatars.githubusercontent.com/u/49442862?v=4" width="100px;" alt="Rabyâ Raghib"/><br /><sub><b>Rabyâ Raghib</b></sub></a><br /><a href="https://github.com/ngMorocco/ngx-darija/commits?author=rabraghib" title="Documentation">📖</a>  
    </td>
 
 
