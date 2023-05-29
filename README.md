@@ -128,7 +128,7 @@ Thanks go to these wonderful people for their contributions to this project:
    </td>
 
    <td align="center" valign="top" width="14.28%"><a href="https://github.com/ikourfaln">
-   <img src="https://avatars.githubusercontent.com/u/9744226?v=4" width="100px;" alt="Slimane IKOURFALN"/><br /><sub><b>Slimane IKOURFALN</b></sub></a><br /><a href="" title="Documentation">📖</a> <a href="https://github.com/ngMorocco/ngx-darija/commits?author=ikourfaln" title="Code">💻</a>
+   <img src="https://avatars.githubusercontent.com/u/9744226?v=4" width="100px;" alt="Slimane IKOURFALN"/><br /><sub><b>Slimane IKOURFALN</b></sub></a><br /> <a href="https://github.com/ngMorocco/ngx-darija/commits?author=ikourfaln" title="Code">💻</a>
    </td>
    
 
