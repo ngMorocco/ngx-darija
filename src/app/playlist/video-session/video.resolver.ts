@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { VideoItem } from '@core/models';
 import { VideoService } from '@core/services/video.service';
 import { Observable, throwError } from 'rxjs';
@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class VideoResolver implements Resolve<Observable<VideoItem | null>> {
+export class VideoResolver  {
   constructor(private videoService: VideoService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<VideoItem | null> {
