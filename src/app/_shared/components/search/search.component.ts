@@ -25,9 +25,9 @@ import { SearchHit, SearchWidgetComponent } from './search-widget.component';
   ]
 })
 export class SearchComponent {
-  public isBrowser = isPlatformBrowser(this.platformId);
+  public isBrowser = isPlatformBrowser(this.platformId as object);
   constructor(
-    @Inject(PLATFORM_ID) private platformId: any,
+    @Inject(PLATFORM_ID) private platformId: unknown,
     private router: Router
   ) { }
 

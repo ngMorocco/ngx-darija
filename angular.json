@@ -1,33 +1,24 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ngx-darija": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "changeDetection": "OnPush"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@ngx-env/builder:browser",
+          "builder": "@ngx-env/builder:application",
           "options": {
-            "outputPath": "dist/ngx-darija/browser",
+            "outputPath": "dist/ngx-darija",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -41,15 +32,18 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/marked/lib/marked.esm.js"
-            ],
-            "serviceWorker": false,
-            "ngswConfigPath": "ngsw-config.json"
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": {
+              "routesFile": "content/generated/routes.txt"
+            },
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
-              "sourceMap": true,
+              "optimization": false,
               "budgets": [
                 {
                   "type": "initial",
@@ -71,27 +65,24 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@ngx-env/builder:dev-server",
           "options": {
-            "browserTarget": "ngx-darija:build"
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-darija:build:production"
+              "buildTarget": "ngx-darija:build:production"
             },
             "development": {
-              "browserTarget": "ngx-darija:build:development"
+              "buildTarget": "ngx-darija:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +90,27 @@
         "extract-i18n": {
           "builder": "@ngx-env/builder:extract-i18n",
           "options": {
-            "browserTarget": "ngx-darija:build"
+            "buildTarget": "ngx-darija:build"
+          }
+        },
+        "test": {
+          "builder": "@ngx-env/builder:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "sourceMap": false,
+            "scripts": []
           }
         },
         "lint": {
@@ -110,59 +121,13 @@
               "src/**/*.html"
             ]
           }
-        },
-        "server": {
-          "builder": "@ngx-env/builder:server",
-          "options": {
-            "inlineStyleLanguage": "scss",
-            "outputPath": "dist/ngx-darija/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "sourceMap": true,
-            "optimization": false
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "sourceMap": false,
-              "optimization": true
-            }
-          },
-          "defaultConfiguration": ""
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "options": {
-            "browserTarget": "ngx-darija:build",
-            "serverTarget": "ngx-darija:server"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ngx-darija:build:production",
-              "serverTarget": "ngx-darija:server:production"
-            }
-          }
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "browserTarget": "ngx-darija:build:production",
-            "serverTarget": "ngx-darija:server:production",
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {}
-          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

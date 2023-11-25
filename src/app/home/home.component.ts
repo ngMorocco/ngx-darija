@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SeoService } from '@core/services/seo.service';
 import { NewsletterComponent } from '@shared/components/newsletter/newsletter.component';
@@ -10,18 +9,18 @@ import { IntroComponent } from './intro/intro.component';
   template: `
     <section class="section intro">
       <div class="section--inner container">
-        <app-intro></app-intro>
+        <app-intro />
       </div>
       <div class="section__dots-bg dots-bg"></div>
     </section>
     
-    <section class="section event">
+    <!-- <section class="section event">
       <div class="section--inner container">
-        <app-event></app-event>
+        <app-event />
       </div>
-    </section>
+    </section> -->
    
-    <!-- <app-newsletter></app-newsletter> -->
+    <app-newsletter />
 
     <!-- <section class="section numbers">
       <div class="section--inner container flex flex-space-between">
@@ -53,7 +52,7 @@ import { IntroComponent } from './intro/intro.component';
     </section> -->
   `,
   standalone: true,
-  imports: [CommonModule, NewsletterComponent, EventComponent, IntroComponent]
+  imports: [NewsletterComponent, EventComponent, IntroComponent]
 })
 export class HomeComponent implements OnInit {
   constructor(private seo: SeoService) { }

@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  inject,
-  Output
-} from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { SearchService } from '@core/services/search.service';
 import { InputComponent } from '@shared/components/input/input.component';
 
@@ -26,11 +20,8 @@ export interface SearchHit {
 
 @Component({
   selector: 'app-search-widget',
-  template: `<app-input
-      [value]="query"
-      [delay]="200"
-      (query)="onQuery($event)"
-    ></app-input>
+  template: `
+    <app-input [value]="query" [delay]="200" (query)="onQuery($event)"/>
     <ng-container *ngIf="query && results">
       <div class="drop-down">
         <ng-template #noResults> No results. </ng-template>
@@ -110,7 +101,6 @@ export interface SearchHit {
       }
     `
   ],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [InputComponent, CommonModule]
 })
@@ -118,23 +108,23 @@ export class SearchWidgetComponent {
   @Output() searchHit = new EventEmitter<SearchHit>();
 
   searchService = inject(SearchService);
-  results!: Map<string, any[]>;
-  query = "";
+  results!: Map<string, SearchHit[]>;
+  query = '';
 
   async onQuery(query: string) {
     this.query = query;
-    const results = await this.searchService.search(query);
-    this.results = (
-      results?.hits || []
-    ).reduce((grouped: Map<string, any[]>, hit: any) => {
-      const titles = grouped.get(hit.session.title) || [];
-      if (!titles.length) {
-        grouped.set(hit.session.title, titles);
-      }
-      titles.push(hit);
-      return grouped;
-    }, new Map<string, any[]>());
-    console.log(query, this.results);
+    const results = await this.searchService.search<SearchHit>(query);
+    this.results = (results?.hits || []).reduce(
+      (grouped: Map<string, SearchHit[]>, hit) => {
+        const titles = grouped.get(hit.session.title) || [];
+        if (!titles.length) {
+          grouped.set(hit.session.title, titles);
+        }
+        titles.push(hit);
+        return grouped;
+      },
+      new Map<string, SearchHit[]>()
+    );
   }
 
   onSearchHit(hit: SearchHit) {

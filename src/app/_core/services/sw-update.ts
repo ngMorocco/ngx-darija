@@ -15,7 +15,7 @@ export class CheckForUpdateService {
       updates.checkForUpdate()
     );
 
-    updates.available.subscribe(_ => {
+    updates.versionUpdates.subscribe(() => {
       updates.activateUpdate().then(() => document.location.reload());
     });
   }

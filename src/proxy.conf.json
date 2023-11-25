@@ -1,0 +1,6 @@
+{
+  "/.netlify": {
+    "target": "http://localhost:8889/",
+    "secure": false
+  }
+}

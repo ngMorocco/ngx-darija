@@ -11,7 +11,7 @@ export class RerenderDirective {
   ) {}
 
   @Input('appRerender')
-  set rerender(_: any) {
+  set rerender(_: unknown) {
     this.viewContainer.clear();
     this.viewContainer.createEmbeddedView(this.templateRef);
   }

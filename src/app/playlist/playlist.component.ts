@@ -17,7 +17,7 @@ export class PlaylistComponent implements OnInit {
   playlist$: Observable<VideoItem[]> = EMPTY;
 
   constructor(private route: ActivatedRoute, private seo: SeoService) {
-    this.playlist$ = this.route.data.pipe(map(data => data.videos));
+    this.playlist$ = this.route.data.pipe(map(data => data['videos']));
   }
 
   ngOnInit() {
