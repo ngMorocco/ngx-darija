@@ -18,7 +18,7 @@ export class IsBrowserDirective implements OnInit {
   constructor(
     private templateRef: TemplateRef<unknown>,
     private viewContainer: ViewContainerRef,
-    @Inject(PLATFORM_ID) private platformId: any
+    @Inject(PLATFORM_ID) private platformId: object
   ) {}
 
   ngOnInit(): void {

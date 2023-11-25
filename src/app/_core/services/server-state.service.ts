@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { Injectable, makeStateKey, TransferState } from '@angular/core';
+
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 

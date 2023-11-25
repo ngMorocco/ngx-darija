@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-event',
@@ -7,7 +7,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
       <div class="card container">
         <div class="event flex flex-align-top">
           <div class="date">
-            <p>Saturday, May 27nd @ 6:00 PM</p>
+            <p>Saturday, May 27nd &#64; 6:00 PM</p>
             <img src="/assets/date-picker.svg" alt="Calendar" />
           </div>
           <div class="description">

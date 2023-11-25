@@ -59,8 +59,7 @@ export class VideoPlayerComponent implements OnChanges, OnDestroy {
   @Input() startSeconds = 0;
   @Input() endSeconds = 0;
   @Output() currentTime = new EventEmitter<number>();
-  // @ts-ignore
-  @ViewChild(YouTubePlayer) player: YouTubePlayer;
+  @ViewChild(YouTubePlayer) player!: YouTubePlayer;
   playerVars: YT.PlayerVars = {
     autoplay: 1,
     rel: 0

@@ -49,7 +49,7 @@ export class VideoSessionComponent implements OnInit {
 
   ngOnInit(): void {
     const video$ = this.route.data.pipe(
-      map(data => data.session),
+      map(data => data['session']),
       tap((video: VideoItem) => {
         this.seo.setText(video.meta?.title || video.title);
       }),

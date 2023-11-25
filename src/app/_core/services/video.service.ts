@@ -6,11 +6,11 @@ import { PlaylistItem, Video as YTVideo, VideoItem } from '../models';
 import { BaseUrlService } from './base-url.service';
 
 type Video = YTVideo & {
-  meta: any;
+  meta: unknown;
 };
 
 type PlayListVideo = PlaylistItem & {
-  meta: any;
+  meta: unknown;
 };
 
 @Injectable({
@@ -31,7 +31,7 @@ export class VideoService {
             ...this.buildItem(item),
             id: item?.snippet?.resourceId?.videoId as string,
             meta: item.meta
-          })) || []
+          }) as VideoItem) || []
       ),
       catchError(e => {
         console.log(e); // Put here to see when there is an issue during prerender
